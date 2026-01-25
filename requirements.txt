@@ -1,0 +1,8 @@
+pandas
+numpy
+pdfplumber  # For parsing PDF
+fastapi
+uvicorn
+python-multipart
+pytest
+jupyter
