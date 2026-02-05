@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Drug Interaction Checker</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div>
+        <h1>Drug Interaction Checker</h1>
+        <p class="sub">Quick interaction screen + optional AI explanation. Built for clarity, not chaos.</p>
+      </div>
+      <div class="header-badges">
+        <span class="pill pill-soft">Deterministic checker</span>
+        <span class="pill pill-soft">GenAI explain</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="toolbar">
+        <button id="add" class="btn btn-ghost" type="button">+ Add drug</button>
+
+        <div class="toolbar-right">
+          <button id="swap" class="btn btn-ghost" type="button" title="Swap first two drugs">Swap</button>
+          <button id="clear" class="btn btn-ghost" type="button">Clear all</button>
+          <button id="check" class="btn" type="button">Check</button>
+          <button id="explain" class="btn btn-primary" type="button">Explain</button>
+        </div>
+      </div>
+
+      <div id="drug-list" class="drug-list"></div>
+
+      <div id="status" class="status"></div>
+
+      <div class="divider"></div>
+
+      <div id="results" class="results"></div>
+
+      <div class="footnote">
+        Not medical advice. This tool reports results based on its dataset + rules and should be confirmed by a clinician/pharmacist.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Tip: start typing and select from autocomplete to avoid spelling mismatches.</small>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+drug_name,enzymes,transporters
+(s)-citalopram,PL,NO
+(s)-omeprazole,11214773,NO
+abiraterone,,
+acetylcysteine,3803419,NO
+aclidinium,PL,NO
+acyclovir,PL,YES
+alfentanil,15536460,NO
+alfuzosin,PL,NO
+aliskiren,PL,NO
+alogliptin,PL,YES
+alvimopan,PL,NO
+ambrisentan,,NO
+amprenavir,,
+anidulafungin,,
+antipyrine,7075648,NO
+apixaban,PL,YES
+argatroban,,NO
+aripiprazole,PL,NO
+arsenic trioxide,,NO
+asenapine,PL,NO
+atomoxetine,P L,NO
+avanafil,,NO
+axitinib,PL,NO
+azilsartan,PL,NO
+azimilide- not approved in usa,,YES
+bedaquiline,,
+bilastine -not approved,23529786,YES
+boceprevir,,
+bortezomib,,
+bosutinib,,
+brivaracetam,17199019,NO
+bupropion,,
+caffeine,6832208,NO
+canagliflozin,PL,NO
+candesartan,NDA 020838,YES
+capecitabine,,
+carisbamate,17116021,NO
+casopitant-not approve,19420128,NO
+caspofungin,,NO
+cediranib-not approved in usa,,
+cefmetazole,YES,NO
+ceftaroline,,YES
+ceftizoxime,,YES
+cerivastatin,PL,NO
+chlormethiazole,1233235,NO
+chlorzoxazone,,
+cidofovir,,YES
+cilostazol,,
+cinacalcet,19566113,NO
+ciprofloxacin,PL,YES
+citalopram,PL,NO
+clarithromycin,PL,YES
+clinafloxacin,11502525,YES
+clobazam,,
+cobicistat (gs-9350),,
+conivaptan,10638391,NO
+cyclophosphamide,,NO
+dabigatran,20214409,YES
+dapagliflozin,PL,NO
+darunavir,PL,NO
+debrisoquine,,NO
+desloratadine (descarboethoxyloratadin,,YES
+desvenlafaxine (o-desmethylvenlafaxine,YES,YES
+dexmedetomidine,,NO
+diazepam,6747022,NO
+"didanosine (2,3-dideoxyinosine)",YES,YES
+d-nebivolol,,NO
+donepezil,,
+doripenem,,YES
+doxazosin,PL,NO
+dronedarone,PL,NO
+drospirenone,11024226,NO
+duloxetine,Goodman & G,N O
+ebastine,,YES
+elvitegravir (gs-9137),,
+emedastine,,
+enalapril,,
+enalaprilat,G  oo dman & G,YE S
+enfuvirtide,PL,
+enzalutamide,,
+eplerenone,PL,NO
+eprosartan,9737815,YES
+eribulin,,NO
+erlotinib,16490804,NO
+erythromycin (po),7724478,NO
+erythromycin (iv),NO,YES
+eslicarbazepine,,YES
+etoposide,3975657,NO
+etoricoxib - not approv,12527704,NO
+etravirine,,NO
+everolimus,,NO
+exemestane,,
+febuxostat,,
+felbamate,,YES
+fesoterodine,PL,YES
+fexofenadine,20307657,YES
+fingolimod,PL,NO
+fleroxacin,3125788,YES
+fluconazole,8448970,YES
+fludarabine,19862681,YES
+fluticasone,PL,NO
+fluvastatin,PL,NO
+foscarnet,Goodman & G,YE S
+gadoxetic acid,YES,YES
+galantamine,Goodman & G,N O
+ganciclovir,7585846,YES
+garenoxacin-not approved in us,YES,YES
+gatifloxacin,,YES
+gefitinib,NO,YES
+grepafloxacin,9484872,NO
+hydrochlorothiazide,PL (amturnide,YES
+hydromorphone,Goodman & G,N O
+hydroxyurea,9473217,YES
+ibandronate,PL,YES
+iloperidone,,
+imatinib,Goodman & G,N O
+ipragliflozin-not approved in us,NO,YES
+ivacaftor,,NO
+ixabepilone,,NO
+lacosamide,PL,YES
+lamivudine,PL,YES
+lansoprazole,8803522,NO
+lapatinib,,
+laropiprant,17431030,NO
+lasofoxifene,,
+lenalidomide,,YES
+levetiracetam,PL,YES
+levosimendan-not approved in us,,
+lidocaine,Interview for,NO
+linagliptin,PL,NO
+linezolid,PL,YES
+liraglutide,PL,NO
+lisinopril,2844083,YES
+lomefloxacin,,YES
+lomitapide,PL,NO
+lopinavir,,
+lorazepam,PL,NO
+losartan,PL,NO
+lurasidone,,
+manidipine-not approved in us,YES,CYP3A4
+maraviroc,PL,YES
+maribavir-not approved in us,,YES
+memantine,,YES
+methotrexate,Goodman & G,YE S
+micafungin,,NO
+midazolam (iv),,NO
+midazolam (po),PL,NO
+milnacipran,PL,YES
+mirabegron,PL,YES
+mirodenafil-not approved in us,,
+moxifloxacin,PL,NO
+mycophenolic acid,PL,NO
+naloxone,22541841,
+naltrexone,Goodman & G,N O
+nebivolol (racemic),,NO
+nefazodone,8825195,NO
+nelfinavir,16172185,NO
+nilotinib,,NO
+norfloxacin,,
+ofloxacin,PL,YES
+olmesartan,PL,YES
+omeprazole,2315973,NO
+ondansetron,10876746,NO
+oseltamivir carboxylate,10628898,YES
+ospemifene,,
+oxaliplatin,,
+paliperidone (9-hydroxyrisperidone),YES,NO
+pantoprazole,PL,NO
+paricalcitol,PL,NO
+pasireotide,,
+pazopanib,23548165,NO
+peginterferon alpha-2b,,YES
+perampanel,NDA 202834,NO
+phenytoin,21233690,NO
+pioglitazone,,NO
+pitavastatin,PL,NO
+posaconazole,PL,NO
+prasugrel,,NO
+pravastatin,2106337,YES
+pregabalin,PL,YES
+quetiapine,Goodman & G,N O
+rabeprazole,PL,NO
+raloxifene,PL,NO
+raltegravir,,
+ramipril,Goodman & G,N O
+ramiprilat,Goodman & G,N O
+ranolazine,16640453,NO
+rasagiline,PL,NO
+reboxetine,10086838,NO
+regorafenib,,NO
+repaglinide,9877000,NO
+retigabine (ezogabine),PL,YES
+ribavirin,2737800,NO
+rilpivirine,,
+risperidone,PL,NO
+ritonavir,,
+rivaroxaban,PL,YES
+rocuronium,,NO
+roflumilast,PL,NO
+ropivacaine,,NO
+rosiglitazone,10859151,NO
+rosuvastatin,PL,NO
+rotigotine,,
+ruboxistaurin (ly333531),,YES
+rufinamide,,
+ruxolitinib,,
+saxagliptin,22823746,YES
+selegiline,17715422,NO
+sildenafil,"11879254, PL",NO
+silodosin,PL,NO
+sirolimus,PL,NO
+sitagliptin,PL,YES
+solifenacin,15293866,NO
+sparfloxacin,PL,NO
+spirapril - not approved,8061850,
+spiraprilat - not approv,8 061850,
+stavudine,PL,YES
+sulbactam,,YES
+sunitinib,,YES
+tacrolimus,11180035,NO
+tadalafil,,
+talinolol-not approved i,8527689,YES
+tamsulosin,9344174,NO
+tapentadol,PL,NO
+teduglutide,PL,
+telaprevir,,NO
+telavancin,,YES
+telbivudine,,YES
+telithromycin,"12476037, PL",NO
+telmisartan,NO,YES
+temsirolimus,NO,YES
+tenofovir,PL,YES
+tenoxicam-not approve,6336292,NO
+teriflunomide,NDA 202992,NO
+tetrabenazine,,NO
+tezosentan-not approv,,NO
+tiagabine,PL,NO
+ticagrelor,PL,NO
+tigecycline,,NO
+tipifarnib-not approved in us,NO,YES
+tirilazad,,
+tizanidine,PL,NO
+toborinone-not approv,,YES
+tocilizumab (atlizumab),,
+tofacitinib,PL,YES
+tolvaptan,22257581,NO
+topotecan,8630291,YES
+toremifene,NO,YES
+troglitazone,10496299,NO
+valproic acid,6804223,NO
+valsartan,PL,NO
+vandetanib,,
+varenicline,PL,YES
+vecuronium,,NO
+vemurafenib,,
+vicriviroc-not approved in us,,YES
+vigabatrin,PL,YES
+vilanterol,PL,NO
+vilazodone,PL,NO
+vildagliptin-not approv,22339447,YES
+vincristine,,NO
+vorapaxar (sch 530348,PL,NO
+voriconazole (po),PL,NO
+voriconazole (iv),PL,NO
+ximelagatran-not appro,12584156,YES
+zalcitabine,PL,YES
+zanamivir 0.87,YES,NO
+zibotentan (zd4054)-not approved in us 0.36,YES,YES
+zileuton,,YES
+ziprasidone,NO,YES
+zolmitriptan 0.33 - 0.37,YES,YES
+renal impairment*1,,
+δcl/f(%),,
+mild(cp score 5or 6),mild(GFR 60-89),moderate(GFR 30-59)
+-19.4,,
+-13.3,,
+-30.8,,1555.4
+-62.1,,
+9.4,152.2,110.1
+-17.9,,
+25.7,2.7,14.9
+-53.5,,
+-2.5,30.1,77.2
+-37.1,,
+-1.8,35.6,9.7
+4,-2.9,9.1
+27.4,,
+-12.2,,
+8.6,,
+-59.1,,
+-23.9,,
+-22.5,,-63
+-8.4,15.5,25.9
+-35.2,,
+4.3,,
+7.1,-5.5,-39.4
+-30.3,51,-32.4
+-36.4,,
+-3.6,,
+-17.4,76.9,14.4
+10,76.9,23.1
+2.2,28.8,59.7
+-40.7,,
+-48.1,,
+-30.4,,
+-39.8,,
+-18,,-31.7
+-40.2,,
+-28,48,48
+-10.9,,
+-55.9,157.9,142.1
+-41.6,,48.1
+0.6,,
+-28.5,,
+-35.3,35.5,43.4
+-33.5,,
+-17.8,51.8,100.9
+-18.6,,
+-26.9,107.1,24
+7.2,,
+-1.4,70,150
+-18.8,,
+32.5,7.8,70.8
+31.4,-19.9,-6.4
+-23.7,,
+-21.9,,
+-50,,
+-31.2,53,96.3
+-2.6,,
+2.8,,
+↔,38.2,77.8
+-11.9,,
+-27.2,,
+-55.9,,
+7.5,,
+-4.3,22,32.9
+2,,
+-10.4,,
+↔,,
+-8.42,,79.5
+-18.6,-11.4,1
+-24.8,51.1,
+-63.5,,
+-55.1,,
+-42.4,45.1,-28.2
+3.4,27.4,187.5
+-34.9,106.8,
+-18.3,,
+-13.6,49.4,65.8
+-33.3,,
+-45.8,16.7,100.9
+-31.6,,
+-9.3,,
+-12.5,,
+1.2,119,71.2
+-36.8,20.9,17.3
+4.5,,
+-0.7,14,
+-59.1,,
+-3.8,,
+13.4,,
+4.7,,
+-54.3,,
+-22.5,-33.8,
+-13.9,,
+-27.5,,
+-39.8,,
+-4.2,14,39.1
+-35.9,,
+-13,,
+27.3,38.7,74.4
+-24.7,26.6,58.7
+-47,25.7,-9.7

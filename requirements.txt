@@ -1,8 +1,19 @@
-pandas
-numpy
-pdfplumber  # For parsing PDF
-fastapi
-uvicorn
-python-multipart
-pytest
-jupyter
+# requirements.txt
+# Keep this lean so deploys are fast.
+# (If you want ultra-fast deploys, split into requirements-api.txt and requirements-build.txt,
+# but here's a single-file version that supports both API + data build.)
+
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+pandas>=2.0
+
+openai>=1.72
+
+# PDF/table extraction (build step)
+tabula-py>=2.10.0
+pdfplumber>=0.11.0
+
+# Optional quality-of-life (local dev)
+python-dotenv>=1.0
+jinja2

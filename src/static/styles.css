@@ -1,0 +1,300 @@
+:root{
+  --bg: #f6fbfb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+  --teal: #0ea5a4;
+  --teal-2: #14b8a6;
+  --teal-soft: rgba(20, 184, 166, 0.10);
+
+  --blue: #3b82f6;
+  --amber: #f59e0b;
+  --red: #ef4444;
+
+  --radius: 18px;
+  --radius-sm: 12px;
+
+  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--text);
+  background:
+    radial-gradient(800px 400px at 20% -10%, rgba(14,165,164,.15), transparent 60%),
+    radial-gradient(700px 380px at 85% 0%, rgba(59,130,246,.10), transparent 55%),
+    var(--bg);
+}
+
+.wrap{
+  max-width: 900px;
+  margin: 44px auto;
+  padding: 0 18px;
+}
+
+.header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.header h1{
+  margin: 0 0 6px;
+  font-size: 34px;
+  letter-spacing: -0.02em;
+}
+.sub{
+  margin: 0;
+  color: var(--muted);
+}
+.header-badges{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap:wrap;
+}
+.toolbar-right{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border: 1px solid rgba(14,165,164,.45);
+  background: rgba(14,165,164,.10);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 650;
+}
+.btn:hover{ background: rgba(14,165,164,.16); }
+
+.btn-primary{
+  border-color: rgba(20,184,166,.75);
+  background: rgba(20,184,166,.20);
+}
+.btn-primary:hover{ background: rgba(20,184,166,.28); }
+
+.btn-ghost{
+  border-color: var(--border);
+  background: #fff;
+  color: var(--muted);
+}
+.btn-ghost:hover{ background: rgba(2,132,199,.06); color: var(--text); }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+.pill-soft{
+  background: var(--teal-soft);
+  border-color: rgba(20,184,166,.25);
+  color: rgba(15,118,110,.95);
+}
+
+.drug-list{ display:grid; gap: 12px; margin-bottom: 10px; }
+
+.drug-row{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  background: #fff;
+  position: relative;
+}
+.drug-row.invalid{
+  border-color: rgba(239,68,68,.6);
+  background: rgba(239,68,68,.03);
+}
+.row-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.label{
+  font-size: 12px;
+  color: var(--muted);
+  display:flex;
+  gap: 8px;
+  align-items:center;
+}
+.small-pill{
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: #fff;
+}
+.small-pill.bad{
+  border-color: rgba(239,68,68,.55);
+  color: rgba(185,28,28,.95);
+  background: rgba(239,68,68,.06);
+}
+
+.remove{
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.remove:hover{ border-color: rgba(239,68,68,.5); color: rgba(185,28,28,.95); }
+
+.input-wrap{ position: relative; }
+
+input[type="text"]{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+.drug-row.invalid input[type="text"]{
+  border-color: rgba(239,68,68,.55);
+}
+input[type="text"]:focus{
+  border-color: rgba(20,184,166,.8);
+  box-shadow: 0 0 0 4px rgba(20,184,166,.12);
+}
+
+.suggestions{
+  position:absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(15,23,42,.12);
+  overflow:hidden;
+  z-index: 20;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.suggestions button{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding: 10px 12px;
+  border: 0;
+  background: #fff;
+  color: var(--text);
+  cursor:pointer;
+}
+.suggestions button:hover{
+  background: rgba(20,184,166,.10);
+}
+
+.status{
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+.divider{
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0;
+}
+
+.results{ display:grid; gap: 10px; }
+
+.result{
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  background: #fff;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.badge.none{ background: rgba(148,163,184,.10); }
+.badge.mild{ border-color: rgba(59,130,246,.35); background: rgba(59,130,246,.10); color: rgba(29,78,216,.95); }
+.badge.moderate{ border-color: rgba(245,158,11,.45); background: rgba(245,158,11,.12); color: rgba(180,83,9,.95); }
+.badge.high{ border-color: rgba(239,68,68,.45); background: rgba(239,68,68,.10); color: rgba(185,28,28,.95); }
+
+.pair{ font-weight: 750; margin: 8px 0 6px; }
+.text{ color: var(--text); line-height: 1.35; }
+.small{ color: var(--muted); font-size: 12px; margin-top: 10px; white-space: pre-wrap; }
+
+details{
+  margin-top: 10px;
+  border: 1px dashed rgba(100,116,139,.35);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(2,132,199,.03);
+}
+summary{
+  cursor: pointer;
+  color: rgba(15,118,110,.95);
+  font-weight: 650;
+}
+.kv{
+  margin-top: 8px;
+  display:grid;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(15,23,42,.85);
+}
+.kv div span{
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.footnote{
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer{ margin-top: 16px; color: var(--muted); }
