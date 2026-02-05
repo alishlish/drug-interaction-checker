@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
-from typing import Dict, Any, Optional, List, Set
+from typing import Dict, Any, List, Set
 
 import pandas as pd
+
+from src.services.present import translate_attributes
 
 
 def _norm_text(s: Any) -> str:
@@ -43,17 +45,15 @@ def load_datastore(data_path: str) -> DataStore:
 
     df = pd.read_csv(data_path)
 
+    # normalize columns first
+    df.columns = [normalize_col_name(c) for c in df.columns]
+
     if "drug_name" not in df.columns:
         raise RuntimeError(f"CSV missing required 'drug_name' column. Found: {list(df.columns)}")
 
-    # normalize columns
-    df.columns = [normalize_col_name(c) for c in df.columns]
-    if "drug_name" not in df.columns:
-        raise RuntimeError("After normalization, 'drug_name' column missing. Check CSV headers.")
-
     df["drug_name"] = df["drug_name"].astype(str).str.lower().str.strip()
 
-    # figure out what other columns exist (renal/hepatic/etc)
+    # everything except core becomes attributes
     attribute_cols = [c for c in df.columns if c not in CORE_COLS]
 
     drug_map: Dict[str, Dict[str, Any]] = {}
@@ -61,12 +61,11 @@ def load_datastore(data_path: str) -> DataStore:
         name = normalize_drug_name(row["drug_name"])
         row_dict: Dict[str, Any] = {}
         for c in df.columns:
-            v = row[c]
-            row_dict[c] = _norm_text(v)
-
+            row_dict[c] = _norm_text(row[c])
         drug_map[name] = row_dict
 
     drug_names = sorted(drug_map.keys())
+
     return DataStore(
         data_path=data_path,
         drug_map=drug_map,
@@ -78,31 +77,35 @@ def load_datastore(data_path: str) -> DataStore:
 def get_drug(datastore: DataStore, drug_name: str) -> Dict[str, Any]:
     key = normalize_drug_name(drug_name)
     row = datastore.drug_map.get(key)
+
     if not row:
         return {
             "name": key,
             "found": False,
             "enzymes": None,
             "transporters": None,
-            "attributes": {},
+            "attributes": {},  # nothing to translate
         }
 
     enzymes = (row.get("enzymes") or "").strip() or None
     transporters = (row.get("transporters") or "").strip() or None
 
-    # everything else becomes attributes (renal/hepatic/etc)
-    attrs: Dict[str, Any] = {}
+    # Build raw attributes dict from all non-core cols
+    raw_attrs: Dict[str, Any] = {}
     for c in datastore.attribute_cols:
         val = (row.get(c) or "").strip()
-        if val:  # only include non-empty
-            attrs[c] = val
+        if val:
+            raw_attrs[c] = val
+
+    # ✅ Translate to doctor-friendly labels + formatting + gloss
+    translated_attrs = translate_attributes(raw_attrs)
 
     return {
         "name": key,
         "found": True,
         "enzymes": enzymes,
         "transporters": transporters,
-        "attributes": attrs,
+        "attributes": translated_attrs,
     }
 
 
