@@ -298,3 +298,61 @@ summary{
 }
 
 .footer{ margin-top: 16px; color: var(--muted); }
+
+.callout{
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.6);
+}
+.callout-title{
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.kv{
+  display: grid;
+  gap: 6px;
+}
+.kv > div{
+  display:flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+.kv span{
+  opacity: .7;
+  min-width: 140px;
+}
+
+.subhead{
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  opacity: .85;
+}
+
+.group{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.06);
+  background: rgba(255,255,255,.6);
+}
+
+.group-title{
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.callout{
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.7);
+}
+
+.callout-title{
+  font-weight: 800;
+  margin-bottom: 8px;
+}

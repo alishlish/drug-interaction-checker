@@ -246,26 +246,85 @@ function renderResults(data, drugDetailsMap) {
 
   interactions.forEach((it) => {
     const sev = (it.severity || "none").toLowerCase();
-    const pair = (it.drug_pair || []);
+    const pair = it.drug_pair || [];
     const pairText = pair.join(" + ");
     const explanation = it.llm_explanation;
 
-    // Build per-drug details UI
+    // ✅ reference DDI callout (per interaction)
+    const ev = it.evidence || {};
+    let evHtml = "";
+    if (ev.type === "reference_ddi") {
+      evHtml = `
+        <div class="callout">
+          <div class="callout-title">Dataset reference interaction</div>
+          <div class="kv">
+            <div><span>Direction</span>${escapeHtml(ev.direction || "—")}</div>
+            <div><span>ΔAUC (%)</span>${escapeHtml(ev.delta_auc_pct || "—")}</div>
+            <div><span>PMID / Ref</span>${escapeHtml(ev.ref_ddi || "—")}</div>
+            <div><span>Route</span>${escapeHtml(ev.route_of_admin || "—")}</div>
+            <div><span>Route (ref)</span>${escapeHtml(ev.route_of_admin_ref || "—")}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Build per-drug details UI (enzymes/transporters + attributes)
     const detailsHtml = pair
       .map((drug) => {
         const info = drugDetailsMap?.[drug];
         if (!info) {
           return `<details><summary>${escapeHtml(drug)} — details unavailable</summary><div class="kv"><div><span>Note</span>Drug not found in dataset or details missing.</div></div></details>`;
         }
+
         const enz = info.enzymes || "—";
         const trn = info.transporters || "—";
+
+        // attributes can be either:
+        // - a flat object (old)
+        // - OR grouped object (recommended): { "Organ considerations": {...}, ... }
+        const attrs = info.attributes || {};
+        let attrsHtml = "";
+
+        const isGrouped =
+          attrs &&
+          typeof attrs === "object" &&
+          Object.values(attrs).some((v) => v && typeof v === "object" && !Array.isArray(v));
+
+        if (!attrs || Object.keys(attrs).length === 0) {
+          attrsHtml = `<div><span>Notes</span>—</div>`;
+        } else if (isGrouped) {
+          // grouped display
+          attrsHtml = Object.entries(attrs)
+            .map(([group, obj]) => {
+              if (!obj || typeof obj !== "object") return "";
+              const rows = Object.entries(obj)
+                .map(([k, v]) => `<div><span>${escapeHtml(k)}</span>${escapeHtml(v ?? "—")}</div>`)
+                .join("");
+              if (!rows) return "";
+              return `
+                <div class="group">
+                  <div class="group-title">${escapeHtml(group)}</div>
+                  <div class="kv">${rows}</div>
+                </div>
+              `;
+            })
+            .join("");
+        } else {
+          // flat display
+          attrsHtml = Object.entries(attrs)
+            .map(([k, v]) => `<div><span>${escapeHtml(k)}</span>${escapeHtml(v ?? "—")}</div>`)
+            .join("");
+        }
+
         return `
           <details>
-            <summary>${escapeHtml(drug)} — enzyme/transporter details</summary>
+            <summary>${escapeHtml(drug)} — details</summary>
             <div class="kv">
               <div><span>Enzymes</span>${escapeHtml(enz)}</div>
               <div><span>Transporters</span>${escapeHtml(trn)}</div>
             </div>
+            <div class="subhead">Organ / PK / reference fields</div>
+            ${isGrouped ? attrsHtml : `<div class="kv">${attrsHtml}</div>`}
           </details>
         `;
       })
@@ -273,16 +332,20 @@ function renderResults(data, drugDetailsMap) {
 
     const div = document.createElement("div");
     div.className = "result";
+
     div.innerHTML = `
-      <div class="badge ${sev}">severity: ${sev}</div>
+      <div class="badge ${sev}">severity: ${escapeHtml(sev)}</div>
       <div class="pair">${escapeHtml(pairText)}</div>
       <div class="text">${escapeHtml(it.interaction || "")}</div>
+      ${evHtml}
       ${explanation ? `<div class="small">${escapeHtml(explanation)}</div>` : ``}
       ${detailsHtml}
     `;
+
     resultsEl.appendChild(div);
   });
 }
+
 
 async function runCheck(explain = false) {
   clearResults();
