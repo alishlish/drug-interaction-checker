@@ -7,19 +7,16 @@ import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models import DrugListRequest, ExplainRequest
 from .ui import mount_ui
+from .models import DrugListRequest, ExplainRequest
 from .services.data import load_datastore, normalize_drug_name, get_drug, search_drugs
 from .services.interactions import find_interaction
-from .services.llm import make_client, explain_interaction
+from .services.llm import make_client, explain
 
 
-# ----------------------------
-# Config
-# ----------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DEFAULT_DATA_PATH = os.path.join(BASE_DIR, "..", "data", "processed", "drug_interactions_simple.csv")
+DEFAULT_DATA_PATH = os.path.join(BASE_DIR, "..", "data", "processed", "drug_interactions_clean.csv")
 DATA_PATH = os.getenv("DRUG_DATA_PATH", DEFAULT_DATA_PATH)
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
@@ -30,19 +27,10 @@ ALLOWED_ORIGINS = ["*"] if cors_origins_env.strip() == "*" else [
     o.strip() for o in cors_origins_env.split(",") if o.strip()
 ]
 
-
-# ----------------------------
-# Startup: load datastore + LLM client once
-# ----------------------------
 datastore = load_datastore(DATA_PATH)
 llm_client = make_client(OPENAI_API_KEY)
 
-
-# ----------------------------
-# App
-# ----------------------------
 app = FastAPI(title="Drug Interaction Checker API", version="1.0.0")
-
 mount_ui(app, BASE_DIR)
 
 app.add_middleware(
@@ -54,12 +42,9 @@ app.add_middleware(
 )
 
 
-# ----------------------------
-# Routes
-# ----------------------------
 @app.get("/")
 def root():
-    return {"message": "Drug Interaction Checker API is running"}
+    return {"message": "Drug Interaction Checker API is running", "ui": "/ui", "docs": "/docs"}
 
 
 @app.get("/health")
@@ -68,8 +53,9 @@ def health():
         "ok": True,
         "total_drugs": len(datastore.drug_map),
         "llm_enabled": bool(llm_client),
-        "data_path": datastore.data_path,
         "model": LLM_MODEL,
+        "data_path": datastore.data_path,
+        "attribute_cols": datastore.attribute_cols,
     }
 
 
@@ -87,11 +73,11 @@ def drug_info(drug_name: str):
 
 
 @app.post("/check")
-def check(request: DrugListRequest):
-    if len(request.drugs) < 2:
-        raise HTTPException(status_code=400, detail="Need at least 2 drugs to check interactions")
+def check(req: DrugListRequest):
+    if len(req.drugs) < 2:
+        raise HTTPException(status_code=400, detail="Need at least 2 drugs")
 
-    drugs = [normalize_drug_name(d) for d in request.drugs if d and d.strip()]
+    drugs = [normalize_drug_name(d) for d in req.drugs if d and d.strip()]
     if len(drugs) < 2:
         raise HTTPException(status_code=400, detail="Need at least 2 non-empty drug names")
 
@@ -99,15 +85,16 @@ def check(request: DrugListRequest):
     for i in range(len(drugs)):
         for j in range(i + 1, len(drugs)):
             results.append(find_interaction(datastore, drugs[i], drugs[j]))
+
     return {"interactions": results}
 
 
 @app.post("/check/explain")
-def check_explain(request: ExplainRequest):
-    if len(request.drugs) < 2:
-        raise HTTPException(status_code=400, detail="Need at least 2 drugs to check interactions")
+def check_explain(req: ExplainRequest):
+    if len(req.drugs) < 2:
+        raise HTTPException(status_code=400, detail="Need at least 2 drugs")
 
-    drugs = [normalize_drug_name(d) for d in request.drugs if d and d.strip()]
+    drugs = [normalize_drug_name(d) for d in req.drugs if d and d.strip()]
     if len(drugs) < 2:
         raise HTTPException(status_code=400, detail="Need at least 2 non-empty drug names")
 
@@ -115,15 +102,15 @@ def check_explain(request: ExplainRequest):
     for i in range(len(drugs)):
         for j in range(i + 1, len(drugs)):
             d1, d2 = drugs[i], drugs[j]
-            interaction = find_interaction(datastore, d1, d2)
+            inter = find_interaction(datastore, d1, d2)
 
             drug1 = get_drug(datastore, d1)
             drug2 = get_drug(datastore, d2)
 
-            interaction["llm_explanation"] = explain_interaction(
-                llm_client, interaction, drug1, drug2, model=LLM_MODEL
+            inter["llm_explanation"] = explain(
+                llm_client, inter, drug1, drug2, model=LLM_MODEL
             )
-            results.append(interaction)
+            results.append(inter)
 
     return {"interactions": results}
 

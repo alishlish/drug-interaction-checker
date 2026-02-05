@@ -1,0 +1,272 @@
+cas_number,drug_name,fe,f,renal,non_renal,enzymes,transporters,route_of_admin,delta_auc_pct,delta_cl_over_f_pct,inhibitor,ref_ddi,route_of_admin_ref,delta_auc_ref_pct,extra
+128196-01-0,(s)-citalopram,0.08,PL,NO,YES,"CYP2C19, CYP3A4 PL",P-gp (citalopra m,po,91.4,-57.1,omeprazole,20642546,po,51.7,69.1
+119141-88-7,(s)-omeprazole,<0.01,11214773,NO,YES,"CYP2C19, CYP3A4 PL",P-gp (omepraz o,po,127.2,,clarithromycin and amoxicillin,16550734,po,42.2,76.6
+154229-19-3,abiraterone,0.05 (total radioactiv,,NA,YES,"CYP3A4, SULT2A1 PL",,,No DDI Study with AUC or CL Change in DIDB,,,,po,10.6,386.6
+616-91-1,acetylcysteine,0.29,3803419,NO,YES,Not specified PL,,,No DDI Study with AUC or CL Change in DIDB,,,,iv,,
+727649-81-2,aclidinium,0.01,0.06,NO,YES,Hydrolysis PL,,,No DDI Study with AUC or CL Change in DIDB,,,,,,
+59277-89-3,acyclovir,0.76,0.1 - 0.2,YES,NO,Not specified PL,"MATE1, MATE2",iv,40,-29.9,probenecid,7103460,,,
+71195-58-9,alfentanil,0.01,0.42,NO,YES,CYP3A DIDB,,po,3550,-97.6,indinavir and ritonavir,19225389,iv,206.2,285.8
+81403-80-7,alfuzosin,0.041 - 0.076,0.49,NO,YES,CYP3A PL,P-gp,po,197,,ketoconazole,NDA 021287,po,,
+173334-57-1,aliskiren,0.0004,0.025,NO,YES,CYP3A4 PL,,po,533.1,,itraconazole,20400651,po,9.3,31.5
+850649-61-5,alogliptin,0.60 - 0.71,1.0,YES,YES,"CYP2D6, CYP3A4 PL",,po,15.4,,ketoconazole,NDA 022271,po,,-17.8
+156053-89-3,alvimopan,0.021,0.06,NO,YES,Hydrolysis PL,P-gp,po,-12.2,,ciprofloxacin,19797535,po,112.3,82.2
+177036-94-1,ambrisentan,,,NO,YES,"CYP 3A4, CYP 2C19, UGT PL",P-gp,po,121.3,,cyclosporine,20811346,,,
+161814-49-9,amprenavir,0.01,,NA,YES,CYP3A4 PL,P-gp,po,302.3,-74.9,delavirdine,12496743,po,22.3,70.1
+166663-25-8,anidulafungin,<0.01,,NA,YES,Not specified PL,,iv,22.1,-16.3,cyclosporine,15647416,iv,-20,-2
+60-80-0,antipyrine,0.038,1.0,NO,YES,Not specified PL,,po,180.4,-65,lornoxicam,1683552,po,,
+503612-47-3,apixaban,0.34,0.5,YES,YES,"CYP3A4, CYP1A2, CYP2C8, C P L","B CRP, P-gp",po,98.8,,ketoconazole,ELIQUIS PL,po,2.8,9.3
+74863-84-6,argatroban,0.16,,NO,YES,Not specified PL,,iv,0.3,-2.1,erythromycin,NDA 20883,iv,,168.5
+129722-12-9,aripiprazole,<0.01 (total radioact,0.87,NO,YES,"CYP2D6, CYP3A4 PL",,po,136.1,-59,paroxetine,21739267,po,33.4,16.9
+1327-53-3,arsenic trioxide,0.15,,NO,YES,Methyltransferase PL,,,No DDI Study with AUC or CL Change in DIDB,,,,,,
+65576-45-6,asenapine,0 (sublingual),0.35 (sublingual); 0,NO,YES,"CYP1A2, UGT1A4 PL",sl,,30.3,-20.4,fluvoxamine,NDA 022117,sl,24.4,25.3
+83015-26-3,atomoxetine,0.03,0.63 (EM); 0.94 (P,NO,YES,CYP2D6 PL,,po,605.7,-84.8,paroxetine,12412820,po,,65.7
+330784-47-9,avanafil,0,,NO,YES,"CYP3A, CYP2C PL",,po,1183.2,,ketoconazole,NDA 202276,po,3.8,11.2
+319460-85-0,axitinib,not detected,0.58,NO,YES,"CYP3A, CYP1A2, CYP2C19, PL","BCRP, OATP1B1",po,105.8,,ketoconazole,20740300,po,-21.8,94.9
+147403-03-0,azilsartan,0.15,0.6,NO,YES,CYP2C9 PL,P-gp,po,40,,fluconazole,NDA 200796,po,29.7,
+149908-53-2,azimilide- not approved in usa,0.49 (total radioactiv,,NA,YES,"CYP3A, CYP 1A, FMO 16052551",,po,16,-8.3,ketoconazole,15563362,po,13.9,-3.9
+843663-66-1,bedaquiline,<0.001,,NA,YES,CYP3A4 PL,,po,22,,ketoconazole,NDA 204384,po,,-19
+202189-78-4,bilastine -not approved,0.42,0.607,YES,YES,CYP3A DIDB,"OAT3, P-gp",po,81.7,-47.5,ketoconazole,21642470,,,
+394730-60-0,boceprevir,0.03,,NA,YES,"AKR, CYP3A PL","BCRP, P-gp",po,119.9,,ketoconazole,NDA 202258,po,-13.9,1.5
+179324-69-7,bortezomib,,,NA,NA,"CYP3A4, CYP2C19, CYP1A2 , PL",,iv,35.2,,ketoconazole,20110052,iv,-12.9,62.8
+380843-75-4,bosutinib,0.03 (total radioactiv,,NA,YES,CYP3A4 PL,P-gp,po,714.6,-89.6,ketoconazole,21148045,po,116.6,104.6
+357336-20-0,brivaracetam,0.95 (total radioacti,17199019,NO,YES,CYP2C8 17199019,,po,-5.3,5.8,gemfibrozil,22538270,po,50.2,57.2
+34911-55-2,bupropion,0.005,,NA,YES,CYP 2B6 PL,"BCRP, P-gp",po,61.1,-44.1,ticlopidine,15961986,po,,
+58-08-2,caffeine,0.0121,1.0,NO,YES,CYP 1A2 DIDB,,po,1271.5,-91.3,fluvoxamine,16236038,po,-9.7 [MR],
+842133-18-0,canagliflozin,<0.01,0.65,NO,YES,"UGT1A9, UGT2B4 PL",P-gp,po,21,,probenecid,NDA 204042,po,7.3,6.5
+139481-59-7,candesartan,0.59,0.42,YES,YES,Not specified PL,P-gp,po,13.8,,hydrochlorothiazide,2212817,po,22.7,
+154361-50-9,capecitabine,0.03,,NA,YES,Not specified PL,,po,133.5,,sorafenib,21209247,po,47.6,
+194085-75-1,carisbamate,0.02,0.94,NO,YES,UGT 19453703,,po,7,-7.2,valproic acid,17381436,po,15.4,107.7
+414910-27-3,casopitant-not approve,d< 0. 01,0.93,NO,YES,CYP 3A4 DIDB,,po,1106.3,,ketoconazole,20124517,po,12.1,22.1
+162808-62-0,caspofungin,0.014,,NO,YES,Not specified PL,OATP1B1,iv,61.3,,rifampin (OATP1B1),15504857,iv,54.5,76.1
+288383-20-0,cediranib-not approved in usa,,,NA,NA,"UGT1A4, FMO1 DIDB",P-gp,po,21.3,,ketoconazole,23196640,po,,11.6
+56796-20-4,cefmetazole,0.9,,YES,NO,Not metabolized Interview form,OATP1B3,iv,58,-35.5,probenecid,2729930,,,
+189345-04-8,ceftaroline,0.64,,YES,YES,"Phosphatase, hydrolysis PL",,iv,-2.7,2.1,avibactam,23295928,,,
+68401-81-0,ceftizoxime,0.57 - 0.93,,YES,NO,,"OAT1, OAT3",iv,59.2,-39.5,probenecid,6311785,,,
+145599-86-6,cerivastatin,<0.02,0.6,NO,YES,"CYP3A4, CYP2C8 PL","BCRP, OATP1B1",po,375.3,,cyclosporine,10096257,,,
+533-45-9,chlormethiazole,<0.01,0.15,NO,YES,CYP2A6 DIDB,,po,,-30.8,cimetidine,7333351,iv,-11.7,
+95-25-0,chlorzoxazone,<0.01,,NA,YES,"CYP2E1, CYP1A2 7550365",,po,691.8,-89.9,disulfiram,10579149,po,-26.5 [MR],
+113852-37-2,cidofovir,0.8 - 1.0,,YES,NO,Not specified PL,"OAT1, OAT3",iv,78.4,43.5,probenecid,7574510,,,
+73963-72-1,cilostazol,<0.02,,NA,YES,"CYP3A4, CYP2C19 PL",,po,72.4,-41.2,erythromycin,10702888,po,2.6,
+226256-56-0,cinacalcet,<0.01,19566113,NO,YES,"CYP3A4, CYP2D6, CYP1A2 PL",,po,102.9,-64.7,ketoconazole,17518508,po,2.8,144.2
+85721-33-1,ciprofloxacin,0.83,0.7,YES,NO,Not specified PL,"BCRP, P-gp",iv,74.7,-41.2,probenecid,7586947,,,
+59729-33-8,citalopram,0.1,0.8,NO,YES,"CYP3A4, CYP2C19 PL",P-gp,po,41.2,-29.9,cimetidine,9218934,po,,
+81103-11-9,clarithromycin,0.2-0.4,0.50,YES,YES,3A4 DIDB,P-gp,po,77.2,,ritonavir,9797791,po,,
+105956-97-6,clinafloxacin,0.75,0.9,YES,NO,Not specified,,po,No DDI Study with AUC or CL Change in DIDB,,,,,,
+22316-47-8,clobazam,0.02,,NA,YES,"CYP3A4, CYP2C19, CYP2B6 PL",P-gp,po,47.5,,ketoconazole,22422635,po,,
+1004316-88-4,cobicistat (gs-9350),0.083 (total radioact,,NA,YES,"CYP3A, CYP2D6 PL","BCRP, OCT2, P-",po,16.9,,atazanavir,NDA 203100,po,,0.6
+210101-16-9,conivaptan,0.01,0.44,NO,YES,CYP3A PL,P-gp,po,982.2,-91,ketoconazole,NDA 021697,iv,11.9,80.1
+50-18-0,cyclophosphamide,0.10 - 0.20,0.74,NO,YES,"CYP2A6, CYP2B6, CYP3A4/5 P L",,iv,76.8,-34.5,busulfan,10800057,iv,,
+211914-51-1,dabigatran,0.8,20214409,YES,NO,"Hydrolysis, UGT PL",,po,142.5,,verapamil,22946890,po,,-1.6
+461432-26-8,dapagliflozin,<0.02,0.78,NO,YES,UGT1A9 PL,P-gp,po,50.7,-35.3,mefanamic acid,23061428,po,3.2,35.9
+206361-99-1,darunavir,0.077,0.37,NO,YES,CYP3A PL,"OATP1B1, P-gp",po,969.5,,ritonavir,19131522,po,-8.4,20
+1131-64-2,debrisoquine,,,NO,YES,CYP2D6 DIDB,OCT1,po,-10.8,1.7,peginterferonalpha-2a,22765278,po,-15.4 [MR],
+100643-71-8,desloratadine (descarboethoxyloratadine,0.44 (total radioactiv,,NA,YES,Not specfied PL,P-gp,po,20.9,,ketoconazole,12169045,po,,8.4
+93413-62-8,desvenlafaxine (o-desmethylvenlafaxine,0.45,0.8,YES,YES,"UGT, CYP3A4 PL",,po,42.4,-29,ketoconazole,NDA021992,po,4.3,41
+113775-47-6,dexmedetomidine,0,,NO,YES,"UGT, CTP2A6 PL",,,No DDI Study with AUC or CL Change in DIDB,,,,iv,,
+439-14-5,diazepam,0,0.98,NO,YES,"CYP2C19, CYP3A4 PL",,po,224.1,,grapefruit juice,9625273,iv,,
+69655-05-6,"didanosine (2,3-dideoxyinosine)",0.18,0.42,YES,YES,Endogenous purine elimina PL,,po,82.5,,ganciclovir,9495222,,,
+118457-15-1,d-nebivolol,0,,NO,YES,"UGT, CYP2D6 PL",,po,726.5,-86.4,fluoxetine,NDA 021742,po,,883.7
+120014-06-4,donepezil,0.17,,NA,YES,"CYP2D6, CYP3A4, UGT PL",,po,35.9,,ketoconazole,9839763,po,47.6,
+148016-81-3,doripenem,0.71,,YES,NO,Dehydropeptidase-I PL,,iv,74.6,-43.6,probenecid,NDA 22106,,,
+74191-85-8,doxazosin,Trace,0.65,NO,YES,"CYP3A4, CYP2D6, CYP2C19 PL",,po,-16.6,,nifedipine,8491245,po,43,
+141626-36-0,dronedarone,0,0.15 (with high fat,NO,YES,CYP3A4 PL,,po,2383.3,,ketoconazole,NDA 022425,po,,75
+67392-87-4,drospirenone,0,0.76,NO,YES,"Non P450 metabolism, CYP PL",,po,97.9,-49.9,boceprevir,NDA 202258,po,,197.4
+116539-59-4,duloxetine,<0.01,0.43,N O,YES,"CYP1A2, 2D6 PL",,po,460,-77.2,fluvoxamine,18307373,po,,177.6
+90729-43-4,ebastine,0.001,,NA,YES,"CYP 2J2 , CYP 3A4 Interview form (Japanese)",,po,4149.8,,ketoconazole,15752381,po,72.4,41.6
+697761-98-1,elvitegravir (gs-9137),0.067 (total radioact,,NA,YES,"CYP3A, UGT1A1/3 PL",P-gp,po,1888.3,-95,ritonavir,NDA 203100,po,,40.1
+87233-61-2,emedastine,0.036,,NA,YES,Not specified PL,,po,33.7,-22.2,ketoconazole,11396749,,,
+75847-73-3,enalapril,0.18,,NA,YES,Carboxylesterases Interview form,OATP1B1,po,50,,probenecid,2158548,po,,57
+76420-72-9,enalaprilat,0.88,0.41 (po e nalapril,YE S,NO,Not specified PL,,,No DDI Study with AUC or CL Change in DIDB,,,,,,
+159519-65-0,enfuvirtide,,0.843 (sq),NA,NA,Not specified PL,,sq,23.7,,ritonavir,15199084,,,
+915087-33-1,enzalutamide,0.004,,NA,YES,"CYP2C8, CYP3A4 PL",,po,325.5,,gemfibrozil,NDA 203415,po,4.9,29.2
+107724-20-9,eplerenone,0.0165,0.69,NO,YES,CYP3A4 PL,,po,438.7,,ketoconazole,15204695,po,,44.5
+133040-01-4,eprosartan,0.37,0.13,YES,YES,Not metabolized PL,,po,4,,fluconazole,9357393,po,,
+253128-41-5,eribulin,0.082,,NO,YES,Not metabolized PL,,iv,1,8.7,ketoconazole,22555773,iv,83.4,214.8
+183321-74-6,erlotinib,0.003,0.59,NO,YES,"CYP1A1, CYP1A2, CYP3A4 PL","BCRP, P-gp",po,68.8,-35.4,ketoconazole,108000659,po,,4.1
+114-07-8,erythromycin (po),0.12,0.32,NO,YES,CYP3A Interview form,"BCRP, OATP1B1",po,,-72.9,troleandomycin,12426516,,,
+114-07-8,erythromycin (iv),0.12,,NO,YES,CYP3A Interview form,"BCRP, OATP1B1",iv,,,,,iv,,
+104746-04-5,eslicarbazepine,0.31,,YES,YES,UGT PL,P-gp,po,-7.2,9.7,topiramate,20377319,po,,3.5
+33419-42-0,etoposide,0.25,3975657,NO,YES,"CYP3A4, UGT, SULT PL","BCRP, OATP1B1",iv,89.6,-45.5,valspodar,8636778,iv,,
+202409-33-4,etoricoxib - not approve,0.003,0.83,NO,YES,"CYP3A4, CYP2C9, CYP2D6, C 125277 04",,po,69,,miconazole,18777173,iv,21.4,89.9
+269055-15-4,etravirine,0,,NO,YES,"CYP3A4, CYP2C19, CYP2C9 PL",,po,87,,fluconazole,23400742,po,-10.3,-10.7
+159351-69-6,everolimus,0,,NO,YES,CYP3A4 PL,P-gp,po,1371.1,-93.3,ketoconazole,15831774,po,102.4,224.4
+107868-30-4,exemestane,<0.01,,NA,YES,"CYP3A4, aldoketoreductase PL",,po,-5.6,,raloxifene,17952589,po,,137.4
+144060-53-7,febuxostat,0.03,,NA,YES,"UGT1A1, UGT1A3, UGT1A9 , PL",,po,40.8,-27.6,S-naproxen,16855070,po,29.7,54.7
+25451-15-4,felbamate,0.4 - 0.5,,YES,YES,Not specified PL,,po,,-37.3,gabapentin,8857758,,,
+286930-02-7,fesoterodine,0.16 (5-HMT),0.52 (5-HMT),YES,YES,"CYP 3A4, CYP2D6 (5-HMT) PL",,po (data of 5,131.2,,ketoconazole,19347334,po (data of 5-HMT),,115.5
+83799-24-0,fexofenadine,0.35,0.3,YES,YES,Not specified PL,"MATE1, MATE2",po,384.3,-79.8,indinavir and ritonavir,19225389,,,
+162359-55-9,fingolimod,0,0.93,NO,YES,CYP 4F2 PL,,po,69,,ketoconazole,19118083,po,12.9,47.2
+79660-72-3,fleroxacin,0.62,1,YES,YES,Not specified,,iv,No DDI Study with AUC or CL Change in DIDB,,,,iv,,
+86386-73-4,fluconazole,0.76,0.9,YES,NO,Not specified PL,,po,-12.9,,cimetidine,2330488,iv,24.7,
+21679-14-1,fludarabine,0.37,0.58,YES,YES,Not specified PL,,iv,1.9,2.2,busulfan,17211431,,,
+90566-53-3,fluticasone,0.02,0.139 (inhalation),NO,YES,CYP3A4 PL,P-gp inh,,35.7,-26.4,ketoconazole,23116485,inh,34.2,82.7
+93957-54-1,fluvastatin,<0.02,0.24,NO,YES,"CYP2C9, CYP2C8, CYP3A4 PL","BCRP, OATP1B1",po,254.7,-69.1,cyclosporine,11907637,po,,
+4428-95-9,foscarnet,0.95,0.09,YE S,NO,Not specified PL,,iv,-5.8,2.7,probenecid,9056062,,,
+135326-11-3,gadoxetic acid,0.57,,YES,YES,Not metabolized Interview form,"OATP1B1, OAT P",iv,No DDI Study with AUC or CL Change in DIDB,,,,iv,57.5,31.3
+357-70-0,galantamine,0.2,1,N O,YES,"CYP2D6, CYP3A4 PL",,po,-4.6,-0.6,risperidone,12463729,po,-1.4,33.2
+82410-32-0,ganciclovir,0.91,0.09,YES,NO,Not specified PL,"MATE1, MATE2",po,54.9,,probenecid,9495222,,,
+194804-75-6,garenoxacin-not approved in us,0.496,0.92,YES,YES,"SULT, UGT Interview form (Japanese)",,po,6,,omeprazole,17395892,,,
+112811-59-3,gatifloxacin,0.82,,YES,NO,Not specified PL,,po,10.3,,rifampin (600 mg) + isoniazid (30,1 7951 6 04,p o,,
+184475-35-2,gefitinib,<0.04 (total radioactivity),0.6,NO,YES,CYP 3A4 PL,"BCRP, OATP1B3",po,80.2,,itraconazole,16176119,po,39.9,263
+119914-60-2,grepafloxacin,0.066 - 0.095,0.72,NO,YES,"SULT, UGT 9484872",BCRP,po,4.1,-3,warfarin,9433655,po,54.2,118.6
+58-93-5,hydrochlorothiazide,0.7,0.7,YES,NO,Not specified PL,,po,,-78.3,valsartan,22122818,,,
+466-99-9,hydromorphone,0.07 (route of admin,0.42,N O,YES,UGT PL,,po,-6.2,,ethanol,18062845,po,,272.4
+127-07-1,hydroxyurea,0.36,1.08,YES,YES,Not specified PL,,po,No DDI Study with AUC or CL Change in DIDB,,,DROXIA PL,,,
+114084-78-5,ibandronate,0.5 - 0.6,0.006,YES,YES,Not metabolized PL,,iv,-0.7,0.9,tamoxifen,NDA 021455,,,
+133454-47-4,iloperidone,0.007,,NA,YES,"CYP2D6, CYP3A4 PL",,po,131.4,,fluoxetine,NDA 022192,po,25.7,-31.9
+152459-95-5,imatinib,0.05,0.983,N O,YES,"CYP3A4, CYP1A2, CYP2D6, CP L","BCRP, OATP1B3",po,38.2,-28.8,ketoconazole,15138710,po,-21.8,-34
+761423-87-4,ipragliflozin-not approved in us,0.01,0.902,NO,YES,"UGT2B7, UGT2B4, UGT1A8 Interview form (Japanese)",,po,-0.1,0.9,pioglitazone,22587345,po,,29.8
+873054-44-5,ivacaftor,negligible,,NO,YES,CYP3A PL,P-gp,po,745,,ketoconazole,NDA 203188,po,,92.4
+219989-84-1,ixabepilone,0.056,,NO,YES,CYP3A4 PL,P-gp,iv,79.1,,ketoconazole,18451235,iv,22.2,30.3
+175481-36-4,lacosamide,0.4,1,YES,YES,"CYP3A4, CYP2C9, CYP2C19 PL",,po,19.6,-16.4,omeprazole,24567279,po,,61.3
+134678-17-4,lamivudine,0.71,0.86,YES,NO,Not specified PL,"BCRP, MATE1,",po,46,,BILR 355 and ritonavir,21128991,po,,-3.4
+103577-45-3,lansoprazole,0,0.91,NO,YES,"CYP3A, CYP2C19 Interview form",P-gp,po,282.7,-75,fluvoxamine,15496639,po,94.8,300.7
+231277-92-2,lapatinib,<0.02,,NA,YES,"CYP 3A4, CYP3A5, CYP2C19 P L","BCRP, P-gp",po,266.8,,ketoconazole,19371315,po,,14
+571170-77-9,laropiprant,0.011,0.8,NO,YES,UGT 17431030,,po,38.6,,clarithromycin,20337634,po,,177.5
+180916-16-9,lasofoxifene,0.0177,,NA,YES,"CYP3A4, CYP3A5, CYP2D6, C 1 837240 0",,po,20.7,,ketoconazole,16822276,po,-2.6,38.1
+191732-72-6,lenalidomide,0.74,,YES,NO,Not specified PL,P-gp,po,No DDI Study with AUC or CL Change in DIDB,,,,,,
+102767-28-2,levetiracetam,0.66,1,YES,NO,Not specified PL,,po,11.2,-10.3,valproic acid,12576167,po,-4.3,12
+141505-33-1,levosimendan-not approved in us,,0.85,NA,NA,Not specified,,po,48.8,,digoxin,18793580,iv,,16.5
+137-58-6,lidocaine,0.028,0.35,NO,YES,"CYP1A2, 3A4 Interview form (Japanese)",,iv,,-59.9,fluvoxamine,14749694,iv,,
+668270-12-0,linagliptin,0.05,0.3,NO,YES,Not metabolized PL,"OATP1B3, OCT 2",po,101.4,,ritonavir,TRADJENTA PL,po,-24.8,-14.6
+165800-03-3,linezolid,0.31,1,YES,YES,Not specified PL,,po,No DDI Study with AUC or CL Change in DIDB,,,,?,no change,
+204656-20-2,liraglutide,0 (sq),0.55 (sq),NO,NO,Not specified PL,,sq,-2.5,,insulin,21114606,sq,-16.6,-13.9
+76547-98-3,lisinopril,1,2844083,YES,NO,Not metabolized PL,,po,13.1,,digoxin,2853897,,,
+98079-51-7,lomefloxacin,0.65,,YES,YES,Not specified PL,,po,11.9,-10.3,furosemide,8070509,po,,
+182431-12-5,lomitapide,0,0.07,NO,YES,"CYP3A4, CYP1A2, CYP2B6, C PL",,po,2626.2,,ketoconazole,NDA 203858,po,46.7,163.7
+192725-17-0,lopinavir,0.022,,NA,YES,CYP3A PL,"OATP1B1, P-gp",po,75.1,,valproic acid,15504860,po,40.9,17.8
+846-49-1,lorazepam,0.003,0.9,NO,YES,UGT PL,,iv,,-45.2,probenecid,4020675,iv,,
+114798-26-4,losartan,0.12,0.33,NO,YES,"CYP2C9, CYP3A4 DIDB",P-gp,po,108.5,,milk thistle,19221727,po,,
+367514-87-2,lurasidone,<0.09 (total radioact,,NA,YES,CYP3A4 PL,,po,830,,ketoconazole,NDA 200603,po,45.4,57.5
+89226-50-6,manidipine-not approved in us,0,,NO,YES,CYP3A4 Interview form (Japanese),,po,-10.5,,delapril,14558436,po,15.1,156
+376348-65-1,maraviroc,0.08,0.23,YES,YES,CYP3A4 PL,"OATP1B1, P-gp",po,897.9,,saquinavir and ritonavir,18333864,po,2.6,19.2
+176161-24-3,maribavir-not approved in us,<0.02,,NA,YES,CYP3A4 12654667,,po,54,-34.8,ketoconazole,18316526,,,
+19982-08-2,memantine,0.48,,YES,YES,Not specified PL,OCT2,po,5.7,-5.6,donepezil,15266045,,,
+59-05-2,methotrexate,0.85 (sq),0.7,YE S,NO,Not specified PL,"BCRP, OAT1, O A",iv,,-36.1,cotrimoxazole,638616,,,
+235114-32-6,micafungin,0.012,,NO,YES,"Arylsulfatase, CYP3A PL",,iv,13.2,-13,cyclosporine,16027407,iv,,-22.6
+59467-70-8,midazolam (iv),0,,NO,YES,CYP3A4 PL,,iv,686.8,-87.3,ketoconazole,19302901,iv,33.5,92.1
+59467-70-8,midazolam (po),0,0.31 - 0.72,NO,YES,CYP3A4 PL,,po,2590.9,,tipranavir and ritonavir,20147896,,,
+92623-85-3,milnacipran,0.55,0.85 - 0.90,YES,YES,Not specified PL,,po,10,,methotrimeprazine,NDA 022256,po,2.8,45.8
+223673-61-8,mirabegron,0.06-0.25,0.29 - 0.35,YES,YES,"CYP2D6, CYP3A4 PL",P-gp,po,78.8,-45.6,ketoconazole,23625188,po,25.2,61.3
+862189-95-5,mirodenafil-not approved in us,,,NA,NA,"CYP3A4, CYP2D6 20110038",,po,389.3,,ketoconazole,20110038,,,
+151096-09-2,moxifloxacin,0.2,0.9,NO,YES,"UGT, SULT PL",P-gp,po,10.2,-9.5,itraconazole,14756383,po,-22,2
+24280-93-1,mycophenolic acid,0.03,0.72,NO,YES,UGT PL,,po,117.8,,tacrolimus,19606088,po,-24.8,26.2
+465-65-6,naloxone,,22541841,NA,NA,UGT PL,,iv,No DDI Study with AUC or CL Change in DIDB for iv form,,,,po,,
+16590-41-3,naltrexone,0.02,0.2,N O,YES,Not specified PL,,iv/im,No DDI Study with AUC or CL Change in DIDB for iv/im forms,,,,im,6.1,-3.7
+118457-14-0,nebivolol (racemic),0,,NO,YES,"UGT, CYP2D6 PL",,po,557.1,-81.8,fluoxetine,20489028,po,,611.2
+83366-66-9,nefazodone,<0.01,0.23,NO,YES,CYP3A4 DIDB,,po,44.7,,lorazepam,8748429,po,,
+159989-64-7,nelfinavir,0.01 - 0.02,"0.88 (single dose),",NO,YES,"CYP3A, CYP2C19 PL",p-gp,po,146.2,-54.2,nevirapine,12949316,po,13.4,62.6
+641571-10-0,nilotinib,0,,NO,YES,CYP3A4 NDA 022068,"OATP1B1, OAT P",po,210.6,-60.3,ketoconazole,20702754,po,33.3,36.5
+70458-96-7,norfloxacin,0.26 - 0.32,,NA,YES,Not specified PL,BCRP,,No DDI Study with AUC or CL Change in DIDB,,,,po,,
+82419-36-1,ofloxacin,0.63,0.98,YES,YES,Not specified PL,BCRP,po,15.8,-13.8,probenecid,18370547,,,
+144689-24-7,olmesartan,0.36,0.26,YES,YES,Not metabolized PL,"OAT1, OAT3, O A",po,21.1,-20,pravastatin,18641915,po,30.4,47.8
+73590-58-6,omeprazole,negligible,0.39,NO,YES,"CYP2C19, CYP3A4, CYP2C8 DIDB",P-gp,po,529.3,,fluconazole,11932962,po,69,171
+99614-02-5,ondansetron,0.05 (route of admin,0.65,NO,YES,"CYP3A4, CYP1A2, CYP2D6 PL",,iv,14.8,,aprepitant,12867217,iv,126.9,59.9
+187227-45-8,oseltamivir carboxylate,0.93,0.8,YES,NO,Not specified PL,po (oseltamivi,,151.7,,probenecid,11744606,po (oseltamivir),,-6.3
+128607-22-7,ospemifene,<0.02,,NA,YES,"CYP3A4, CYP2C9, CYP2C19 PL",,po,178.2,,fluconazole,23852652,po,-7.5,42.5
+61825-94-3,oxaliplatin,,,NA,NA,Nonenzymatic PL,"MATE1, MATE2",iv,39,,regorafenib,NDA 203085,iv,↔,-8.9
+144598-75-4,paliperidone (9-hydroxyrisperidone),0.59,0.28,YES,NO,"CYP2D6, CYP3A4 PL",P-gp,po,18,-17.3,paroxetine,19585395,po,,-27.3
+102625-70-7,pantoprazole,0,0.77,NO,YES,"CYP2C19, CYP3A4 PL",P-gp,po,12,23.7,clarithromycin,14998561,po,,-15.4
+131918-61-1,paricalcitol,0,0.72 - 0.86,NO,NO,"CYP 24, CYP 3A4, UGT 1A4 PL",,po,3,-5.4,omeprazole,17173278,iv,12.1,-31.9
+396091-73-9,pasireotide,0.06 (sq),,NA,YES,Not metabolized PL,P-gp,sq,5,,vildagliptin,NDA 200677,sq,12.5,56.4
+444731-52-6,pazopanib,0.001,0.214,NO,YES,"CYP3A4, CYP1A2, CYP2C8 PL","OATP1B1, OAT P",po,65.4,,ketoconazole,23636448,po,,
+215647-85-1,peginterferon alpha-2b,0.3 (route of adminis,,YES,YES,Not specified PL,,sq,12.1,0.7,ribavirin,10960463,,,
+380917-97-5,perampanel,<0.0012,1,NO,YES,"CYP3A, CYP1A2, CYP2B6 PL",,po,20,,ketoconazole,NDA 202834,po,50,155
+57-41-0,phenytoin,0.02 (route of admin,0.864,NO,YES,"CYP2C9, CYP2C19, CYP1A2, PL",,po,133.1,-62.7,piperine,11808866,iv,,
+111025-46-8,pioglitazone,negligible,,NO,YES,"CYP2C8, CYP3A4, CYP1A1 PL",,po,366.4,-78.6,gemfibrozil,22625877,,,
+147511-69-1,pitavastatin,0.03,0.51,NO,YES,"CYP2C9, CYP2C8, UGT1A3, UP L","BCRP, OATP1B1",po,428.4,-84.6,rifampin SD,23831870,po,57,275.1
+171228-49-2,posaconazole,<0.002,0.54,NO,YES,UGT PL,P-gp,po,No DDI Study with AUC or CL Change in DIDB,,,,po,35.5,15.2
+150322-43-3,prasugrel,0 ( R-138727),,NO,YES,Not specified (R-138727) PL,,po,7,,ketoconazole,17361128,po (data of R-138727),,8.1
+81093-37-0,pravastatin,0.47,0.18,YES,YES,Not specified PL,"BCRP, OAT3, O A",po,2183.5,-95.1,cyclosporine,8356729,,,
+148553-50-8,pregabalin,0.9,>0.90,YES,NO,Not metabolized PL,,po,15.3,,valproic acid,16146435,,,
+111974-69-7,quetiapine,<0.01,0.09,N O,YES,CYP3A4 PL,,po,520.4,-84.1,ketoconazole,16390352,po,,
+117976-89-3,rabeprazole,0.00,0.52,NO,YES,"CYP3A4, CYP2C19 PL",,po,181.9,-64,fluvoxamine,16487224,po,119.5,
+84449-90-1,raloxifene,<0.002,0.02,NO,YES,UGT PL,P-gp,po,7.6,,exemestane,17952589,po,,
+518048-05-0,raltegravir,0.09,,NA,YES,UGT1A1 PL,"BCRP, OAT1, P-",po,210.9,,omeprazole,19143531,po,,-14.5
+87333-19-5,ramipril,<0.02,0.28,N O,YES,"Esterase, UGT PL",,po,21.7,,aliskiren,17073832,,,
+87269-97-4,ramiprilat,0.13,0.48,N O,YES,UGT PL,,po (ramipril),0.11,,vildagliptin,17986525,,,
+95635-55-5,ranolazine,0.05,0.5,NO,YES,"CYP3A4, CYP2D6 PL",P-gp,po,264.3,,ketoconazole,15778423,po,4,75.7
+136236-51-6,rasagiline,<0.01,0.36,NO,YES,"CYP1A2, UGT PL",,po,82.9,,ciprofloxacin,NDA 021641,po,93.5,652.8
+71620-89-8,reboxetine,0.0923,10086838,NO,YES,CYP3A4 10534319,,po,58.2,-33.9,ketoconazole,10546921,,,
+755037-03-7,regorafenib,0,,NO,YES,"CYP3A4, UGT1A9 PL",,po,33,,ketoconazole,NDA 203085,po,-18,1
+135062-02-1,repaglinide,0.001,0.625,NO,YES,"CYP2C8, CYP3A4 PL",P-gp,po,1830.4,,gemfibrozil and itraconazole,12687332,po,,
+150812-12-7,retigabine (ezogabine),0.36,0.6,YES,YES,"UGT, acetylation PL",,po,45.5,-13.9,oral contraceptives,NDA 022345,po,-15.6,45.3
+36791-04-5,ribavirin,0.17,0.326,NO,YES,Not specified PL,,po,-23.4,18.4,dipyrimadole,23459628,po,-14,-6.5
+500287-72-9,rilpivirine,<0.01,,NA,YES,CYP3A PL,,po,140.4,,darunavir/ritonavir,NDA 202022,po,49,8.9
+106266-06-2,risperidone,0.03,0.7,NO,YES,CYP2D6 PL,P-gp,po,315.3,,fluoxetine,11985287,po,,
+155213-67-5,ritonavir,0.035 (oral),,NA,YES,CYP3A PL,P-gp,po,382.6,,artesunate and pyronaridine,22403324,po,,
+366789-02-8,rivaroxaban,0.36,0.8-1.0,YES,YES,"CYP 3A4, CYP 2J2 PL","BCRP, P-gp",po,157.6,-61.2,ketoconazole,23305158,po,15.2,131.5
+143558-00-3,rocuronium,0.11,,NO,YES,Not specified PL,,iv,,6.8,propofol,11927473,iv,,18.6
+162401-32-3,roflumilast,0,0.8,NO,YES,"CYP 1A2 , CYP 3A4. PL",,po,155.4,-61,fluvoxamine,17596106,po,51,92.3
+84057-95-4,ropivacaine,0.01,,NO,YES,CYP 1A2 PL,,iv,452.5,-85.5,erythromycin and fluvoxamine,10049910,iv,,
+122320-73-4,rosiglitazone,0,0.99,NO,YES,"CYP 2C8, 2C9 PL",P-gp,po,129,,gemfibrozil,12898007,,,
+287714-41-4,rosuvastatin,0.28,0.2,NO,YES,CYP2C9 PL,"BCRP, OAT3, O A",po,608.2,,cyclosporine,15289793,po,4.9,20.8
+99755-59-6,rotigotine,<0.01 (transdermal),,NA,YES,"CYP, SULT, UGT1A9, UGT2B PL",transdermal,,0.8,,levodopa and carbidopa,19628729,transdermal,,-9.5
+169939-94-0,ruboxistaurin (ly333531),<0.01,,NA,YES,CYP3A4 DIDB,,,No DDI Study in DIDB,,,,,,
+106308-44-5,rufinamide,0.02,,NA,YES,CES PL,,,No DDI Study with AUC or CL Change in DIDB,,,,,,
+941678-49-5,ruxolitinib,<0.01,,NA,YES,"CYP3A4, CYP2C9 PL",,po,91.2,-47.9,ketoconazole,21602517,po,87,28
+361442-04-8,saxagliptin,0.24,0.5,YES,YES,"CYP3A4, CYP3A5 PL",P-gp,po,266.6,,ketoconazole,NDA 022350,po,9.6,38.2
+14611-51-9,selegiline,0.01,0.04,NO,YES,Not specified PL,,po,4400,,oral contraceptives,"10215747, ELDEPRY",po,,
+139755-83-2,sildenafil,<0.02,0.41,NO,YES,"CYP3A4, CYP2C9 PL","BCRP, P-gp",po,889.4,,ritonavir,10930961,po,84.5,
+160970-54-7,silodosin,<0.04,0.32,NO,YES,"UGT2B7, ADH/ALDH, CYP3 AP L",P-gp,po,208.6,,ketoconazole,NDA 22206,po,,-23.9
+53123-88-9,sirolimus,0.022 (total radioact,0.14,NO,YES,"CYP3A4, CYP3A5 DIDB","OATP1B1, OAT P",po,2512.3,-99.6,telaprevir,23408534,po,48.4,95.8
+486460-32-6,sitagliptin,0.79,0.87,YES,NO,"CYP3A4, CYP2C8 (limited m PL","OAT3, P-gp",po,53.9,-35.7,gemfibrozil,22173280,po,,21.1
+242478-37-1,solifenacin,0.0738,0.88,NO,YES,CYP 3A4 PL,,po,94.4,,ketoconazole,16867168,po,,39.1
+110871-86-8,sparfloxacin,0.10,0.92,NO,YES,UGT PL,P-gp,po,-11.4,,cimetidine,8688981,,,
+83647-97-6,spirapril - not approved,0. 16,0.5,NA,NA,Esterase,,po,1.9,,hydrochlorothiazide,12872612,,,
+83602-05-5,spiraprilat - not approve,0 .75 5,0 (spirapril po vs s,NA,NA,Not specified,,po (spirapril),9.6,,hydrochlorothiazide,12872612,,,
+3056-17-5,stavudine,0.42,0.864,YES,YES,Limited metabolism PL,,po,9,,emtricitabine,17526857,,,
+68373-14-8,sulbactam,0.888,,YES,NO,Not specified PL,,iv,5,,ceftriaxone,20686332,,,
+557795-19-4,sunitinib,0.16 (total radioactiv,,NA,YES,CYP 3A4 PL,"BCRP, OATP1B1",po,81.5,-46.2,ketoconazole,NDA 021938,po,10.6,7.9
+104987-11-3,tacrolimus,< 0.01,0.188,NO,YES,CYP3A PL,P-gp,po,7697.6,-98.5,telaprevir,21618566,iv,,
+171596-29-5,tadalafil,< 0.003,,NA,YES,CYP3A4 PL,,po,311.5,-75.7,ketoconazole,NDA 021368,po,-1.1,-30.5
+57460-41-0,talinolol-not approved i,0 .53,0.55,YES,YES,Not specified,P-gp,po,54.4,-33.8,curcumin,22725663,,,
+106133-20-4,tamsulosin,0.087,1,NO,YES,"CYP3A4, CYP2D6 PL",,po,183.5,-64.6,ketoconazole,21496064,,,
+175591-23-8,tapentadol,0.03,0.32,NO,YES,"UGT, CYP2C9, CYP2A19, CY PP L",,po,49.5,,probenecid,NDA 22304,po,85.6,355.6
+197922-42-2,teduglutide,,0.88 (sq),NA,NA,Not specified PL,,,No DDI Study with AUC or CL Change in DIDB,,,,sq,,-10.5
+402957-28-2,telaprevir,0.011,,NO,YES,CYP3A4 PL,P-gp,po,219.8,,ritonavir,NDA 201917,po,-16.3,-36.4
+372151-71-8,telavancin,0.62,,YES,YES,Not metabolized NDA 022110,,iv,4.8,-5.6,aztreonam,19443680,iv,,-16.3
+3424-98-4,telbivudine,0.42,,YES,YES,Not metabolized PL,,po,5.6,-7.2,lamivudine,16801406,po,9.8,43.1
+191114-48-4,telithromycin,0.13,0.57,NO,YES,"CYP3A4, non CYP-depende nP L",P-gp,po,61.7,,itraconazole,15767219,po,,
+144701-48-4,telmisartan,0.009 (total radioactivity),0.42 - 0.58,NO,YES,UGT PL,OATP1B3,po,132.3,-54.2,nisoldipine,"17322141, MICARD",po,207.3,
+162635-04-3,temsirolimus,0.046 (total radioactivity),19415181,NO,YES,CYP 3A4 PL,P-gp,iv,12,-10.5,ketoconazole,18458675,,9.9,
+147127-20-6,tenofovir,0.70 - 0.80,0.25,YES,NO,No metabolism by CYP PL,"OAT1, OAT3, P-",po,35.8,-23.6,ritonavir + ARV,14693529,po,,19.7
+59804-37-4,tenoxicam-not approve,d0 .0 1,1,NO,YES,CYP2C9 19514967,,po,4.9,-6.6,probenecid,8148224,,,
+163451-81-8,teriflunomide,0.00147,1,NO,YES,Not specified PL,"BCRP, P-gp",,No DDI Study with AUC or CL Change in DIDB,,,,po,-1.7,-11.3
+58-46-8,tetrabenazine,0,,NO,YES,"Carbonyl reductase, CYP2D PL",,po,300,,paroxetine,NDA 021894,po,39.5,
+180384-57-0,tezosentan-not approve,0 .05,,NO,YES,Not metabolized 12745875,,iv,296.3,-74.8,cyclosporine,12136369,,,
+115103-54-3,tiagabine,0.02,0.9,NO,YES,CYP 3A PL,,po,7.9,,triazolam,10366992,po,59.9,70.4
+274693-27-5,ticagrelor,0.01,0.36,NO,YES,CYP 3A4 PL,P-gp,po,632,,ketoconazole,022433,po,50.7,
+220620-09-7,tigecycline,0.22,,NO,YES,"Biliary excretion, UGT PL",,iv,5.8,6.1,digoxin,NDA 021821,iv,2.3,50.3
+192185-72-1,tipifarnib-not approved in us,< 0.1,16988200,NO,YES,"UGT, CYP3A4 16988200",,po,23.5,,gemcitabine,14581347,po,84.7,29.2
+110101-66-1,tirilazad,,,NA,YES,CYP3A4 9021439,,po,308.6,-77.6,ketoconazole,8627582,iv,110.6,
+51322-75-9,tizanidine,0.03,0.4,NO,YES,CYP1A2 NDA 020397,,po,3172.7,,fluvoxamine,15060511,,,
+143343-83-3,toborinone-not approve,0 .34 - 0.50,,YES,YES,"CYP2D6, CYP1A2 12017343",,iv,-4.9,,theophylline,12017343,iv,,
+375823-41-9,tocilizumab (atlizumab),,,NA,NA,Not specified PL,,sq,13.9,,rHuPH20,23547949,,,
+477600-75-2,tofacitinib,0.288,0.74,YES,YES,"CYP3A4, CYP2C19 PL",P-gp,po,103.2,,ketoconazole,NDA 203214,po,3.2,64.6
+150683-30-0,tolvaptan,0.002,0.56,NO,YES,CYP3A4 PL,P-gp,po,439.7,-82.8,ketoconazole,21988334,po,,
+123948-87-8,topotecan,0.508,0.3,YES,NO,pH-dependent hydrolysis PL,"BCRP, MATE1,",po,142.9,,elacridar,12089223,iv,,
+89778-26-7,toremifene,negligible,,NO,YES,"CYP3A4, CYP2D6 PL, 21380606",,,No DDI Study with AUC or CL Change in DIDB,,,,po,,
+97322-87-7,troglitazone,0,10496299,NO,YES,"SULT, UGT 10496299",,po,1.3,,acetaminophen,9753210,po,,46.6
+99-66-1,valproic acid,0.018,0.928,NO,YES,"UGT, Mitochondrial β-oxid aP L",,po,107.9,-54.4,felbamate,8603632,po,,
+137862-53-4,valsartan,0.29,0.25,NO,YES,CYP2C9 PL,"OATP1B1, OAT P",po,34.1,,hydrochlorothiazide,20852001,po,120.8,114.2
+443913-73-3,vandetanib,<0.05,,NA,YES,"CYP3A4, FMO1, FMO2 PL","OATP1B1, OAT P",po,16,,itraconazole,22405,po,4.3,-5.7
+249296-44-4,varenicline,0.92,0.9,YES,NO,Not metabolized PL,"MATE1, MATE2",po,29.7,-21.9,cimetidine,"17971819, CHANTIX PL",,,
+86029-43-8,vecuronium,0.03 - 0.35,,NO,YES,Not specified PL,,,No DDI Study with AUC or CL Change in DIDB,,,,iv,,
+918504-65-1,vemurafenib,< 0.01,,NA,YES,CYP3A4 NDA 202429,"OATP1B3, P-gp",,No DDI Study with AUC or CL Change in DIDB,,,,po,,
+306296-47-9,vicriviroc-not approved in us,0.47 (total radioactiv,,NA,YES,"CYP3A4, CYP3A5, CYP2C9 19492868",,po,437.4,,ritonavir,21348539,,,
+60643-86-9,vigabatrin,0.8,>0.90,YES,NO,Not specified PL,,po,-5,,ethanol,NDA 020427,,,
+503068-34-6,vilanterol,0.70 (total radioactiv,<0.02,NO,YES,CYP3A4 PL,P-gp inh,,90,,ketoconazole,"23116485, BREO ELL",inh,-34.3,32.7
+163521-12-8,vilazodone,0.01,0.72,NO,YES,"CYP3A4, CYP2C19, CYP2D6 PL",,po,51,,ketoconazole,NDA 022567,po,-2,-9
+274901-16-5,vildagliptin-not approve,0.21,0.85,YES,YES,Hydrolysis DIDB,,po,11.6,-10.2,simvastatin,17931461,po,-18.6,-5.5
+57-22-7,vincristine,<0.08,,NO,YES,CYP 3A4 PL,P-gp,iv,244.8,-68.6,nifedipine,2790693,iv,,-4.5
+618385-01-6,vorapaxar (sch 530348),<0.01,1,NO,YES,"CYP 3A4, CYP2J2 PL",,po,94.9,,ketoconazole,23426761,po,1.1,-0.6
+137234-62-9,voriconazole (po),<0.02,0.96,NO,YES,"CYP2C19, CYP2C9, CYP3A4 PL",,po,806.8,-86.4,"ritonavir, in CYP2C19 PMs",16890574,,,
+137234-62-9,voriconazole (iv),<0.02,0.96,NO,YES,"CYP2C19, CYP2C9, CYP3A4 PL",,iv,,,,,,,
+192939-46-1,ximelagatran-not appro,0.08,0.2,YES,NO,CES DIDB,P-gp,po,81.6,,erythromycin,16455803,po,-5.7,
+7481-89-2,zalcitabine,0.8,>0.8,YES,NO,Not specified PL,"OAT1, OCT1, O C",po,54.2,-37.2,probenecid,"8692740, HIVID PL",,,
+139110-80-8,zanamivir,0.87,0.02,YES,NO,Not specified PL,,iv,-2,,oseltamivir,21690287,,,
+186497-07-4,zibotentan (zd4054)-not approved in us,0.36,,YES,YES,CYP3A4 19480550,,po,26.6,-20.4,itraconazole,19480550,po,40.1,44.9
+111406-87-2,zileuton,<0.005,,NA,YES,"CYP1A2, CYP2C9, CYP3A4, U P L",,po,-13.4,,prednisone,8620666,po,106.6,107.9
+146939-27-7,ziprasidone,<0.01,0.6,NO,YES,"AO, gluathione reduction, C PL",,po,33.4,,ketoconazole,10771458,po,19.5,34.5
+139264-17-8,zolmitriptan,0.33 - 0.37,0.41,YES,YES,CYP1A2 DIDB,P-gp,po,55.8,,propranolol,9431839,po,,81.1

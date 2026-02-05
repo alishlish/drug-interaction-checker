@@ -1,179 +1,240 @@
-# parse_pdf.py
 """
-Extracts tables from the PDF into a raw CSV for clean_data.py to process.
+Parse Organ-Impairment Drug Interaction PDF tables into a clean CSV.
 
-FAST path: tabula-py (needs Java installed locally)
-Fallback path: pdfplumber text scrape (works without Java, but is less reliable)
+Input:
+  - data/raw/Organ-Impairment-Drug-Interaction-database-PDF.pdf
 
-Output CSV should include columns:
-- NAME
-- Enzyme(s)
-- Transporter(s)
+Output:
+  - data/processed/drug_interactions_clean.csv
 
-Run:
-  python parse_pdf.py --pdf Organ-Impairment-Drug-Interaction-database-PDF.pdf --out ../data/processed/drug_interactions_raw.csv
+Notes:
+- This parser only keeps rows that look like true drug rows (CAS number present).
+- It also tries to stitch wrapped text across adjacent columns for enzyme/name/transporters.
 """
+
+from __future__ import annotations
 
 import os
 import re
-import argparse
-from typing import List
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 import pandas as pd
+import pdfplumber
 
 
-def try_tabula(pdf_path: str) -> pd.DataFrame:
-    import tabula  # tabula-py
+# ----------------------------
+# Paths
+# ----------------------------
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PDF_PATH = PROJECT_ROOT / "data" / "Organ-Impairment-Drug-Interaction-database-PDF.pdf"
+OUT_CSV = PROJECT_ROOT / "data" / "processed" / "drug_interactions_clean.csv"
 
-    # Read all pages, multiple tables
-    tables: List[pd.DataFrame] = tabula.read_pdf(
-        pdf_path,
-        pages="all",
-        multiple_tables=True,
-        lattice=False,
-        stream=True,
+
+# ----------------------------
+# Heuristics / helpers
+# ----------------------------
+CAS_RE = re.compile(r"^\d{2,7}-\d{2}-\d$")  # e.g., 128196-01-0
+
+
+def is_cas(s: Any) -> bool:
+    if s is None:
+        return False
+    return bool(CAS_RE.match(str(s).strip()))
+
+
+def clean_cell(x: Any) -> str:
+    if x is None:
+        return ""
+    s = str(x)
+    s = s.replace("\n", " ").replace("\r", " ")
+    s = s.replace("–", "-").replace("—", "-")
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def join_nonempty(*parts: Any, sep: str = " ") -> str:
+    cleaned = [clean_cell(p) for p in parts]
+    cleaned = [c for c in cleaned if c]
+    return sep.join(cleaned).strip()
+
+
+def safe_float_str(s: str) -> Optional[str]:
+    """
+    Return string if it looks numeric-ish (e.g., 0.45, -57.1, 91.4), else None.
+    """
+    s = clean_cell(s)
+    if not s:
+        return None
+    if re.fullmatch(r"-?\d+(\.\d+)?", s):
+        return s
+    return None
+
+
+def normalize_col_name(c: str) -> str:
+    return (
+        c.strip()
+        .lower()
+        .replace(" ", "_")
+        .replace("/", "_")
+        .replace("-", "_")
+        .replace("(", "")
+        .replace(")", "")
+        .replace("%", "pct")
     )
 
-    # Filter empty-ish
-    tables = [t for t in tables if t is not None and not t.empty]
-    if not tables:
-        raise RuntimeError("tabula found 0 tables")
 
-    df = pd.concat(tables, ignore_index=True)
-
-    return df
-
-
-def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
+# ----------------------------
+# Row parsing
+# ----------------------------
+def parse_row(cells: List[Any]) -> Dict[str, Any]:
     """
-    Tries to coerce whatever was extracted into the 3 columns we need.
-    This is intentionally defensive: PDF extraction is messy.
+    pdfplumber gives us ~20 columns per row (based on the PDF table layout).
+    Some cells wrap across columns; we stitch the most important ones.
     """
-    # Flatten multi-index cols if any
-    df.columns = [str(c).strip() for c in df.columns]
+    # Ensure length >= 20
+    row = list(cells) + [""] * (20 - len(cells))
+    row = row[:20]
+    row = [clean_cell(x) for x in row]
 
-    # Heuristic: look for columns that resemble name/enzyme/transporter
-    colmap = {}
-    for c in df.columns:
-        cl = c.lower()
-        if "name" in cl and "enzyme" not in cl and "transporter" not in cl:
-            colmap[c] = "NAME"
-        elif "enzyme" in cl:
-            colmap[c] = "Enzyme(s)"
-        elif "transporter" in cl:
-            colmap[c] = "Transporter(s)"
+    # Based on observed structure from the PDF:
+    # 0 CAS number
+    # 1 NAME
+    # 2 fe
+    # 3 (sometimes fe spills here if name wraps weirdly; we handle via fallback)
+    # 5/6 F
+    # 7 Renal
+    # 8 Non-renal
+    # 9/10 Enzyme(s) (often spans two cols)
+    # 11 Transporter(s)
+    # 12 Route of Admin (sometimes transporter spills into 12; heuristic below)
+    # 13 Δ%AUC
+    # 14 Δ %CL/F
+    # 15 inhibitor
+    # 16 Ref DDI (PMID or NDA etc)
+    # 17 Route of Admin (ref)
+    # 18 ΔAUC(%)
+    # 19 (sometimes a second numeric column)
 
-    # If we found at least some, rename and keep
-    if colmap:
-        df = df.rename(columns=colmap)
-        keep = [c for c in ["NAME", "Enzyme(s)", "Transporter(s)"] if c in df.columns]
-        df = df[keep]
-        return df
+    cas_number = row[0]
+    drug_name = row[1]
 
-    # If columns are generic like "Unnamed: 0", attempt positional fallback (common in tabula)
-    if len(df.columns) >= 3:
-        df = df.iloc[:, :3].copy()
-        df.columns = ["NAME", "Enzyme(s)", "Transporter(s)"]
-        return df
+    # fe: try col2 first, else col3 if numeric
+    fe = safe_float_str(row[2]) or safe_float_str(row[3]) or row[2] or row[3]
+    fe = fe if fe else ""
 
-    raise RuntimeError(f"Could not normalize columns. Extracted columns: {list(df.columns)}")
+    # F: usually around col5-6-?; try numeric first, else keep text if present
+    F = safe_float_str(row[5]) or safe_float_str(row[6]) or row[5] or row[6]
+    F = F if F else ""
+
+    renal = row[7]
+    non_renal = row[8]
+
+    enzymes = join_nonempty(row[9], row[10])
+    transporters = row[11]
+
+    # Heuristic: if route_of_admin looks like it accidentally contains transporter tail,
+    # stitch it back into transporters when transporter column looks cut off.
+    route_of_admin = row[12]
+    route_tokens = {"po", "iv", "im", "sc", "sq", "inhaled", "topical", "oral"}
+
+    # If route_of_admin doesn't look like a route and transporters looks truncated, merge
+    if route_of_admin and route_of_admin.lower() not in route_tokens:
+        # if route cell contains a route token later ("m po" etc), keep it in route and merge prefix to transporters
+        m = re.search(r"\b(po|iv|im|sc|sq|oral)\b", route_of_admin.lower())
+        if m:
+            # split at the first route token
+            idx = m.start()
+            prefix = route_of_admin[:idx].strip()
+            suffix = route_of_admin[idx:].strip()
+            if prefix:
+                transporters = join_nonempty(transporters, prefix)
+            route_of_admin = suffix
+        else:
+            # otherwise assume it's part of transporters
+            transporters = join_nonempty(transporters, route_of_admin)
+            route_of_admin = ""
+
+    # max DDI observed fields (keep as strings, your API will expose as attributes)
+    delta_auc = row[13]
+    delta_clf = row[14]
+    inhibitor = row[15]
+    ref_ddi = row[16]
+    route_of_admin_ref = row[17]
+    delta_auc_ref = row[18]
+    extra_col = row[19]
+
+    record = {
+        "cas_number": cas_number,
+        "drug_name": drug_name.lower().strip(),
+        "fe": fe,
+        "f": F,
+        "renal": renal,
+        "non_renal": non_renal,
+        "enzymes": enzymes,
+        "transporters": transporters,
+        "route_of_admin": route_of_admin,
+        "delta_auc_pct": delta_auc,
+        "delta_cl_over_f_pct": delta_clf,
+        "inhibitor": inhibitor,
+        "ref_ddi": ref_ddi,
+        "route_of_admin_ref": route_of_admin_ref,
+        "delta_auc_ref_pct": delta_auc_ref,
+        "extra": extra_col,
+    }
+
+    return record
 
 
-def try_pdfplumber(pdf_path: str) -> pd.DataFrame:
-    """
-    Fallback: extract text lines and attempt regex parsing.
-    This depends heavily on how the PDF is formatted.
-    """
-    import pdfplumber
-
-    rows = []
-    # Example loose regex: "DrugName ... Enzyme(s): ... Transporter(s): ..."
-    # If your PDF isn't like this, you'll need to tweak the parsing rules.
-    enzyme_pat = re.compile(r"(CYP[0-9A-Z]+|UGT[0-9A-Z]+|SULT[0-9A-Z]+)", re.IGNORECASE)
-    transporter_pat = re.compile(r"(P-?GP|BCRP|OATP|OAT|OCT|MATE)", re.IGNORECASE)
-
-    with pdfplumber.open(pdf_path) as pdf:
-        for page in pdf.pages:
-            text = page.extract_text() or ""
-            for line in text.splitlines():
-                line = line.strip()
-                if not line:
-                    continue
-
-                # Super conservative: only keep lines that look like they contain enzyme/transporter tokens
-                enz = enzyme_pat.findall(line)
-                trn = transporter_pat.findall(line)
-                if not enz and not trn:
-                    continue
-
-                # Guess drug name as first chunk before two+ spaces (very heuristic)
-                drug = re.split(r"\s{2,}", line)[0].strip()
-                if not drug or len(drug) < 2:
-                    continue
-
-                rows.append(
-                    {
-                        "NAME": drug,
-                        "Enzyme(s)": " | ".join(sorted({e.upper() for e in enz})),
-                        "Transporter(s)": " | ".join(sorted({t.upper().replace("PGP", "P-GP") for t in trn})),
-                    }
-                )
-
-    if not rows:
-        raise RuntimeError("pdfplumber fallback produced 0 rows (needs custom parsing rules for this PDF)")
-
-    return pd.DataFrame(rows)
-
-
-def main(pdf_path: str, out_path: str) -> None:
-    if not os.path.exists(pdf_path):
+# ----------------------------
+# Main extraction
+# ----------------------------
+def extract_pdf_to_csv(pdf_path: Path, out_csv: Path) -> None:
+    if not pdf_path.exists():
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
 
-    # 1) Try tabula (best for table PDFs)
-    extracted = None
-    tabula_err = None
-    try:
-        extracted = try_tabula(pdf_path)
-        extracted = normalize_columns(extracted)
-        method = "tabula"
-    except Exception as e:
-        tabula_err = str(e)
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
 
-    # 2) Fallback to pdfplumber (text heuristic)
-    if extracted is None:
-        extracted = try_pdfplumber(pdf_path)
-        extracted = normalize_columns(extracted)
-        method = "pdfplumber"
+    records: List[Dict[str, Any]] = []
 
-    # Basic cleanup
-    for c in ["NAME", "Enzyme(s)", "Transporter(s)"]:
-        if c in extracted.columns:
-            extracted[c] = extracted[c].astype(str).str.replace("nan", "", regex=False).str.strip()
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        for pageno, page in enumerate(pdf.pages):
+            tables = page.extract_tables()
+            if not tables:
+                continue
 
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    extracted.to_csv(out_path, index=False)
-    print(f"✅ Extracted via {method}: {len(extracted)} rows -> {out_path}")
+            for table in tables:
+                for cells in table:
+                    if not cells:
+                        continue
 
-    if method == "pdfplumber":
-        print("⚠️ pdfplumber fallback is heuristic. If output looks messy, use tabula with Java installed.")
-    if tabula_err:
-        print(f"(tabula attempt failed: {tabula_err})")
+                    # Only keep drug rows (CAS number in first cell)
+                    first = clean_cell(cells[0]) if len(cells) > 0 else ""
+                    if not is_cas(first):
+                        continue
+
+                    rec = parse_row(cells)
+                    if rec.get("drug_name"):
+                        records.append(rec)
+
+    if not records:
+        raise RuntimeError("No drug rows found. Table extraction may need tuning.")
+
+    df = pd.DataFrame(records)
+
+    # Drop duplicates by drug_name (keep first)
+    df = df[df["drug_name"].astype(str).str.strip() != ""]
+    df = df.drop_duplicates(subset=["drug_name"], keep="first")
+
+    # Final polish: normalize whitespace everywhere
+    for col in df.columns:
+        df[col] = df[col].astype(str).map(clean_cell)
+
+    df.to_csv(out_csv, index=False)
+    print(f"✅ Wrote {len(df)} drugs → {out_csv}")
 
 
 if __name__ == "__main__":
-    base = os.path.dirname(os.path.abspath(__file__))
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--pdf",
-        default=os.path.join(base, "Organ-Impairment-Drug-Interaction-database-PDF.pdf"),
-        help="Path to source PDF",
-    )
-    parser.add_argument(
-        "--out",
-        default=os.path.join(base, "..", "data", "processed", "drug_interactions_raw.csv"),
-        help="Path to write raw CSV",
-    )
-    args = parser.parse_args()
-
-    main(args.pdf, args.out)
+    print("PDF:", PDF_PATH)
+    print("OUT:", OUT_CSV)
+    extract_pdf_to_csv(PDF_PATH, OUT_CSV)

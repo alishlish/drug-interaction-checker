@@ -16,21 +16,18 @@ def make_client(api_key: str) -> Optional["OpenAI"]:
     return OpenAI(api_key=api_key)
 
 
-def explain_interaction(
+def explain(
     client: Optional["OpenAI"],
     interaction: Dict[str, Any],
     drug1: Dict[str, Any],
     drug2: Dict[str, Any],
-    model: str = "gpt-4.1-mini",
+    model: str,
 ) -> str:
-    """
-    Safe GenAI: explain deterministic result using ONLY provided structured JSON.
-    """
     if client is None:
         return "LLM not configured (missing OPENAI_API_KEY)."
 
-    # Skip LLM for "none" to save money and avoid awkward outputs.
-    if interaction.get("severity") in ("none", "unknown") and "No significant" in (interaction.get("interaction") or ""):
+    # Skip explanation when there's nothing interesting (saves money + avoids weirdness)
+    if interaction.get("severity") == "none":
         return (
             "No significant interaction was found based on the dataset fields for enzymes/transporters. "
             "Not medical advice; confirm with a clinician/pharmacist."
@@ -40,21 +37,21 @@ def explain_interaction(
         "drug1": drug1,
         "drug2": drug2,
         "interaction_result": interaction,
-        "constraints": {
-            "use_only_provided_data": True,
-            "do_not_add_external_facts": True,
-            "do_not_give_dosing": True,
-            "do_not_claim_clinical_outcomes": True,
-            "do_not_assert_safety": True,
+        "rules": {
+            "use_only_provided_json": True,
+            "no_external_medical_facts": True,
+            "no_dosing": True,
+            "no_outcomes_or_predictions": True,
+            "no_recommendations": True,
         },
     }
 
     system = (
-        "You are a cautious medical-data explainer.\n"
-        "Use ONLY the JSON provided.\n"
-        "Do NOT add external facts, outcomes, dosing instructions, or recommendations.\n"
-        "If mechanism is unclear or data missing, say 'insufficient data'.\n"
-        "Output JSON only: {\"explanation\": \"...\"}\n"
+        "You are a cautious explainer for a drug checker.\n"
+        "Use ONLY the JSON provided (dataset fields + deterministic interaction + evidence).\n"
+        "Do NOT add external facts, clinical outcomes, dosing, or recommendations.\n"
+        "If information is missing, say so.\n"
+        "Output JSON only: {\"explanation\":\"...\"}\n"
         "End with: 'Not medical advice; confirm with a clinician/pharmacist.'"
     )
 
@@ -70,7 +67,7 @@ def explain_interaction(
 
     try:
         data = json.loads(resp.choices[0].message.content)
-        explanation = (data.get("explanation") or "").strip()
-        return explanation or "No explanation returned."
+        txt = (data.get("explanation") or "").strip()
+        return txt or "No explanation returned."
     except Exception:
         return "Failed to parse LLM response safely."
