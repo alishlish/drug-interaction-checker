@@ -182,62 +182,54 @@ This preserves provenance while improving usability.
 ### Build the image
 ```bash
 docker build -t drug-checker .
+```
 
-Run locally
+### Run locally
+
+```bash
 docker run -p 8000:8000 drug-checker
+```
 
-Then open:
+### Then open:
 
+```bash
 UI: http://127.0.0.1:8000/ui
 
 Docs: http://127.0.0.1:8000/docs
+```
 
-🌍 Deployment
+### 🌍 Deployment
 
 The app is deployed as a Docker container and can run on:
 
-Render
+- Render
+- Railway
+- Fly.io
+- Any Docker-compatible platform!
 
-Railway
+### Environment variables:
 
-Fly.io
+- OPENAI_API_KEY (optional)
+- CORS_ORIGINS
+- DRUG_DATA_PATH (optional if CSV is committed)
 
-Any Docker-compatible platform
-
-Environment variables:
-
-OPENAI_API_KEY (optional)
-
-CORS_ORIGINS
-
-DRUG_DATA_PATH (optional if CSV is committed)
-
-⚖️ Disclaimer
+## ⚖️ Disclaimer
 
 This tool is intended for educational and screening purposes only.
 
 It does not replace:
+- clinical judgment
+- prescribing guidelines
+- pharmacist or physician consultation
+- **Always confirm interactions using authoritative clinical references.**
 
-clinical judgment
+### 🔮 Next Steps
 
-prescribing guidelines
+**Planned or possible extensions:**
 
-pharmacist or physician consultation
-
-Always confirm interactions using authoritative clinical references.
-
-🔮 Next Steps
-
-Planned or possible extensions:
-
-Support for renal-only / hepatic-only filtering
-
-Clearer severity stratification tied to ΔAUC ranges
-
-Additional datasets (hepatic impairment, pediatrics)
-
-Improved evidence linking (PMID expansion)
-
-Audit logging for clinical review
-
-Optional removal of AI layer for fully deterministic mode
+- Support for renal-only / hepatic-only filtering
+- Clearer severity stratification tied to ΔAUC ranges
+- Additional datasets (hepatic impairment, pediatrics)
+- Improved evidence linking (PMID expansion)
+- Audit logging for clinical review
+- Optional removal of AI layer for fully deterministic mode
