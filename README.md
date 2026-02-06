@@ -83,7 +83,7 @@ Only after this process was a **reliable, structured CSV** produced and committe
 
 ## 📁 Project Structure
 
-drug-interaction-checker/
+```drug-interaction-checker/
 ├── src/
 │ ├── api.py # FastAPI app entrypoint
 │ ├── services/
@@ -107,7 +107,7 @@ drug-interaction-checker/
 ├── Dockerfile
 ├── .dockerignore
 ├── requirements.txt
-└── README.md
+└── README.md```
 
 
 ---
