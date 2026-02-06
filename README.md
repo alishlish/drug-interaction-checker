@@ -26,7 +26,7 @@ The goal is to support **screening, education, and exploration**, not diagnosis 
 ### Primary Data Source
 The core dataset was derived from the:
 
-**Organ Impairment Drug Interaction Database**  
+**Organ Impairment Drug Interaction Database (courtesy of the National Institute of Health)**  
 (assembled from peer-reviewed pharmacokinetic studies and reference interactions)
 
 The original data was provided as a **PDF containing complex tables**, including:
@@ -38,6 +38,7 @@ The original data was provided as a **PDF containing complex tables**, including
 - Observed changes in exposure (ΔAUC)
 - Reference inhibitors and PMIDs
 
+More information available here: https://pmc.ncbi.nlm.nih.gov/articles/PMC4562165/
 ---
 
 ## ⚠️ Major Challenge: Parsing & Cleaning the Data
