@@ -107,7 +107,8 @@ Only after this process was a **reliable, structured CSV** produced and committe
 ├── Dockerfile
 ├── .dockerignore
 ├── requirements.txt
-└── README.md```
+└── README.md
+```
 
 
 ---
