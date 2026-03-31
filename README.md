@@ -21,7 +21,7 @@ The goal is to support **screening, education, and exploration**, not diagnosis 
 
 ---
 
-## 📊 Dataset & Provenance
+## Dataset & Provenance
 
 ### Primary Data Source
 The core dataset was derived from the:
@@ -41,7 +41,7 @@ The original data was provided as a **PDF containing complex tables**, including
 More information available here: https://pmc.ncbi.nlm.nih.gov/articles/PMC4562165/
 ---
 
-## ⚠️ Major Challenge: Parsing & Cleaning the Data
+## Major Challenge: Parsing & Cleaning the Data
 
 One of the most significant challenges in this project was **data extraction**.
 
@@ -63,7 +63,7 @@ Only after this process was a **reliable, structured CSV** produced and committe
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 ### Backend
 - **FastAPI** for API + UI serving
@@ -82,7 +82,7 @@ Only after this process was a **reliable, structured CSV** produced and committe
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```drug-interaction-checker/
 ├── src/
@@ -114,17 +114,11 @@ Only after this process was a **reliable, structured CSV** produced and committe
 
 ---
 
-## 🤖 Use of Generative AI (and Why It’s Limited)
+## Use of Generative AI (and Why It’s Limited)
 
 ### What AI is used for
 - Translating structured interaction data into **plain-language explanations**
 - Improving interpretability for clinicians and students
-
-### What AI is *not* used for
-- ❌ No prediction of new interactions
-- ❌ No dosing recommendations
-- ❌ No safety assertions
-- ❌ No external medical knowledge injection
 
 ### Safeguards
 - AI receives **only structured JSON from the dataset**
@@ -159,7 +153,7 @@ This preserves provenance while improving usability.
 
 ---
 
-## 🚀 How to Use the App
+## How to Use the App
 
 ### For Users (UI)
 1. Open `/ui` in your browser
@@ -200,7 +194,7 @@ UI: http://127.0.0.1:8000/ui
 Docs: http://127.0.0.1:8000/docs
 ```
 
-### 🌍 Deployment
+### Deployment
 
 The app is deployed as a Docker container and can run on:
 
@@ -215,7 +209,7 @@ The app is deployed as a Docker container and can run on:
 - CORS_ORIGINS
 - DRUG_DATA_PATH (optional if CSV is committed)
 
-## ⚖️ Disclaimer
+## Disclaimer
 
 This tool is intended for educational and screening purposes only.
 
@@ -225,7 +219,7 @@ It does not replace:
 - pharmacist or physician consultation
 - **Always confirm interactions using authoritative clinical references.**
 
-### 🔮 Next Steps
+### Next Steps
 
 **Planned or possible extensions:**
 
