@@ -1,4 +1,4 @@
-# 🩺 Clinical Drug Interaction & Organ Impairment Checker
+# Clinical Drug Interaction & Organ Impairment Checker
 
 A clinically oriented drug–drug interaction screening tool that combines **deterministic pharmacokinetic data** with **carefully constrained generative explanations**, designed to surface enzyme-, transporter-, and organ-impairment–related interactions **without hallucinating medical facts**.
 
