@@ -134,7 +134,7 @@ AI output is explanatory only and never treated as evidence.
 
 ---
 
-## 🧬 Medical Terminology Translation
+## Medical Terminology Translation
 
 Raw dataset fields are translated into clinician-friendly labels using a glossary layer.
 
@@ -175,7 +175,7 @@ This preserves provenance while improving usability.
 
 ---
 
-## 🐳 Running with Docker
+## Running with Docker
 
 ### Build the image
 ```bash
@@ -230,4 +230,3 @@ It does not replace:
 - Additional datasets (hepatic impairment, pediatrics)
 - Improved evidence linking (PMID expansion)
 - Audit logging for clinical review
-- Optional removal of AI layer for fully deterministic mode
