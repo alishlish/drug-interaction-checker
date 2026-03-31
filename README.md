@@ -4,7 +4,7 @@ A clinically oriented drug–drug interaction screening tool that combines **det
 
 ---
 
-## 🔍 Purpose & Motivation
+## Purpose & Motivation
 
 This project was built to bridge the gap between:
 
@@ -38,7 +38,9 @@ The original data was provided as a **PDF containing complex tables**, including
 - Observed changes in exposure (ΔAUC)
 - Reference inhibitors and PMIDs
 
-More information available here: https://pmc.ncbi.nlm.nih.gov/articles/PMC4562165/
+More information available here: 
+
+https://pmc.ncbi.nlm.nih.gov/articles/PMC4562165/
 ---
 
 ## Major Challenge: Parsing & Cleaning the Data
