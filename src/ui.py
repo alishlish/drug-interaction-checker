@@ -13,4 +13,4 @@ def mount_ui(app: FastAPI, base_dir: str) -> None:
 
     @app.get("/ui", response_class=HTMLResponse)
     def ui(request: Request):
-        return templates.TemplateResponse("index.html", {"request": request})
+        return templates.TemplateResponse(request=request, name="index.html")
