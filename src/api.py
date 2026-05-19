@@ -8,10 +8,11 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from .ui import mount_ui
-from .models import DrugListRequest, ExplainRequest
+from .models import DrugListRequest, ExplainRequest, AnalyzeRequest
 from .services.data import load_datastore, normalize_drug_name, get_drug, search_drugs
 from .services.interactions import find_interaction
 from .services.llm import make_client, explain
+from .services.agent import make_agent
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -29,6 +30,7 @@ ALLOWED_ORIGINS = ["*"] if cors_origins_env.strip() == "*" else [
 
 datastore = load_datastore(DATA_PATH)
 llm_client = make_client(OPENAI_API_KEY)
+agent = make_agent(datastore)
 
 app = FastAPI(title="Drug Interaction Checker API", version="1.0.0")
 mount_ui(app, BASE_DIR)
@@ -113,6 +115,38 @@ def check_explain(req: ExplainRequest):
             results.append(inter)
 
     return {"interactions": results}
+
+
+@app.post("/analyze")
+def analyze(req: AnalyzeRequest):
+    if not req.drugs:
+        raise HTTPException(status_code=400, detail="Need at least 1 drug")
+
+    drugs = [normalize_drug_name(d) for d in req.drugs if d and d.strip()]
+    if not drugs:
+        raise HTTPException(status_code=400, detail="Need at least 1 non-empty drug name")
+
+    result = agent.invoke({
+        "drugs": drugs,
+        "renal_impairment": req.renal_impairment,
+        "hepatic_impairment": req.hepatic_impairment,
+        "retrieved_drugs": {},
+        "pk_context": [],
+        "interactions": [],
+        "impairment_flags": [],
+        "deep_evidence": [],
+        "key_flags": [],
+        "synthesis": "",
+    })
+
+    return {
+        "drugs": result["drugs"],
+        "interactions": result["interactions"],
+        "impairment_flags": result["impairment_flags"],
+        "deep_evidence": result.get("deep_evidence", []),
+        "key_flags": result["key_flags"],
+        "synthesis": result["synthesis"],
+    }
 
 
 if __name__ == "__main__":

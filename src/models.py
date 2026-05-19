@@ -30,3 +30,9 @@ class InteractionResult(BaseModel):
 
 class InteractionsResponse(BaseModel):
     interactions: List[InteractionResult]
+
+
+class AnalyzeRequest(BaseModel):
+    drugs: List[str] = Field(..., description="List of drug names (1 or more)")
+    renal_impairment: str = Field("none", description="none | mild | moderate | severe")
+    hepatic_impairment: str = Field("none", description="none | mild | moderate | severe")
