@@ -152,7 +152,8 @@ function createRow(initialValue = "") {
     }, 150);
   });
 
-  suggestions.addEventListener("click", async (e) => {
+  suggestions.addEventListener("mousedown", async (e) => {
+    e.preventDefault(); // prevents input blur before click registers
     const btn = e.target.closest("button");
     if (!btn) return;
     const val = btn.dataset.val;
