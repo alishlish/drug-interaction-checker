@@ -70,7 +70,11 @@ Only after this process was a **reliable, structured CSV** produced and committe
 ### Backend
 - **FastAPI** for API + UI serving
 - **Pandas** for data loading and normalization
-- Deterministic interaction logic (no ML inference)
+- Deterministic interaction logic for fast `/check` results
+- **LangGraph** agent pipeline for the `/analyze` endpoint
+- **Pinecone** vector store with OpenAI embeddings (`text-embedding-3-small`) for semantic drug retrieval
+- Semantic fallback: if a drug isn't found by name, the nearest pharmacokinetic match is retrieved by embedding similarity
+- Patient-context retrieval: organ impairment state (renal/hepatic) drives additional semantic queries to surface relevant PK context
 
 ### Frontend
 - Server-rendered HTML (Jinja2)
@@ -86,29 +90,33 @@ Only after this process was a **reliable, structured CSV** produced and committe
 
 ## Project Structure
 
-```drug-interaction-checker/
+```
+drug-interaction-checker/
 ├── src/
-│ ├── api.py # FastAPI app entrypoint
-│ ├── services/
-│ │ ├── data.py # Data loading & normalization
-│ │ ├── interactions.py# Deterministic interaction logic
-│ │ ├── present.py # Attribute glossary & translation
-│ │ └── llm.py # Constrained GenAI explanations
-│ ├── constants/ # Shared labels / mappings
-│ └── ui.py # UI routing
+│   ├── api.py                  # FastAPI app entrypoint
+│   ├── ui.py                   # UI routing
+│   ├── services/
+│   │   ├── data.py             # Data loading & normalization
+│   │   ├── interactions.py     # Deterministic interaction logic
+│   │   ├── present.py          # Attribute glossary & translation
+│   │   ├── llm.py              # Constrained GenAI explanations
+│   │   ├── agent.py            # LangGraph RAG agent (6-node pipeline)
+│   │   └── vector_store.py     # Pinecone index + embedding helpers
+│   ├── constants/
+│   ├── static/
+│   │   ├── app.js
+│   │   └── styles.css
+│   └── templates/
+│       └── index.html
 │
 ├── data/
-│ └── processed/
-│ └── drug_interactions_clean.csv
+│   └── processed/
+│       └── drug_interactions_clean.csv
 │
-├── templates/
-│ └── index.html # UI template
-├── static/
-│ ├── app.js # Frontend logic
-│ └── styles.css
+├── scripts/
+│   └── ingest.py               # One-time script to embed drugs into Pinecone
 │
 ├── Dockerfile
-├── .dockerignore
 ├── requirements.txt
 └── README.md
 ```
@@ -171,6 +179,7 @@ This preserves provenance while improving usability.
 - `/docs` – interactive Swagger documentation
 - `/check` – deterministic interaction checking
 - `/check/explain` – interaction + constrained explanation
+- `/analyze` – full RAG agent pipeline (semantic retrieval + LangGraph + LLM synthesis)
 - `/drug/{name}` – structured drug information
 
 ---
@@ -207,9 +216,12 @@ The app is deployed as a Docker container and can run on:
 
 ### Environment variables:
 
-- OPENAI_API_KEY (optional)
-- CORS_ORIGINS
-- DRUG_DATA_PATH (optional if CSV is committed)
+- `OPENAI_API_KEY` — required for `/analyze` and `/check/explain`
+- `PINECONE_API_KEY` — required for RAG pipeline
+- `PINECONE_INDEX_NAME` — Pinecone index name (default: `drug-interactions`)
+- `CORS_ORIGINS` — comma-separated origins or `*`
+- `DRUG_DATA_PATH` — optional if CSV is committed
+- `LLM_MODEL` — optional, defaults to `gpt-4.1-mini`
 
 ## Disclaimer
 
