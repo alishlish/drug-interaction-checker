@@ -236,8 +236,8 @@ async function hydrateDrugDetails(drugs) {
   return map;
 }
 
-function renderResults(data, drugDetailsMap) {
-  clearResults();
+function renderResults(data, drugDetailsMap, clear = true) {
+  if (clear) clearResults();
   const interactions = data?.interactions || [];
   if (!interactions.length) {
     resultsEl.innerHTML = `<div class="result"><div class="text">No results.</div></div>`;
@@ -379,12 +379,62 @@ async function runCheck(explain = false) {
   }
 }
 
+async function runAnalyze() {
+  clearResults();
+  const drugs = getDrugValues();
+
+  if (drugs.length < 2) {
+    setStatus("Add at least 2 drugs.");
+    return;
+  }
+
+  const anyInvalid = rows.some((r) => r.value?.trim() && r.valid === false);
+  if (anyInvalid) {
+    setStatus("One or more drugs are not found. Select from autocomplete or fix spelling.");
+    return;
+  }
+
+  setStatus("Analyzing…");
+
+  try {
+    const data = await postJson("/analyze", {
+      drugs,
+      renal_impairment: "none",
+      hepatic_impairment: "none",
+    });
+
+    const details = await hydrateDrugDetails(drugs);
+
+    if (data.synthesis || data.key_flags?.length) {
+      const synthDiv = document.createElement("div");
+      synthDiv.className = "result";
+
+      const flagsHtml = (data.key_flags || []).length
+        ? `<div class="subhead">Key flags</div><ul class="key-flags">${(data.key_flags).map((f) => `<li>${escapeHtml(f)}</li>`).join("")}</ul>`
+        : "";
+
+      synthDiv.innerHTML = `
+        <div class="badge mild">AI Analysis</div>
+        <div class="subhead" style="margin-top:10px">Summary</div>
+        <div class="text">${escapeHtml(data.synthesis || "")}</div>
+        ${flagsHtml}
+      `;
+      resultsEl.appendChild(synthDiv);
+    }
+
+    renderResults({ interactions: data.interactions }, details, false);
+    setStatus("Done ✅");
+  } catch (err) {
+    setStatus(`Error: ${err.message}`);
+  }
+}
+
 // --- Button handlers
 addBtn.addEventListener("click", () => createRow(""));
 swapBtn.addEventListener("click", swapFirstTwo);
 clearBtn.addEventListener("click", clearAll);
 checkBtn.addEventListener("click", () => runCheck(false));
-explainBtn.addEventListener("click", () => runCheck(true));
+explainBtn.addEventListener("click", runAnalyze);
 
 // init
 createRow("");
