@@ -130,6 +130,7 @@ def analyze(req: AnalyzeRequest):
         "drugs": drugs,
         "renal_impairment": req.renal_impairment,
         "hepatic_impairment": req.hepatic_impairment,
+        "question": req.question,
         "retrieved_drugs": {},
         "pk_context": [],
         "interactions": [],

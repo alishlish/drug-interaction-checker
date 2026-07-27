@@ -36,3 +36,4 @@ class AnalyzeRequest(BaseModel):
     drugs: List[str] = Field(..., description="List of drug names (1 or more)")
     renal_impairment: str = Field("none", description="none | mild | moderate | severe")
     hepatic_impairment: str = Field("none", description="none | mild | moderate | severe")
+    question: str = Field("", description="optional free-text question from the user")

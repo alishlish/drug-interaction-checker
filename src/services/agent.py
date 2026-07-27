@@ -10,11 +10,12 @@ from typing_extensions import TypedDict
 
 from .data import DataStore, normalize_drug_name
 from .interactions import find_interaction
-from .vector_store import make_pinecone_index, query_drug, _embed
+from .vector_store import make_pinecone_index, _embed
 
 
 class DrugAnalysisState(TypedDict):
     drugs: List[str]
+    question: str                # optional free-text question from the user
     renal_impairment: str        # "none" | "mild" | "moderate" | "severe"
     hepatic_impairment: str      # "none" | "mild" | "moderate" | "severe"
     retrieved_drugs: Dict[str, Any]
@@ -37,29 +38,24 @@ def make_agent(datastore: DataStore):
     openai_client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     pinecone_index = make_pinecone_index()
 
-    # ---------- node 1: retrieve drugs (with semantic fallback) ----------
+    # ---------- node 1: retrieve drugs (exact membership) ----------
     def retrieve_drugs(state: DrugAnalysisState) -> dict:
+        # Membership is an EXACT question and drug_map is the source of truth,
+        # so resolve names against it directly. No semantic substitution: a name
+        # that is not an exact dataset entry is reported not-found, never
+        # silently replaced by a pharmacokinetically-"similar" drug (that
+        # mapped nonsense like "asdfghjkl" onto real drugs).
+        # ponytail: exact-only, matching /check. Typo tolerance via
+        # difflib.get_close_matches(datastore.drug_names, cutoff~0.8) is a ready
+        # fast-follow if false refusals on misspellings become a problem.
         retrieved = {}
         for drug in state["drugs"]:
-            result = query_drug(pinecone_index, openai_client, drug)
-
-            # Semantic fallback: low-confidence name match → search by PK description
-            if not result.get("found") or result.get("score", 1.0) < 0.78:
-                fb_query = f"drug pharmacokinetics similar to {drug} renal hepatic enzyme metabolism"
-                vec = _embed(openai_client, fb_query)
-                fb = pinecone_index.query(vector=vec, top_k=1, include_metadata=True)
-                if fb.matches:
-                    m = fb.matches[0]
-                    meta = m.metadata or {}
-                    result = {
-                        "found": True,
-                        "_approximate": True,
-                        "_queried_as": drug,
-                        "score": round(m.score, 3),
-                        **meta,
-                    }
-
-            retrieved[drug] = result
+            key = normalize_drug_name(drug)
+            row = datastore.drug_map.get(key)
+            if row is None:
+                retrieved[drug] = {"found": False, "_queried_as": drug, "drug_name": key}
+            else:
+                retrieved[drug] = {"found": True, **row}
         return {"retrieved_drugs": retrieved}
 
     # ---------- node 2: patient-context retrieval (the real RAG step) ----------
@@ -219,15 +215,17 @@ def make_agent(datastore: DataStore):
 
     # ---------- node 5b: synthesize ----------
     def synthesize(state: DrugAnalysisState) -> dict:
-        # Flag any approximate matches so the LLM can mention them
-        approximate = [
-            f"{data.get('_queried_as', drug)} → closest match: {data.get('drug_name', '?')}"
+        # Names that are not exact dataset entries — the LLM must flag these as
+        # not analyzed, never substitute properties for them.
+        not_found = [
+            data.get("_queried_as", drug)
             for drug, data in state["retrieved_drugs"].items()
-            if data.get("_approximate")
+            if not data.get("found")
         ]
 
         payload = {
             "drugs": state["drugs"],
+            "user_question": state.get("question", ""),
             "renal_impairment": state["renal_impairment"],
             "hepatic_impairment": state["hepatic_impairment"],
             "drug_profiles": {
@@ -238,7 +236,7 @@ def make_agent(datastore: DataStore):
             "pairwise_interactions": state["interactions"],
             "organ_impairment_flags": state["impairment_flags"],
             "deep_evidence": state.get("deep_evidence", []),
-            "approximate_matches": approximate,
+            "drugs_not_in_dataset": not_found,
         }
 
         system = (
@@ -252,10 +250,14 @@ def make_agent(datastore: DataStore):
             "share PK properties relevant to this patient's organ function — use this to "
             "add nuance about the PK landscape (e.g. 'other renally cleared drugs like X "
             "share this risk profile'), but do not invent interactions.\n"
-            "- If approximate_matches is non-empty, note that those drugs were not found "
-            "exactly and results are based on the closest pharmacokinetic match.\n"
+            "- If drugs_not_in_dataset is non-empty, state clearly that those drugs are "
+            "NOT in the dataset and were not analyzed; do NOT substitute, guess, or infer "
+            "their properties from other drugs.\n"
             "- If deep_evidence is present, reference the AUC change for quantitative context.\n"
-            "- If data is missing, say 'insufficient data in dataset'.\n\n"
+            "- If data is missing, say 'insufficient data in dataset'.\n"
+            "- If user_question is present, address it directly in the summary — "
+            "but the ABSOLUTE RULES above still apply without exception (no dosing, "
+            "no safe/unsafe verdict, no recommendation, dataset facts only).\n\n"
             "OUTPUT FORMAT — return JSON only:\n"
             '{"summary": "2-4 sentence clinical narrative.", '
             '"key_flags": ["concern 1", "concern 2", ...]}\n'
