@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .ui import mount_ui
 from .models import DrugListRequest, ExplainRequest, AnalyzeRequest
 from .services.data import load_datastore, normalize_drug_name, get_drug, search_drugs
-from .services.interactions import find_interaction
+from .services.interactions import find_interaction, unique_pairs
 from .services.llm import make_client, explain
 from .services.agent import make_agent
 
@@ -30,7 +30,18 @@ ALLOWED_ORIGINS = ["*"] if cors_origins_env.strip() == "*" else [
 
 datastore = load_datastore(DATA_PATH)
 llm_client = make_client(OPENAI_API_KEY)
-agent = make_agent(datastore)
+
+# The agent needs OpenAI + Pinecone at construction, so build it lazily on the
+# first /analyze call. This lets the app boot (and /check, /drugs work) without
+# those keys — needed for local dev, CI, and the deterministic endpoints.
+_agent = None
+
+
+def get_agent():
+    global _agent
+    if _agent is None:
+        _agent = make_agent(datastore)
+    return _agent
 
 app = FastAPI(title="Drug Interaction Checker API", version="1.0.0")
 mount_ui(app, BASE_DIR)
@@ -83,10 +94,7 @@ def check(req: DrugListRequest):
     if len(drugs) < 2:
         raise HTTPException(status_code=400, detail="Need at least 2 non-empty drug names")
 
-    results = []
-    for i in range(len(drugs)):
-        for j in range(i + 1, len(drugs)):
-            results.append(find_interaction(datastore, drugs[i], drugs[j]))
+    results = [find_interaction(datastore, a, b) for a, b in unique_pairs(drugs)]
 
     return {"interactions": results}
 
@@ -101,18 +109,14 @@ def check_explain(req: ExplainRequest):
         raise HTTPException(status_code=400, detail="Need at least 2 non-empty drug names")
 
     results = []
-    for i in range(len(drugs)):
-        for j in range(i + 1, len(drugs)):
-            d1, d2 = drugs[i], drugs[j]
-            inter = find_interaction(datastore, d1, d2)
-
-            drug1 = get_drug(datastore, d1)
-            drug2 = get_drug(datastore, d2)
-
-            inter["llm_explanation"] = explain(
-                llm_client, inter, drug1, drug2, model=LLM_MODEL
-            )
-            results.append(inter)
+    for d1, d2 in unique_pairs(drugs):
+        inter = find_interaction(datastore, d1, d2)
+        drug1 = get_drug(datastore, d1)
+        drug2 = get_drug(datastore, d2)
+        inter["llm_explanation"] = explain(
+            llm_client, inter, drug1, drug2, model=LLM_MODEL
+        )
+        results.append(inter)
 
     return {"interactions": results}
 
@@ -126,7 +130,13 @@ def analyze(req: AnalyzeRequest):
     if not drugs:
         raise HTTPException(status_code=400, detail="Need at least 1 non-empty drug name")
 
-    result = agent.invoke({
+    if not OPENAI_API_KEY or not os.getenv("PINECONE_API_KEY"):
+        raise HTTPException(
+            status_code=503,
+            detail="Agent not configured (needs OPENAI_API_KEY and PINECONE_API_KEY)",
+        )
+
+    result = get_agent().invoke({
         "drugs": drugs,
         "renal_impairment": req.renal_impairment,
         "hepatic_impairment": req.hepatic_impairment,

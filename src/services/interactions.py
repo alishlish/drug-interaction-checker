@@ -20,6 +20,13 @@ def _norm_name(s: str) -> str:
     return (s or "").strip().lower()
 
 
+def unique_pairs(items):
+    """Every unordered pair (items[i], items[j]) with i < j."""
+    return [(items[i], items[j])
+            for i in range(len(items))
+            for j in range(i + 1, len(items))]
+
+
 def _severity_from_ref(delta_auc_pct: str) -> str:
     """
     Very conservative heuristic based ONLY on the dataset's delta AUC field.

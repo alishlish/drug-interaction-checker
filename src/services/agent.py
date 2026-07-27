@@ -9,7 +9,7 @@ from langgraph.graph import END, START, StateGraph
 from typing_extensions import TypedDict
 
 from .data import DataStore, normalize_drug_name
-from .interactions import find_interaction
+from .interactions import find_interaction, unique_pairs
 from .vector_store import make_pinecone_index, _embed
 
 
@@ -120,10 +120,7 @@ def make_agent(datastore: DataStore):
     # ---------- node 3: pairwise interactions ----------
     def check_interactions(state: DrugAnalysisState) -> dict:
         drugs = [normalize_drug_name(d) for d in state["drugs"]]
-        interactions = []
-        for i in range(len(drugs)):
-            for j in range(i + 1, len(drugs)):
-                interactions.append(find_interaction(datastore, drugs[i], drugs[j]))
+        interactions = [find_interaction(datastore, a, b) for a, b in unique_pairs(drugs)]
         return {"interactions": interactions}
 
     # ---------- node 4: organ impairment flags ----------
@@ -162,7 +159,6 @@ def make_agent(datastore: DataStore):
             if reasons:
                 flags.append({
                     "drug": drug_name,
-                    "approximate_match": data.get("_approximate", False),
                     "reasons": reasons,
                 })
 
