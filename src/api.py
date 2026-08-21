@@ -6,6 +6,7 @@ load_dotenv()
 import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
 from .ui import mount_ui
 from .models import DrugListRequest, ExplainRequest, AnalyzeRequest
@@ -58,7 +59,8 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Drug Interaction Checker API is running", "ui": "/ui", "docs": "/docs"}
+    # Land visitors on the UI; /health stays the JSON status endpoint.
+    return RedirectResponse(url="/ui")
 
 
 @app.get("/health")
