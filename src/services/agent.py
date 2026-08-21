@@ -15,6 +15,7 @@ from .vector_store import make_pinecone_index, _embed
 
 class DrugAnalysisState(TypedDict):
     drugs: List[str]
+    resolutions: List[Dict[str, Any]]  # brand/synonym -> dataset drug (via RxNorm)
     question: str                # optional free-text question from the user
     renal_impairment: str        # "none" | "mild" | "moderate" | "severe"
     hepatic_impairment: str      # "none" | "mild" | "moderate" | "severe"
@@ -29,9 +30,51 @@ class DrugAnalysisState(TypedDict):
 
 _PK_FIELDS = ("drug_name", "fe", "renal", "non_renal", "enzymes", "transporters")
 
+# Pinecone cosine-similarity floors for the two RAG nodes (tuning constants, not
+# secrets — kept named so they're greppable and adjustable in one place).
+_CONTEXT_MIN_SCORE = 0.55       # retrieve_context: PK-landscape relevance floor
+_DEEP_EVIDENCE_MIN_SCORE = 0.75  # deep_evidence: same-pathway similarity floor
+
 
 def _pk_summary(meta: dict) -> dict:
     return {k: meta.get(k, "") for k in _PK_FIELDS}
+
+
+def resolve_drug(datastore: DataStore, name: str) -> Dict[str, Any]:
+    """Exact-membership drug resolution — the core of the no-silent-substitution
+    guarantee. Returns the dataset row if the name is an exact entry, otherwise
+    a not-found marker. Never substitutes a pharmacokinetically-similar drug."""
+    key = normalize_drug_name(name)
+    row = datastore.drug_map.get(key)
+    if row is None:
+        return {"found": False, "_queried_as": name, "drug_name": key}
+    return {"found": True, **row}
+
+
+def organ_impairment_reasons(data: Dict[str, Any], renal: str, hepatic: str) -> List[str]:
+    """PK reasons a drug may be affected by the given organ impairment. Pure
+    function over one resolved drug row + the impairment levels."""
+    reasons: List[str] = []
+    if renal != "none":
+        try:
+            fe = float(data.get("fe", ""))
+            if fe >= 0.3:
+                reasons.append(
+                    f"fe={fe:.2f} — high renal excretion; "
+                    f"may accumulate with {renal} renal impairment"
+                )
+        except (ValueError, TypeError):
+            pass
+        if str(data.get("renal", "")).strip().upper() == "YES":
+            reasons.append("marked as renally cleared in dataset")
+    if hepatic != "none":
+        enzymes = str(data.get("enzymes", "")).strip()
+        if enzymes and enzymes.lower() not in ("", "none", "nan", "not specified pl"):
+            reasons.append(
+                f"metabolized by {enzymes}; "
+                f"{hepatic} hepatic impairment may alter clearance"
+            )
+    return reasons
 
 
 def make_agent(datastore: DataStore):
@@ -48,15 +91,7 @@ def make_agent(datastore: DataStore):
         # ponytail: exact-only, matching /check. Typo tolerance via
         # difflib.get_close_matches(datastore.drug_names, cutoff~0.8) is a ready
         # fast-follow if false refusals on misspellings become a problem.
-        retrieved = {}
-        for drug in state["drugs"]:
-            key = normalize_drug_name(drug)
-            row = datastore.drug_map.get(key)
-            if row is None:
-                retrieved[drug] = {"found": False, "_queried_as": drug, "drug_name": key}
-            else:
-                retrieved[drug] = {"found": True, **row}
-        return {"retrieved_drugs": retrieved}
+        return {"retrieved_drugs": {d: resolve_drug(datastore, d) for d in state["drugs"]}}
 
     # ---------- node 2: patient-context retrieval (the real RAG step) ----------
     def retrieve_context(state: DrugAnalysisState) -> dict:
@@ -101,7 +136,7 @@ def make_agent(datastore: DataStore):
             for match in results.matches:
                 meta = match.metadata or {}
                 name = meta.get("drug_name", "")
-                if name and name not in seen and match.score > 0.55:
+                if name and name not in seen and match.score > _CONTEXT_MIN_SCORE:
                     seen.add(name)
                     context[name] = {
                         **_pk_summary(meta),
@@ -132,35 +167,9 @@ def make_agent(datastore: DataStore):
         for drug_name, data in state["retrieved_drugs"].items():
             if not data.get("found"):
                 continue
-
-            reasons = []
-
-            if renal != "none":
-                try:
-                    fe = float(data.get("fe", ""))
-                    if fe >= 0.3:
-                        reasons.append(
-                            f"fe={fe:.2f} — high renal excretion; "
-                            f"may accumulate with {renal} renal impairment"
-                        )
-                except (ValueError, TypeError):
-                    pass
-                if str(data.get("renal", "")).strip().upper() == "YES":
-                    reasons.append("marked as renally cleared in dataset")
-
-            if hepatic != "none":
-                enzymes = str(data.get("enzymes", "")).strip()
-                if enzymes and enzymes.lower() not in ("", "none", "nan", "not specified pl"):
-                    reasons.append(
-                        f"metabolized by {enzymes}; "
-                        f"{hepatic} hepatic impairment may alter clearance"
-                    )
-
+            reasons = organ_impairment_reasons(data, renal, hepatic)
             if reasons:
-                flags.append({
-                    "drug": drug_name,
-                    "reasons": reasons,
-                })
+                flags.append({"drug": drug_name, "reasons": reasons})
 
         return {"impairment_flags": flags}
 
@@ -192,7 +201,7 @@ def make_agent(datastore: DataStore):
             for match in results.matches:
                 meta = match.metadata or {}
                 name = meta.get("drug_name", "")
-                if name and name not in seen and match.score > 0.75:
+                if name and name not in seen and match.score > _DEEP_EVIDENCE_MIN_SCORE:
                     seen.add(name)
                     related.append({**_pk_summary(meta), "similarity": round(match.score, 3)})
 
@@ -221,6 +230,7 @@ def make_agent(datastore: DataStore):
 
         payload = {
             "drugs": state["drugs"],
+            "resolved_from": state.get("resolutions", []),
             "user_question": state.get("question", ""),
             "renal_impairment": state["renal_impairment"],
             "hepatic_impairment": state["hepatic_impairment"],
@@ -249,7 +259,12 @@ def make_agent(datastore: DataStore):
             "- If drugs_not_in_dataset is non-empty, state clearly that those drugs are "
             "NOT in the dataset and were not analyzed; do NOT substitute, guess, or infer "
             "their properties from other drugs.\n"
+            "- If resolved_from is non-empty, note that the named input was interpreted as "
+            "its dataset drug (e.g. a brand name mapped to its generic via RxNorm).\n"
             "- If deep_evidence is present, reference the AUC change for quantitative context.\n"
+            "- A pairwise_interaction may include a `ddinter` block — an independent, "
+            "curated clinical source (DDInter 2.0) with a severity Level. When it is listed, "
+            "cite that clinical severity alongside the dataset's own PK evidence.\n"
             "- If data is missing, say 'insufficient data in dataset'.\n"
             "- If user_question is present, address it directly in the summary — "
             "but the ABSOLUTE RULES above still apply without exception (no dosing, "

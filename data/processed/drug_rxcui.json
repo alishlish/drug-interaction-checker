@@ -1,0 +1,1357 @@
+{
+  "(s)-citalopram": {
+    "rxcui": "321988",
+    "tier": "exact",
+    "rxnorm_name": "escitalopram"
+  },
+  "(s)-omeprazole": {
+    "rxcui": "283742",
+    "tier": "exact",
+    "rxnorm_name": "esomeprazole"
+  },
+  "abiraterone": {
+    "rxcui": "1100071",
+    "tier": "exact",
+    "rxnorm_name": "abiraterone acetate"
+  },
+  "acetylcysteine": {
+    "rxcui": "197",
+    "tier": "exact",
+    "rxnorm_name": "acetylcysteine"
+  },
+  "aclidinium": {
+    "rxcui": "1303097",
+    "tier": "exact",
+    "rxnorm_name": "aclidinium bromide"
+  },
+  "acyclovir": {
+    "rxcui": "281",
+    "tier": "exact",
+    "rxnorm_name": "acyclovir"
+  },
+  "alfentanil": {
+    "rxcui": "203203",
+    "tier": "exact",
+    "rxnorm_name": "alfentanil hydrochloride"
+  },
+  "alfuzosin": {
+    "rxcui": "17300",
+    "tier": "exact",
+    "rxnorm_name": "alfuzosin"
+  },
+  "aliskiren": {
+    "rxcui": "325646",
+    "tier": "exact",
+    "rxnorm_name": "aliskiren"
+  },
+  "alogliptin": {
+    "rxcui": "1368000",
+    "tier": "exact",
+    "rxnorm_name": "alogliptin benzoate"
+  },
+  "alvimopan": {
+    "rxcui": "480639",
+    "tier": "exact",
+    "rxnorm_name": "alvimopan"
+  },
+  "ambrisentan": {
+    "rxcui": "358274",
+    "tier": "exact",
+    "rxnorm_name": "ambrisentan"
+  },
+  "amprenavir": {
+    "rxcui": "228656",
+    "tier": "exact",
+    "rxnorm_name": "amprenavir"
+  },
+  "anidulafungin": {
+    "rxcui": "341018",
+    "tier": "exact",
+    "rxnorm_name": "anidulafungin"
+  },
+  "antipyrine": {
+    "rxcui": "1001",
+    "tier": "exact",
+    "rxnorm_name": "antipyrine"
+  },
+  "apixaban": {
+    "rxcui": "1364430",
+    "tier": "exact",
+    "rxnorm_name": "apixaban"
+  },
+  "argatroban": {
+    "rxcui": "15202",
+    "tier": "exact",
+    "rxnorm_name": "argatroban"
+  },
+  "aripiprazole": {
+    "rxcui": "89013",
+    "tier": "exact",
+    "rxnorm_name": "aripiprazole"
+  },
+  "arsenic trioxide": {
+    "rxcui": "18330",
+    "tier": "exact",
+    "rxnorm_name": "arsenic trioxide"
+  },
+  "asenapine": {
+    "rxcui": "784649",
+    "tier": "exact",
+    "rxnorm_name": "asenapine"
+  },
+  "atomoxetine": {
+    "rxcui": "353103",
+    "tier": "exact",
+    "rxnorm_name": "atomoxetine hydrochloride"
+  },
+  "avanafil": {
+    "rxcui": "1291301",
+    "tier": "exact",
+    "rxnorm_name": "avanafil"
+  },
+  "axitinib": {
+    "rxcui": "1242999",
+    "tier": "exact",
+    "rxnorm_name": "axitinib"
+  },
+  "azilsartan": {
+    "rxcui": "1091643",
+    "tier": "exact",
+    "rxnorm_name": "azilsartan"
+  },
+  "azimilide- not approved in usa": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "bedaquiline": {
+    "rxcui": "1364504",
+    "tier": "exact",
+    "rxnorm_name": "bedaquiline"
+  },
+  "bilastine -not approved": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "boceprevir": {
+    "rxcui": "1102129",
+    "tier": "exact",
+    "rxnorm_name": "boceprevir"
+  },
+  "bortezomib": {
+    "rxcui": "358258",
+    "tier": "exact",
+    "rxnorm_name": "bortezomib"
+  },
+  "bosutinib": {
+    "rxcui": "1307619",
+    "tier": "exact",
+    "rxnorm_name": "bosutinib"
+  },
+  "brivaracetam": {
+    "rxcui": "1739745",
+    "tier": "exact",
+    "rxnorm_name": "brivaracetam"
+  },
+  "bupropion": {
+    "rxcui": "203204",
+    "tier": "exact",
+    "rxnorm_name": "bupropion hydrochloride"
+  },
+  "caffeine": {
+    "rxcui": "142218",
+    "tier": "exact",
+    "rxnorm_name": "benzoate / caffeine"
+  },
+  "canagliflozin": {
+    "rxcui": "1373458",
+    "tier": "exact",
+    "rxnorm_name": "canagliflozin"
+  },
+  "candesartan": {
+    "rxcui": "214354",
+    "tier": "exact",
+    "rxnorm_name": "candesartan"
+  },
+  "capecitabine": {
+    "rxcui": "194000",
+    "tier": "exact",
+    "rxnorm_name": "capecitabine"
+  },
+  "carisbamate": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "casopitant-not approve": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "caspofungin": {
+    "rxcui": "140108",
+    "tier": "exact",
+    "rxnorm_name": "caspofungin"
+  },
+  "cediranib-not approved in usa": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "cefmetazole": {
+    "rxcui": "2182",
+    "tier": "exact",
+    "rxnorm_name": "cefmetazole"
+  },
+  "ceftaroline": {
+    "rxcui": "1040005",
+    "tier": "exact",
+    "rxnorm_name": "ceftaroline"
+  },
+  "ceftizoxime": {
+    "rxcui": "2192",
+    "tier": "exact",
+    "rxnorm_name": "ceftizoxime"
+  },
+  "cerivastatin": {
+    "rxcui": "596723",
+    "tier": "exact",
+    "rxnorm_name": "cerivastatin"
+  },
+  "chlormethiazole": {
+    "rxcui": "2372",
+    "tier": "exact",
+    "rxnorm_name": "chlormethiazole"
+  },
+  "chlorzoxazone": {
+    "rxcui": "2410",
+    "tier": "exact",
+    "rxnorm_name": "chlorzoxazone"
+  },
+  "cidofovir": {
+    "rxcui": "83171",
+    "tier": "exact",
+    "rxnorm_name": "cidofovir"
+  },
+  "cilostazol": {
+    "rxcui": "21107",
+    "tier": "exact",
+    "rxnorm_name": "cilostazol"
+  },
+  "cinacalcet": {
+    "rxcui": "384379",
+    "tier": "exact",
+    "rxnorm_name": "cinacalcet hydrochloride"
+  },
+  "ciprofloxacin": {
+    "rxcui": "235851",
+    "tier": "exact",
+    "rxnorm_name": "ciprofloxacin lactate"
+  },
+  "citalopram": {
+    "rxcui": "2556",
+    "tier": "exact",
+    "rxnorm_name": "citalopram"
+  },
+  "clarithromycin": {
+    "rxcui": "21212",
+    "tier": "exact",
+    "rxnorm_name": "clarithromycin"
+  },
+  "clinafloxacin": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "clobazam": {
+    "rxcui": "21241",
+    "tier": "exact",
+    "rxnorm_name": "clobazam"
+  },
+  "cobicistat (gs-9350)": {
+    "rxcui": "1306284",
+    "tier": "verified",
+    "rxnorm_name": "cobicistat"
+  },
+  "conivaptan": {
+    "rxcui": "1294548",
+    "tier": "exact",
+    "rxnorm_name": "conivaptan hydrochloride"
+  },
+  "cyclophosphamide": {
+    "rxcui": "2679071",
+    "tier": "exact",
+    "rxnorm_name": "cyclophosphamide monohydrate"
+  },
+  "d-nebivolol": {
+    "rxcui": "31555",
+    "tier": "verified",
+    "rxnorm_name": "nebivolol"
+  },
+  "dabigatran": {
+    "rxcui": "1546356",
+    "tier": "exact",
+    "rxnorm_name": "dabigatran"
+  },
+  "dapagliflozin": {
+    "rxcui": "1488564",
+    "tier": "exact",
+    "rxnorm_name": "dapagliflozin"
+  },
+  "darunavir": {
+    "rxcui": "2637854",
+    "tier": "exact",
+    "rxnorm_name": "darunavir hydrate"
+  },
+  "debrisoquine": {
+    "rxcui": "203120",
+    "tier": "exact",
+    "rxnorm_name": "debrisoquine sulfate"
+  },
+  "desloratadine (descarboethoxyloratadine": {
+    "rxcui": "275635",
+    "tier": "verified",
+    "rxnorm_name": "desloratadine"
+  },
+  "desvenlafaxine (o-desmethylvenlafaxine": {
+    "rxcui": "734064",
+    "tier": "verified",
+    "rxnorm_name": "desvenlafaxine"
+  },
+  "dexmedetomidine": {
+    "rxcui": "228054",
+    "tier": "exact",
+    "rxnorm_name": "dexmedetomidine hydrochloride"
+  },
+  "diazepam": {
+    "rxcui": "3322",
+    "tier": "exact",
+    "rxnorm_name": "diazepam"
+  },
+  "didanosine (2,3-dideoxyinosine)": {
+    "rxcui": "3364",
+    "tier": "verified",
+    "rxnorm_name": "didanosine"
+  },
+  "donepezil": {
+    "rxcui": "135447",
+    "tier": "exact",
+    "rxnorm_name": "donepezil"
+  },
+  "doripenem": {
+    "rxcui": "119771",
+    "tier": "exact",
+    "rxnorm_name": "doripenem"
+  },
+  "doxazosin": {
+    "rxcui": "39173",
+    "tier": "exact",
+    "rxnorm_name": "doxazosin mesylate"
+  },
+  "dronedarone": {
+    "rxcui": "233698",
+    "tier": "exact",
+    "rxnorm_name": "dronedarone"
+  },
+  "drospirenone": {
+    "rxcui": "11636",
+    "tier": "exact",
+    "rxnorm_name": "drospirenone"
+  },
+  "duloxetine": {
+    "rxcui": "476250",
+    "tier": "exact",
+    "rxnorm_name": "duloxetine hydrochloride"
+  },
+  "ebastine": {
+    "rxcui": "23796",
+    "tier": "exact",
+    "rxnorm_name": "ebastine"
+  },
+  "elvitegravir (gs-9137)": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "emedastine": {
+    "rxcui": "28144",
+    "tier": "exact",
+    "rxnorm_name": "emedastine"
+  },
+  "enalapril": {
+    "rxcui": "203123",
+    "tier": "exact",
+    "rxnorm_name": "enalapril maleate"
+  },
+  "enalaprilat": {
+    "rxcui": "3829",
+    "tier": "exact",
+    "rxnorm_name": "enalaprilat"
+  },
+  "enfuvirtide": {
+    "rxcui": "139896",
+    "tier": "exact",
+    "rxnorm_name": "enfuvirtide"
+  },
+  "enzalutamide": {
+    "rxcui": "1307298",
+    "tier": "exact",
+    "rxnorm_name": "enzalutamide"
+  },
+  "eplerenone": {
+    "rxcui": "298869",
+    "tier": "exact",
+    "rxnorm_name": "eplerenone"
+  },
+  "eprosartan": {
+    "rxcui": "236878",
+    "tier": "exact",
+    "rxnorm_name": "eprosartan mesylate"
+  },
+  "eribulin": {
+    "rxcui": "1045452",
+    "tier": "exact",
+    "rxnorm_name": "eribulin mesylate"
+  },
+  "erlotinib": {
+    "rxcui": "337525",
+    "tier": "exact",
+    "rxnorm_name": "erlotinib"
+  },
+  "erythromycin (iv)": {
+    "rxcui": "4053",
+    "tier": "verified",
+    "rxnorm_name": "erythromycin"
+  },
+  "erythromycin (po)": {
+    "rxcui": "4053",
+    "tier": "verified",
+    "rxnorm_name": "erythromycin"
+  },
+  "eslicarbazepine": {
+    "rxcui": "1482501",
+    "tier": "exact",
+    "rxnorm_name": "eslicarbazepine acetate"
+  },
+  "etoposide": {
+    "rxcui": "24614",
+    "tier": "exact",
+    "rxnorm_name": "etoposide phosphate"
+  },
+  "etoricoxib - not approve": {
+    "rxcui": "307296",
+    "tier": "verified",
+    "rxnorm_name": "etoricoxib"
+  },
+  "etravirine": {
+    "rxcui": "475969",
+    "tier": "exact",
+    "rxnorm_name": "etravirine"
+  },
+  "everolimus": {
+    "rxcui": "141704",
+    "tier": "exact",
+    "rxnorm_name": "everolimus"
+  },
+  "exemestane": {
+    "rxcui": "258494",
+    "tier": "exact",
+    "rxnorm_name": "exemestane"
+  },
+  "febuxostat": {
+    "rxcui": "73689",
+    "tier": "exact",
+    "rxnorm_name": "febuxostat"
+  },
+  "felbamate": {
+    "rxcui": "24812",
+    "tier": "exact",
+    "rxnorm_name": "felbamate"
+  },
+  "fesoterodine": {
+    "rxcui": "797195",
+    "tier": "exact",
+    "rxnorm_name": "fesoterodine"
+  },
+  "fexofenadine": {
+    "rxcui": "236474",
+    "tier": "exact",
+    "rxnorm_name": "fexofenadine hydrochloride"
+  },
+  "fingolimod": {
+    "rxcui": "1012891",
+    "tier": "exact",
+    "rxnorm_name": "fingolimod hydrochloride"
+  },
+  "fleroxacin": {
+    "rxcui": "42322",
+    "tier": "exact",
+    "rxnorm_name": "fleroxacin"
+  },
+  "fluconazole": {
+    "rxcui": "4450",
+    "tier": "exact",
+    "rxnorm_name": "fluconazole"
+  },
+  "fludarabine": {
+    "rxcui": "24698",
+    "tier": "exact",
+    "rxnorm_name": "fludarabine"
+  },
+  "fluticasone": {
+    "rxcui": "41126",
+    "tier": "exact",
+    "rxnorm_name": "fluticasone"
+  },
+  "fluvastatin": {
+    "rxcui": "41127",
+    "tier": "exact",
+    "rxnorm_name": "fluvastatin"
+  },
+  "foscarnet": {
+    "rxcui": "33562",
+    "tier": "exact",
+    "rxnorm_name": "foscarnet"
+  },
+  "gadoxetic acid": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "galantamine": {
+    "rxcui": "2690627",
+    "tier": "exact",
+    "rxnorm_name": "benzgalantamine"
+  },
+  "ganciclovir": {
+    "rxcui": "4678",
+    "tier": "exact",
+    "rxnorm_name": "ganciclovir"
+  },
+  "garenoxacin-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "gatifloxacin": {
+    "rxcui": "228476",
+    "tier": "exact",
+    "rxnorm_name": "gatifloxacin"
+  },
+  "gefitinib": {
+    "rxcui": "328134",
+    "tier": "exact",
+    "rxnorm_name": "gefitinib"
+  },
+  "grepafloxacin": {
+    "rxcui": "236862",
+    "tier": "exact",
+    "rxnorm_name": "grepafloxacin hydrochloride"
+  },
+  "hydrochlorothiazide": {
+    "rxcui": "5487",
+    "tier": "exact",
+    "rxnorm_name": "hydrochlorothiazide"
+  },
+  "hydromorphone": {
+    "rxcui": "203177",
+    "tier": "exact",
+    "rxnorm_name": "hydromorphone hydrochloride"
+  },
+  "hydroxyurea": {
+    "rxcui": "5552",
+    "tier": "exact",
+    "rxnorm_name": "hydroxyurea"
+  },
+  "ibandronate": {
+    "rxcui": "115264",
+    "tier": "exact",
+    "rxnorm_name": "ibandronate"
+  },
+  "iloperidone": {
+    "rxcui": "73178",
+    "tier": "exact",
+    "rxnorm_name": "iloperidone"
+  },
+  "imatinib": {
+    "rxcui": "282388",
+    "tier": "exact",
+    "rxnorm_name": "imatinib"
+  },
+  "ipragliflozin-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "ivacaftor": {
+    "rxcui": "1243041",
+    "tier": "exact",
+    "rxnorm_name": "ivacaftor"
+  },
+  "ixabepilone": {
+    "rxcui": "337523",
+    "tier": "exact",
+    "rxnorm_name": "ixabepilone"
+  },
+  "lacosamide": {
+    "rxcui": "623400",
+    "tier": "exact",
+    "rxnorm_name": "lacosamide"
+  },
+  "lamivudine": {
+    "rxcui": "68244",
+    "tier": "exact",
+    "rxnorm_name": "lamivudine"
+  },
+  "lansoprazole": {
+    "rxcui": "17128",
+    "tier": "exact",
+    "rxnorm_name": "lansoprazole"
+  },
+  "lapatinib": {
+    "rxcui": "480167",
+    "tier": "exact",
+    "rxnorm_name": "lapatinib"
+  },
+  "laropiprant": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "lasofoxifene": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "lenalidomide": {
+    "rxcui": "342369",
+    "tier": "exact",
+    "rxnorm_name": "lenalidomide"
+  },
+  "levetiracetam": {
+    "rxcui": "114477",
+    "tier": "exact",
+    "rxnorm_name": "levetiracetam"
+  },
+  "levosimendan-not approved in us": {
+    "rxcui": "73107",
+    "tier": "verified",
+    "rxnorm_name": "levosimendan"
+  },
+  "lidocaine": {
+    "rxcui": "142440",
+    "tier": "exact",
+    "rxnorm_name": "lidocaine hydrochloride"
+  },
+  "linagliptin": {
+    "rxcui": "1100699",
+    "tier": "exact",
+    "rxnorm_name": "linagliptin"
+  },
+  "linezolid": {
+    "rxcui": "190376",
+    "tier": "exact",
+    "rxnorm_name": "linezolid"
+  },
+  "liraglutide": {
+    "rxcui": "475968",
+    "tier": "exact",
+    "rxnorm_name": "liraglutide"
+  },
+  "lisinopril": {
+    "rxcui": "29046",
+    "tier": "exact",
+    "rxnorm_name": "lisinopril"
+  },
+  "lomefloxacin": {
+    "rxcui": "235762",
+    "tier": "exact",
+    "rxnorm_name": "lomefloxacin hydrochloride"
+  },
+  "lomitapide": {
+    "rxcui": "1364478",
+    "tier": "exact",
+    "rxnorm_name": "lomitapide mesylate"
+  },
+  "lopinavir": {
+    "rxcui": "195088",
+    "tier": "exact",
+    "rxnorm_name": "lopinavir"
+  },
+  "lorazepam": {
+    "rxcui": "6470",
+    "tier": "exact",
+    "rxnorm_name": "lorazepam"
+  },
+  "losartan": {
+    "rxcui": "52175",
+    "tier": "exact",
+    "rxnorm_name": "losartan"
+  },
+  "lurasidone": {
+    "rxcui": "1040027",
+    "tier": "exact",
+    "rxnorm_name": "lurasidone hydrochloride"
+  },
+  "manidipine-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "maraviroc": {
+    "rxcui": "620216",
+    "tier": "exact",
+    "rxnorm_name": "maraviroc"
+  },
+  "maribavir-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "memantine": {
+    "rxcui": "236685",
+    "tier": "exact",
+    "rxnorm_name": "memantine hydrochloride"
+  },
+  "methotrexate": {
+    "rxcui": "6851",
+    "tier": "exact",
+    "rxnorm_name": "methotrexate"
+  },
+  "micafungin": {
+    "rxcui": "325887",
+    "tier": "exact",
+    "rxnorm_name": "micafungin"
+  },
+  "midazolam (iv)": {
+    "rxcui": "6960",
+    "tier": "verified",
+    "rxnorm_name": "midazolam"
+  },
+  "midazolam (po)": {
+    "rxcui": "6960",
+    "tier": "verified",
+    "rxnorm_name": "midazolam"
+  },
+  "milnacipran": {
+    "rxcui": "30003",
+    "tier": "exact",
+    "rxnorm_name": "milnacipran hydrochloride"
+  },
+  "mirabegron": {
+    "rxcui": "1300786",
+    "tier": "exact",
+    "rxnorm_name": "mirabegron"
+  },
+  "mirodenafil-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "moxifloxacin": {
+    "rxcui": "139462",
+    "tier": "exact",
+    "rxnorm_name": "moxifloxacin"
+  },
+  "mycophenolic acid": {
+    "rxcui": "7145",
+    "tier": "exact",
+    "rxnorm_name": "mycophenolic acid"
+  },
+  "naloxone": {
+    "rxcui": "203192",
+    "tier": "exact",
+    "rxnorm_name": "naloxone hydrochloride"
+  },
+  "naltrexone": {
+    "rxcui": "105069",
+    "tier": "exact",
+    "rxnorm_name": "naltrexone hydrochloride"
+  },
+  "nebivolol (racemic)": {
+    "rxcui": "31555",
+    "tier": "verified",
+    "rxnorm_name": "nebivolol"
+  },
+  "nefazodone": {
+    "rxcui": "236082",
+    "tier": "exact",
+    "rxnorm_name": "nefazodone hydrochloride"
+  },
+  "nelfinavir": {
+    "rxcui": "134527",
+    "tier": "exact",
+    "rxnorm_name": "nelfinavir"
+  },
+  "nilotinib": {
+    "rxcui": "1804015",
+    "tier": "exact",
+    "rxnorm_name": "nilotinib hydrochloride"
+  },
+  "norfloxacin": {
+    "rxcui": "7517",
+    "tier": "exact",
+    "rxnorm_name": "norfloxacin"
+  },
+  "ofloxacin": {
+    "rxcui": "7623",
+    "tier": "exact",
+    "rxnorm_name": "ofloxacin"
+  },
+  "olmesartan": {
+    "rxcui": "321064",
+    "tier": "exact",
+    "rxnorm_name": "olmesartan"
+  },
+  "omeprazole": {
+    "rxcui": "283742",
+    "tier": "exact",
+    "rxnorm_name": "esomeprazole"
+  },
+  "ondansetron": {
+    "rxcui": "203148",
+    "tier": "exact",
+    "rxnorm_name": "ondansetron hydrochloride"
+  },
+  "oseltamivir carboxylate": {
+    "rxcui": "1546279",
+    "tier": "exact",
+    "rxnorm_name": "oseltamivir carboxylate"
+  },
+  "ospemifene": {
+    "rxcui": "1370971",
+    "tier": "exact",
+    "rxnorm_name": "ospemifene"
+  },
+  "oxaliplatin": {
+    "rxcui": "32592",
+    "tier": "exact",
+    "rxnorm_name": "oxaliplatin"
+  },
+  "paliperidone (9-hydroxyrisperidone)": {
+    "rxcui": "679314",
+    "tier": "verified",
+    "rxnorm_name": "paliperidone"
+  },
+  "pantoprazole": {
+    "rxcui": "40790",
+    "tier": "exact",
+    "rxnorm_name": "pantoprazole"
+  },
+  "paricalcitol": {
+    "rxcui": "73710",
+    "tier": "exact",
+    "rxnorm_name": "paricalcitol"
+  },
+  "pasireotide": {
+    "rxcui": "1364105",
+    "tier": "exact",
+    "rxnorm_name": "pasireotide"
+  },
+  "pazopanib": {
+    "rxcui": "714438",
+    "tier": "exact",
+    "rxnorm_name": "pazopanib"
+  },
+  "peginterferon alpha-2b": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "perampanel": {
+    "rxcui": "1356552",
+    "tier": "exact",
+    "rxnorm_name": "perampanel"
+  },
+  "phenytoin": {
+    "rxcui": "8183",
+    "tier": "exact",
+    "rxnorm_name": "phenytoin"
+  },
+  "pioglitazone": {
+    "rxcui": "259319",
+    "tier": "exact",
+    "rxnorm_name": "pioglitazone hydrochloride"
+  },
+  "pitavastatin": {
+    "rxcui": "861634",
+    "tier": "exact",
+    "rxnorm_name": "pitavastatin"
+  },
+  "posaconazole": {
+    "rxcui": "282446",
+    "tier": "exact",
+    "rxnorm_name": "posaconazole"
+  },
+  "prasugrel": {
+    "rxcui": "613391",
+    "tier": "exact",
+    "rxnorm_name": "prasugrel"
+  },
+  "pravastatin": {
+    "rxcui": "42463",
+    "tier": "exact",
+    "rxnorm_name": "pravastatin"
+  },
+  "pregabalin": {
+    "rxcui": "187832",
+    "tier": "exact",
+    "rxnorm_name": "pregabalin"
+  },
+  "quetiapine": {
+    "rxcui": "51272",
+    "tier": "exact",
+    "rxnorm_name": "quetiapine"
+  },
+  "rabeprazole": {
+    "rxcui": "114979",
+    "tier": "exact",
+    "rxnorm_name": "rabeprazole"
+  },
+  "raloxifene": {
+    "rxcui": "166551",
+    "tier": "exact",
+    "rxnorm_name": "raloxifene hydrochloride"
+  },
+  "raltegravir": {
+    "rxcui": "719872",
+    "tier": "exact",
+    "rxnorm_name": "raltegravir"
+  },
+  "ramipril": {
+    "rxcui": "35296",
+    "tier": "exact",
+    "rxnorm_name": "ramipril"
+  },
+  "ramiprilat": {
+    "rxcui": "1546377",
+    "tier": "exact",
+    "rxnorm_name": "ramiprilat"
+  },
+  "ranolazine": {
+    "rxcui": "35829",
+    "tier": "exact",
+    "rxnorm_name": "ranolazine"
+  },
+  "rasagiline": {
+    "rxcui": "134748",
+    "tier": "exact",
+    "rxnorm_name": "rasagiline"
+  },
+  "reboxetine": {
+    "rxcui": "60841",
+    "tier": "exact",
+    "rxnorm_name": "reboxetine mesylate"
+  },
+  "regorafenib": {
+    "rxcui": "1312397",
+    "tier": "exact",
+    "rxnorm_name": "regorafenib"
+  },
+  "repaglinide": {
+    "rxcui": "73044",
+    "tier": "exact",
+    "rxnorm_name": "repaglinide"
+  },
+  "retigabine (ezogabine)": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "ribavirin": {
+    "rxcui": "9344",
+    "tier": "exact",
+    "rxnorm_name": "ribavirin"
+  },
+  "rilpivirine": {
+    "rxcui": "1102270",
+    "tier": "exact",
+    "rxnorm_name": "rilpivirine"
+  },
+  "risperidone": {
+    "rxcui": "35636",
+    "tier": "exact",
+    "rxnorm_name": "risperidone"
+  },
+  "ritonavir": {
+    "rxcui": "85762",
+    "tier": "exact",
+    "rxnorm_name": "ritonavir"
+  },
+  "rivaroxaban": {
+    "rxcui": "1114195",
+    "tier": "exact",
+    "rxnorm_name": "rivaroxaban"
+  },
+  "rocuronium": {
+    "rxcui": "32521",
+    "tier": "exact",
+    "rxnorm_name": "rocuronium bromide"
+  },
+  "roflumilast": {
+    "rxcui": "1091836",
+    "tier": "exact",
+    "rxnorm_name": "roflumilast"
+  },
+  "ropivacaine": {
+    "rxcui": "1298851",
+    "tier": "exact",
+    "rxnorm_name": "ropivacaine hydrochloride monohydrate"
+  },
+  "rosiglitazone": {
+    "rxcui": "253198",
+    "tier": "exact",
+    "rxnorm_name": "rosiglitazone maleate"
+  },
+  "rosuvastatin": {
+    "rxcui": "301542",
+    "tier": "exact",
+    "rxnorm_name": "rosuvastatin"
+  },
+  "rotigotine": {
+    "rxcui": "616739",
+    "tier": "exact",
+    "rxnorm_name": "rotigotine"
+  },
+  "ruboxistaurin (ly333531)": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "rufinamide": {
+    "rxcui": "69036",
+    "tier": "exact",
+    "rxnorm_name": "rufinamide"
+  },
+  "ruxolitinib": {
+    "rxcui": "1193325",
+    "tier": "exact",
+    "rxnorm_name": "ruxolitinib phosphate"
+  },
+  "saxagliptin": {
+    "rxcui": "1043560",
+    "tier": "exact",
+    "rxnorm_name": "saxagliptin hydrochloride"
+  },
+  "selegiline": {
+    "rxcui": "203137",
+    "tier": "exact",
+    "rxnorm_name": "selegiline hydrochloride"
+  },
+  "sildenafil": {
+    "rxcui": "136411",
+    "tier": "exact",
+    "rxnorm_name": "sildenafil"
+  },
+  "silodosin": {
+    "rxcui": "720825",
+    "tier": "exact",
+    "rxnorm_name": "silodosin"
+  },
+  "sirolimus": {
+    "rxcui": "35302",
+    "tier": "exact",
+    "rxnorm_name": "sirolimus"
+  },
+  "sitagliptin": {
+    "rxcui": "2716481",
+    "tier": "exact",
+    "rxnorm_name": "sitagliptin hydrochloride"
+  },
+  "solifenacin": {
+    "rxcui": "322167",
+    "tier": "exact",
+    "rxnorm_name": "solifenacin"
+  },
+  "sparfloxacin": {
+    "rxcui": "18469",
+    "tier": "exact",
+    "rxnorm_name": "sparfloxacin"
+  },
+  "spirapril - not approved": {
+    "rxcui": "36908",
+    "tier": "verified",
+    "rxnorm_name": "spirapril"
+  },
+  "spiraprilat - not approve": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "stavudine": {
+    "rxcui": "59763",
+    "tier": "exact",
+    "rxnorm_name": "stavudine"
+  },
+  "sulbactam": {
+    "rxcui": "10167",
+    "tier": "exact",
+    "rxnorm_name": "sulbactam"
+  },
+  "sunitinib": {
+    "rxcui": "357977",
+    "tier": "exact",
+    "rxnorm_name": "sunitinib"
+  },
+  "tacrolimus": {
+    "rxcui": "42316",
+    "tier": "exact",
+    "rxnorm_name": "tacrolimus"
+  },
+  "tadalafil": {
+    "rxcui": "358263",
+    "tier": "exact",
+    "rxnorm_name": "tadalafil"
+  },
+  "talinolol-not approved i": {
+    "rxcui": "37546",
+    "tier": "verified",
+    "rxnorm_name": "talinolol"
+  },
+  "tamsulosin": {
+    "rxcui": "236495",
+    "tier": "exact",
+    "rxnorm_name": "tamsulosin hydrochloride"
+  },
+  "tapentadol": {
+    "rxcui": "787390",
+    "tier": "exact",
+    "rxnorm_name": "tapentadol"
+  },
+  "teduglutide": {
+    "rxcui": "1364468",
+    "tier": "exact",
+    "rxnorm_name": "teduglutide"
+  },
+  "telaprevir": {
+    "rxcui": "1102261",
+    "tier": "exact",
+    "rxnorm_name": "telaprevir"
+  },
+  "telavancin": {
+    "rxcui": "473837",
+    "tier": "exact",
+    "rxnorm_name": "telavancin"
+  },
+  "telbivudine": {
+    "rxcui": "474128",
+    "tier": "exact",
+    "rxnorm_name": "telbivudine"
+  },
+  "telithromycin": {
+    "rxcui": "274786",
+    "tier": "exact",
+    "rxnorm_name": "telithromycin"
+  },
+  "telmisartan": {
+    "rxcui": "73494",
+    "tier": "exact",
+    "rxnorm_name": "telmisartan"
+  },
+  "temsirolimus": {
+    "rxcui": "657797",
+    "tier": "exact",
+    "rxnorm_name": "temsirolimus"
+  },
+  "tenofovir": {
+    "rxcui": "117466",
+    "tier": "exact",
+    "rxnorm_name": "tenofovir"
+  },
+  "tenoxicam-not approve": {
+    "rxcui": "37790",
+    "tier": "verified",
+    "rxnorm_name": "tenoxicam"
+  },
+  "teriflunomide": {
+    "rxcui": "1310520",
+    "tier": "exact",
+    "rxnorm_name": "teriflunomide"
+  },
+  "tetrabenazine": {
+    "rxcui": "10390",
+    "tier": "exact",
+    "rxnorm_name": "tetrabenazine"
+  },
+  "tezosentan-not approve": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "tiagabine": {
+    "rxcui": "236875",
+    "tier": "exact",
+    "rxnorm_name": "tiagabine hydrochloride"
+  },
+  "ticagrelor": {
+    "rxcui": "1116632",
+    "tier": "exact",
+    "rxnorm_name": "ticagrelor"
+  },
+  "tigecycline": {
+    "rxcui": "384455",
+    "tier": "exact",
+    "rxnorm_name": "tigecycline"
+  },
+  "tipifarnib-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "tirilazad": {
+    "rxcui": "59827",
+    "tier": "exact",
+    "rxnorm_name": "tirilazad mesylate hydrate"
+  },
+  "tizanidine": {
+    "rxcui": "236460",
+    "tier": "exact",
+    "rxnorm_name": "tizanidine hydrochloride"
+  },
+  "toborinone-not approve": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "tocilizumab (atlizumab)": {
+    "rxcui": "612865",
+    "tier": "verified",
+    "rxnorm_name": "tocilizumab"
+  },
+  "tofacitinib": {
+    "rxcui": "1357536",
+    "tier": "exact",
+    "rxnorm_name": "tofacitinib"
+  },
+  "tolvaptan": {
+    "rxcui": "358257",
+    "tier": "exact",
+    "rxnorm_name": "tolvaptan"
+  },
+  "topotecan": {
+    "rxcui": "266573",
+    "tier": "exact",
+    "rxnorm_name": "topotecan hydrochloride"
+  },
+  "toremifene": {
+    "rxcui": "38409",
+    "tier": "exact",
+    "rxnorm_name": "toremifene"
+  },
+  "troglitazone": {
+    "rxcui": "72610",
+    "tier": "exact",
+    "rxnorm_name": "troglitazone"
+  },
+  "valproic acid": {
+    "rxcui": "11118",
+    "tier": "exact",
+    "rxnorm_name": "valproic acid"
+  },
+  "valsartan": {
+    "rxcui": "69749",
+    "tier": "exact",
+    "rxnorm_name": "valsartan"
+  },
+  "vandetanib": {
+    "rxcui": "1098413",
+    "tier": "exact",
+    "rxnorm_name": "vandetanib"
+  },
+  "varenicline": {
+    "rxcui": "591622",
+    "tier": "exact",
+    "rxnorm_name": "varenicline"
+  },
+  "vecuronium": {
+    "rxcui": "11153",
+    "tier": "exact",
+    "rxnorm_name": "vecuronium bromide"
+  },
+  "vemurafenib": {
+    "rxcui": "1147220",
+    "tier": "exact",
+    "rxnorm_name": "vemurafenib"
+  },
+  "vicriviroc-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "vigabatrin": {
+    "rxcui": "14851",
+    "tier": "exact",
+    "rxnorm_name": "vigabatrin"
+  },
+  "vilanterol": {
+    "rxcui": "1424884",
+    "tier": "exact",
+    "rxnorm_name": "vilanterol"
+  },
+  "vilazodone": {
+    "rxcui": "1086768",
+    "tier": "exact",
+    "rxnorm_name": "vilazodone hydrochloride"
+  },
+  "vildagliptin-not approve": {
+    "rxcui": "596554",
+    "tier": "verified",
+    "rxnorm_name": "vildagliptin"
+  },
+  "vincristine": {
+    "rxcui": "11202",
+    "tier": "exact",
+    "rxnorm_name": "vincristine"
+  },
+  "vorapaxar (sch 530348)": {
+    "rxcui": "1537034",
+    "tier": "verified",
+    "rxnorm_name": "vorapaxar"
+  },
+  "voriconazole (iv)": {
+    "rxcui": "121243",
+    "tier": "verified",
+    "rxnorm_name": "voriconazole"
+  },
+  "voriconazole (po)": {
+    "rxcui": "121243",
+    "tier": "verified",
+    "rxnorm_name": "voriconazole"
+  },
+  "ximelagatran-not appro": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "zalcitabine": {
+    "rxcui": "3363",
+    "tier": "exact",
+    "rxnorm_name": "zalcitabine"
+  },
+  "zanamivir": {
+    "rxcui": "69722",
+    "tier": "exact",
+    "rxnorm_name": "zanamivir"
+  },
+  "zibotentan (zd4054)-not approved in us": {
+    "rxcui": null,
+    "tier": "unresolved",
+    "rxnorm_name": null
+  },
+  "zileuton": {
+    "rxcui": "40575",
+    "tier": "exact",
+    "rxnorm_name": "zileuton"
+  },
+  "ziprasidone": {
+    "rxcui": "115698",
+    "tier": "exact",
+    "rxnorm_name": "ziprasidone"
+  },
+  "zolmitriptan": {
+    "rxcui": "135775",
+    "tier": "exact",
+    "rxnorm_name": "zolmitriptan"
+  }
+}

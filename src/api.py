@@ -11,6 +11,7 @@ from .ui import mount_ui
 from .models import DrugListRequest, ExplainRequest, AnalyzeRequest
 from .services.data import load_datastore, normalize_drug_name, get_drug, search_drugs
 from .services.interactions import find_interaction, unique_pairs
+from .services.identity import resolve_to_dataset
 from .services.llm import make_client, explain
 from .services.agent import make_agent
 
@@ -80,9 +81,23 @@ def drugs(search: str = ""):
 @app.get("/drug/{drug_name}")
 def drug_info(drug_name: str):
     info = get_drug(datastore, drug_name)
-    if not info["found"]:
-        raise HTTPException(status_code=404, detail=f"{drug_name} not found in the dataset")
-    return info
+    if info["found"]:
+        return info
+
+    # Not an exact dataset entry — try RxNorm (brands/synonyms/spellings).
+    res = resolve_to_dataset(datastore, drug_name)
+    if res.found:
+        info = get_drug(datastore, res.drug_name)
+        info["resolved_from"] = {
+            "input": res.input, "via": res.via,
+            "rxcui": res.rxcui, "rxnorm_name": res.rxnorm_name,
+        }
+        return info
+
+    detail = f"{drug_name} not found in the dataset"
+    if res.suggestion:
+        detail += f". Did you mean '{res.suggestion}'?"
+    raise HTTPException(status_code=404, detail=detail)
 
 
 @app.post("/check")
@@ -136,8 +151,23 @@ def analyze(req: AnalyzeRequest):
             detail="Agent not configured (needs OPENAI_API_KEY and PINECONE_API_KEY)",
         )
 
+    # Resolve brands/synonyms to dataset drugs before the agent runs, so the
+    # whole pipeline operates on dataset drugs. Only confident (exact-tier)
+    # RxNorm hits resolve; unresolved names pass through and are flagged.
+    resolutions = []
+    resolved_drugs = []
+    for d in drugs:
+        r = resolve_to_dataset(datastore, d)
+        resolved_drugs.append(r.drug_name if r.found else r.input)
+        if r.found and r.via == "rxnorm":
+            resolutions.append({
+                "from": r.input, "to": r.drug_name,
+                "rxcui": r.rxcui, "rxnorm_name": r.rxnorm_name,
+            })
+
     result = get_agent().invoke({
-        "drugs": drugs,
+        "drugs": resolved_drugs,
+        "resolutions": resolutions,
         "renal_impairment": req.renal_impairment,
         "hepatic_impairment": req.hepatic_impairment,
         "question": req.question,
@@ -152,6 +182,7 @@ def analyze(req: AnalyzeRequest):
 
     return {
         "drugs": result["drugs"],
+        "resolutions": resolutions,
         "interactions": result["interactions"],
         "impairment_flags": result["impairment_flags"],
         "deep_evidence": result.get("deep_evidence", []),
