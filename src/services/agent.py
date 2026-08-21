@@ -123,7 +123,7 @@ def make_agent(datastore: DataStore):
         # Always add a query centered on the actual drug list + shared pathways
         if drug_names:
             queries.append(
-                f"pharmacokinetic interaction enzyme transporter overlap "
+                "pharmacokinetic interaction enzyme transporter overlap "
                 + " ".join(drug_names[:4])
             )
 

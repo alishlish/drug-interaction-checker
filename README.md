@@ -4,8 +4,11 @@ A drug–drug interaction screening tool that **refuses to answer about drugs it
 
 > ⚠️ **Research / educational project — not medical advice.** See [Disclaimer](#disclaimer).
 
-![demo](docs/demo.gif)
-<!-- TODO: record a 60s GIF — a grounded interaction → a refusal on an unknown drug → the provenance/citation trail — and save it to docs/demo.gif -->
+<!-- Demo GIF — record a 60s clip (grounded interaction → refusal on an unknown drug →
+     provenance/citation trail), save it to docs/demo.gif, then uncomment the next line: -->
+<!-- ![demo](docs/demo.gif) -->
+
+*(A walkthrough GIF is coming — for now, try the [live demo](#live-demo).)*
 
 ---
 
@@ -16,6 +19,23 @@ Most "AI drug checker" demos fail quietly: ask about a drug that isn't in their 
 - **Drug identity is resolved by exact lookup**, never by embedding similarity. An unrecognized name (misspelling, brand, nonsense) is reported as *not in the dataset* — not mapped to the nearest vector.
 - **The LLM only explains data already retrieved deterministically.** It is structurally prevented from dosing advice, safe/unsafe verdicts, or facts outside the dataset.
 - **The guardrail is measured, not asserted** — see [Evaluation](#evaluation).
+
+---
+
+## Live demo
+
+**[drug-interaction-checker-f6mp.onrender.com/ui](https://drug-interaction-checker-f6mp.onrender.com/ui)** — Render free tier, so the first load may cold-start (~30s).
+
+Try: `clarithromycin` + `ritonavir` (two cited sources agree) · type **`Diflucan`** (resolves to fluconazole via RxNorm) · type **`warfarin`** (refused — an explicit "not screened" card, no silent substitution).
+
+## Documentation
+
+| Doc | What it covers |
+|---|---|
+| [ARCHITECTURE.md](ARCHITECTURE.md) | How the pieces fit — two-endpoint model, data sources, the LangGraph pipeline (diagrams) |
+| [DESIGN_DECISIONS.md](DESIGN_DECISIONS.md) | Why exact-match identity, why RxNorm/DDInter over DrugBank, the tradeoffs |
+| [EVALUATION.md](EVALUATION.md) | Four measured evaluations, honestly reported |
+| [LIMITATIONS.md](LIMITATIONS.md) | What the tool is — and isn't |
 
 ---
 
@@ -53,6 +73,19 @@ Open the UI at <http://127.0.0.1:8000/ui>, or Swagger docs at <http://127.0.0.1:
    ```
 
 Without keys the app still boots and serves `/check`; `/analyze` returns a clean `503`.
+
+### Regenerating the derived data (optional)
+
+The committed data (`drug_interactions_clean.csv`, `drug_rxcui.json`, `ddinter_pairs.json`) is enough to run — you don't need this to use the app. To rebuild the pipeline from source:
+
+| Step | Command | Produces |
+|---|---|---|
+| Extract CSV from the source PDF | `pip install -r requirements-build.txt` → `python notebooks/parse_pdf.py` | `drug_interactions_clean.csv` |
+| Anchor drugs to RxNorm | `python -m scripts.map_rxcui` | `drug_rxcui.json` (90.8% trusted) |
+| Build the DDInter lookup | download DDInter (`data/ddinter/README.md`) → `python -m scripts.build_ddinter_lookup` | `ddinter_pairs.json` |
+| Embed rows into Pinecone | `python scripts/ingest.py` | populated Pinecone index |
+
+Run the tests and evals any time: `pytest -q` · `python eval/run_tests.py --selftest`.
 
 ---
 
@@ -182,4 +215,4 @@ It does not replace clinical judgment, prescribing guidelines, or consultation w
 
 ## Roadmap
 
-See `CHECKLIST.md` (RxNorm + DDInter join, confidence tiers, provenance-visible frontend, full documentation set).
+Delivered: RxNorm identity resolution, DDInter 2.0 merged as a second interaction source, consolidated citations, a provenance-visible frontend, and a four-part evaluation (see [EVALUATION.md](EVALUATION.md)). Next: fuller DDInter coverage to lift recall, a typo-suggestion UX, and DrugBank cross-validation once its downloads resume.

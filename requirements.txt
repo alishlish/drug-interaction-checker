@@ -1,24 +1,18 @@
-# requirements.txt
-# Keep this lean so deploys are fast.
-# (If you want ultra-fast deploys, split into requirements-api.txt and requirements-build.txt,
-# but here's a single-file version that supports both API + data build.)
+# Runtime dependencies — what the deployed API needs.
+# Build/extraction-only deps are in requirements-build.txt; test deps in requirements-dev.txt.
 
+# API + UI
 fastapi>=0.110
 uvicorn[standard]>=0.27
 pydantic>=2.6
+jinja2
+
+# Data + LLM + RAG
 pandas>=2.0
-
 openai>=1.72
-
-# PDF/table extraction (build step)
-tabula-py>=2.10.0
-pdfplumber>=0.11.0
-
-# RAG / agent stack
 pinecone>=5.0
 langgraph>=0.2
 langchain-core>=0.3
 
-# Optional quality-of-life (local dev)
+# Config
 python-dotenv>=1.0
-jinja2

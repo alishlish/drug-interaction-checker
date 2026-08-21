@@ -1,0 +1,5 @@
+# One-time data-build / extraction deps — NOT needed at runtime.
+# Used by notebooks/parse_pdf.py to extract the clean CSV from the source PDF.
+# Install alongside runtime deps:  pip install -r requirements.txt -r requirements-build.txt
+tabula-py>=2.10.0
+pdfplumber>=0.11.0
