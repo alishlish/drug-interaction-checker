@@ -7,11 +7,31 @@ const swapBtn = document.getElementById("swap");
 const clearBtn = document.getElementById("clear");
 const checkBtn = document.getElementById("check");
 const explainBtn = document.getElementById("explain");
+const renalEl = document.getElementById("renal");
+const hepaticEl = document.getElementById("hepatic");
+const exampleBtns = [...document.querySelectorAll(".example")];
 
 let rows = [];
 
 function setStatus(msg) {
   statusEl.textContent = msg || "";
+}
+
+// Disable the action buttons and show a spinner-ish status while a request runs.
+function setBusy(busy, label) {
+  [checkBtn, explainBtn, swapBtn, clearBtn, addBtn, ...exampleBtns].forEach(
+    (b) => b && (b.disabled = busy)
+  );
+  if (busy && label) setStatus(`${label}…`);
+}
+
+// Turn any failure into a human-readable line (503 = agent off, etc.).
+function friendlyError(err) {
+  const msg = String(err?.message || err);
+  if (msg.startsWith("503")) return "AI analysis is not configured on this server (missing API keys).";
+  if (msg.startsWith("400")) return "Please enter at least 2 valid drug names.";
+  if (/Failed to fetch|NetworkError/i.test(msg)) return "Network error — is the server running?";
+  return `Error: ${msg}`;
 }
 
 function clearResults() {
@@ -129,6 +149,13 @@ function createRow(initialValue = "") {
       return;
     }
     const v = await validateDrug(q);
+    // If RxNorm resolved a brand/synonym to a dataset drug, swap the row to the
+    // generic so /check and /analyze (which key on dataset names) both work.
+    if (v.ok && v.data?.resolved_from && v.data.name && v.data.name !== q) {
+      input.value = v.data.name;
+      row.value = v.data.name;
+      setStatus(`${v.data.resolved_from.input} → ${v.data.name} (via RxNorm)`);
+    }
     row.valid = v.ok;
     row.details = v.ok ? v.data : null;
     updateRowValidity(el, v.ok);
@@ -250,9 +277,22 @@ function renderResults(data, drugDetailsMap, clear = true) {
     const pair = it.drug_pair || [];
     const pairText = pair.join(" + ");
     const explanation = it.llm_explanation;
+    const ev = it.evidence || {};
+
+    // Guardrail made visible: an unknown drug means the pair was NOT screened —
+    // shown as an explicit state, not a hidden error or a silent substitution.
+    if (ev.type === "missing_drug") {
+      const g = document.createElement("div");
+      g.className = "result guardrail";
+      g.innerHTML = `
+        <div class="badge guard">not screened</div>
+        <div class="pair">${escapeHtml(pairText)}</div>
+        <div class="text">One or more of these drugs is not in the dataset, so this pair was not screened. No substitution or guess was made.</div>`;
+      resultsEl.appendChild(g);
+      return;
+    }
 
     // ✅ reference DDI callout (per interaction)
-    const ev = it.evidence || {};
     let evHtml = "";
     if (ev.type === "reference_ddi") {
       evHtml = `
@@ -331,6 +371,33 @@ function renderResults(data, drugDetailsMap, clear = true) {
       })
       .join("");
 
+    // DDInter — second, curated clinical source (independent of our PK data)
+    const dd = it.ddinter || {};
+    const ddHtml = dd.listed
+      ? `<div class="callout ddinter">
+           <div class="callout-title">DDInter 2.0 — curated clinical interaction</div>
+           <div class="kv"><div><span>Severity</span>${escapeHtml(dd.level || "—")}</div></div>
+         </div>`
+      : "";
+
+    // Sources / provenance — which dataset backs this verdict (linked PMIDs)
+    const cites = it.citations || [];
+    const citesHtml = cites.length
+      ? `<div class="sources"><span class="sources-label">Sources</span>${cites
+          .map((c) => {
+            const lvl = c.level ? ` (${escapeHtml(c.level)})` : "";
+            const det = c.detail ? `: ${escapeHtml(c.detail)}` : "";
+            let ref = "";
+            if (c.pmid) {
+              ref = /^\d+$/.test(c.pmid)
+                ? ` · <a href="https://pubmed.ncbi.nlm.nih.gov/${c.pmid}" target="_blank" rel="noopener">PMID ${escapeHtml(c.pmid)}</a>`
+                : ` · ref ${escapeHtml(c.pmid)}`;
+            }
+            return `<span class="source-chip">${escapeHtml(c.source)} — ${escapeHtml(c.evidence)}${lvl}${det}${ref}</span>`;
+          })
+          .join("")}</div>`
+      : "";
+
     const div = document.createElement("div");
     div.className = "result";
 
@@ -338,7 +405,9 @@ function renderResults(data, drugDetailsMap, clear = true) {
       <div class="badge ${sev}">severity: ${escapeHtml(sev)}</div>
       <div class="pair">${escapeHtml(pairText)}</div>
       <div class="text">${escapeHtml(it.interaction || "")}</div>
+      ${ddHtml}
       ${evHtml}
+      ${citesHtml}
       ${explanation ? `<div class="small">${escapeHtml(explanation)}</div>` : ``}
       ${detailsHtml}
     `;
@@ -348,7 +417,7 @@ function renderResults(data, drugDetailsMap, clear = true) {
 }
 
 
-async function runCheck(explain = false) {
+async function runCheck() {
   clearResults();
   const drugs = getDrugValues();
 
@@ -364,11 +433,10 @@ async function runCheck(explain = false) {
     return;
   }
 
-  setStatus(explain ? "Explaining…" : "Checking…");
+  setBusy(true, "Checking");
 
   try {
-    const path = explain ? "/check/explain" : "/check";
-    const data = await postJson(path, { drugs });
+    const data = await postJson("/check", { drugs });
 
     // fetch details to show enzyme/transporter breakdown
     const details = await hydrateDrugDetails(drugs);
@@ -376,11 +444,13 @@ async function runCheck(explain = false) {
     renderResults(data, details);
     setStatus("Done ✅");
   } catch (err) {
-    setStatus(`Error: ${err.message}`);
+    setStatus(friendlyError(err));
+  } finally {
+    setBusy(false);
   }
 }
 
-async function runAnalyze() {
+async function runAnalyze({ bypassInvalid = false } = {}) {
   clearResults();
   const drugs = getDrugValues();
 
@@ -389,19 +459,21 @@ async function runAnalyze() {
     return;
   }
 
+  // Skipped for example queries: we WANT the "nothing found" example to reach
+  // the server so the refusal behaviour is visible, not blocked client-side.
   const anyInvalid = rows.some((r) => r.value?.trim() && r.valid === false);
-  if (anyInvalid) {
-    setStatus("One or more drugs are not found. Select from autocomplete or fix spelling.");
+  if (!bypassInvalid && anyInvalid) {
+    setStatus("One or more drugs are not found. Select from autocomplete, fix spelling, or run anyway to see how it's handled.");
     return;
   }
 
-  setStatus("Analyzing…");
+  setBusy(true, "Analyzing (running RAG + LLM, ~5–15s)");
 
   try {
     const data = await postJson("/analyze", {
       drugs,
-      renal_impairment: "none",
-      hepatic_impairment: "none",
+      renal_impairment: renalEl?.value || "none",
+      hepatic_impairment: hepaticEl?.value || "none",
     });
 
     const details = await hydrateDrugDetails(drugs);
@@ -426,16 +498,33 @@ async function runAnalyze() {
     renderResults({ interactions: data.interactions }, details, false);
     setStatus("Done ✅");
   } catch (err) {
-    setStatus(`Error: ${err.message}`);
+    setStatus(friendlyError(err));
+  } finally {
+    setBusy(false);
   }
+}
+
+// Load a pre-filled example (drugs + organ state) and run the AI analysis.
+async function loadExample(btn) {
+  const drugs = (btn.dataset.drugs || "").split(",").map((d) => d.trim()).filter(Boolean);
+  clearAll();
+  while (rows.length < drugs.length) createRow("");
+  drugs.forEach((d, i) => setRowValue(i, d));
+  if (renalEl) renalEl.value = btn.dataset.renal || "none";
+  if (hepaticEl) hepaticEl.value = btn.dataset.hepatic || "none";
+  // Validate for the inline pills, then run anyway (bypass the block) so the
+  // "nothing found" example demonstrates the server-side refusal.
+  await Promise.all(rows.map((r) => (r.value?.trim() ? validateDrug(r.value).then((v) => (r.valid = v.ok)) : null)));
+  await runAnalyze({ bypassInvalid: true });
 }
 
 // --- Button handlers
 addBtn.addEventListener("click", () => createRow(""));
 swapBtn.addEventListener("click", swapFirstTwo);
 clearBtn.addEventListener("click", clearAll);
-checkBtn.addEventListener("click", () => runCheck(false));
-explainBtn.addEventListener("click", runAnalyze);
+checkBtn.addEventListener("click", () => runCheck());
+explainBtn.addEventListener("click", () => runAnalyze());
+exampleBtns.forEach((b) => b.addEventListener("click", () => loadExample(b)));
 
 // init
 createRow("");

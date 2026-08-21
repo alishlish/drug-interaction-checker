@@ -19,14 +19,46 @@
     </header>
 
     <section class="card">
+      <div class="examples">
+        <span class="examples-label">Try an example:</span>
+        <button class="btn btn-ghost example" type="button"
+                data-drugs="clarithromycin,ritonavir" data-renal="none" data-hepatic="none">
+          Common interaction
+        </button>
+        <button class="btn btn-ghost example" type="button"
+                data-drugs="candesartan,hydrochlorothiazide" data-renal="severe" data-hepatic="none">
+          Renal impairment
+        </button>
+        <button class="btn btn-ghost example" type="button"
+                data-drugs="warfarin,ibuprofen" data-renal="none" data-hepatic="none">
+          Nothing found
+        </button>
+      </div>
+
       <div class="toolbar">
         <button id="add" class="btn btn-ghost" type="button">+ Add drug</button>
 
         <div class="toolbar-right">
+          <label class="organ">Renal
+            <select id="renal">
+              <option value="none">none</option>
+              <option value="mild">mild</option>
+              <option value="moderate">moderate</option>
+              <option value="severe">severe</option>
+            </select>
+          </label>
+          <label class="organ">Hepatic
+            <select id="hepatic">
+              <option value="none">none</option>
+              <option value="mild">mild</option>
+              <option value="moderate">moderate</option>
+              <option value="severe">severe</option>
+            </select>
+          </label>
           <button id="swap" class="btn btn-ghost" type="button" title="Swap first two drugs">Swap</button>
           <button id="clear" class="btn btn-ghost" type="button">Clear all</button>
           <button id="check" class="btn" type="button">Check</button>
-          <button id="explain" class="btn btn-primary" type="button">Explain</button>
+          <button id="explain" class="btn btn-primary" type="button">Analyze (AI)</button>
         </div>
       </div>
 
@@ -39,7 +71,11 @@
       <div id="results" class="results"></div>
 
       <div class="footnote">
-        Not medical advice. This tool reports results based on its dataset + rules and should be confirmed by thoroughly.
+        <strong>Research/educational project — not medical advice.</strong>
+        Results come from a limited pharmacokinetic dataset and rules, not a
+        comprehensive interaction database. Do not use for diagnosis or
+        prescribing. Always confirm with authoritative references and a licensed
+        pharmacist or physician.
       </div>
     </section>
 

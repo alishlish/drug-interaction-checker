@@ -418,3 +418,36 @@ details[open] > summary::after{
   font-size: 13px;
   line-height: 1.5;
 }
+
+/* --- example queries + organ controls (added for demo UX) --- */
+.examples {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.examples-label { font-size: 13px; opacity: 0.7; }
+.organ {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+.organ select { font: inherit; padding: 4px 6px; border-radius: 6px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* DDInter curated-clinical callout — distinct from our PK evidence */
+.callout.ddinter { border-left: 3px solid #b45309; }
+.callout.ddinter .callout-title { color: #b45309; }
+
+/* guardrail-visible "not screened" state */
+.result.guardrail { border-left: 3px solid #6b7280; }
+.badge.guard { background: #6b7280; color: #fff; }
+
+/* sources / provenance chips */
+.sources { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; font-size: 12px; }
+.sources-label { opacity: 0.6; text-transform: uppercase; letter-spacing: 0.04em; font-size: 11px; }
+.source-chip { background: rgba(127,127,127,0.12); padding: 3px 8px; border-radius: 10px; }
+.source-chip a { color: inherit; }
