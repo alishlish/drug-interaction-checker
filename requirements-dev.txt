@@ -1,0 +1,2 @@
+# Dev/test-only deps (kept out of requirements.txt so prod deploys stay lean)
+pytest>=8.0

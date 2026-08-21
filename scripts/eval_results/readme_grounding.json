@@ -1,0 +1,1000 @@
+{
+  "summary": {
+    "total_cases": 109,
+    "counts": {
+      "blocked_advice": 68,
+      "ok": 23,
+      "hallucinated": 2,
+      "no_evidence_expected": 16
+    },
+    "eligible_for_hallucination_check": 25,
+    "hallucination_rate_pct": 8.0
+  },
+  "cases": [
+    {
+      "drug1": "valproic acid",
+      "drug2": "felbamate",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "clarithromycin",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "nefazodone",
+      "drug2": "lorazepam",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "enfuvirtide",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tacrolimus",
+      "drug2": "telaprevir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "candesartan",
+      "drug2": "hydrochlorothiazide",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ospemifene",
+      "drug2": "fluconazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "telaprevir",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "pantoprazole",
+      "drug2": "clarithromycin",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "raloxifene",
+      "drug2": "exemestane",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "elvitegravir (gs-9137)",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "azilsartan",
+      "drug2": "fluconazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "vicriviroc-not approved in us",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "didanosine (2,3-dideoxyinosine)",
+      "drug2": "ganciclovir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "mycophenolic acid",
+      "drug2": "tacrolimus",
+      "evidence_type": "reference_ddi",
+      "category": "ok",
+      "explanation": "A reference interaction between mycophenolic acid and tacrolimus is documented. Tacrolimus acts as an inhibitor/reference drug for mycophenolic acid. When co-administered orally, mycophenolic acid exposure (AUC) increases by 117.8%. The reference AUC change is -24.8%. Mycophenolic acid is metabolized by UGT enzymes and has an oral bioavailability of 0.72. Tacrolimus is metabolized by CYP3A enzymes and transported by P-gp, with an oral bioavailability of 0.188. Renal impairment data are not available for either drug, but non-renal impairment data are present. The interaction is supported by PubMed ID 19606088. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "(s)-citalopram",
+      "drug2": "omeprazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "telbivudine",
+      "drug2": "lamivudine",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "laropiprant",
+      "drug2": "clarithromycin",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ipragliflozin-not approved in us",
+      "drug2": "pioglitazone",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "oxaliplatin",
+      "drug2": "regorafenib",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "lopinavir",
+      "drug2": "valproic acid",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "rasagiline",
+      "drug2": "ciprofloxacin",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "raltegravir",
+      "drug2": "omeprazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ramipril",
+      "drug2": "aliskiren",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "linagliptin",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "galantamine",
+      "drug2": "risperidone",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "eprosartan",
+      "drug2": "fluconazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "memantine",
+      "drug2": "donepezil",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "sirolimus",
+      "drug2": "telaprevir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "carisbamate",
+      "drug2": "valproic acid",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "paricalcitol",
+      "drug2": "omeprazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "olmesartan",
+      "drug2": "pravastatin",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "sildenafil",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "levetiracetam",
+      "drug2": "valproic acid",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "garenoxacin-not approved in us",
+      "drug2": "omeprazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "peginterferon alpha-2b",
+      "drug2": "ribavirin",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "lacosamide",
+      "drug2": "omeprazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "spirapril - not approved",
+      "drug2": "hydrochlorothiazide",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "hydrochlorothiazide",
+      "drug2": "valsartan",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "alvimopan",
+      "drug2": "ciprofloxacin",
+      "evidence_type": "reference_ddi",
+      "category": "hallucinated",
+      "explanation": "A reference interaction between alvimopan and ciprofloxacin is documented. Ciprofloxacin is listed as an inhibitor or reference drug for alvimopan. The interaction study (PMID 19797535) involved oral administration of both drugs. Alvimopan exposure decreased by 12.2% (delta AUC), while the reference delta AUC was +112.3%. Alvimopan is metabolized by hydrolysis and transported by P-gp; ciprofloxacin is transported by BCRP and P-gp. Additional attributes include alvimopan's low oral bioavailability (6%) and ciprofloxacin's higher oral bioavailability (70%). Insufficient data in dataset regarding clinical significance or recommendations. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [
+        "70"
+      ],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "exemestane",
+      "drug2": "raloxifene",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "etravirine",
+      "drug2": "fluconazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "omeprazole",
+      "drug2": "fluconazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "drospirenone",
+      "drug2": "boceprevir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "pregabalin",
+      "drug2": "valproic acid",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "darunavir",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "ok",
+      "explanation": "A high severity interaction is documented between darunavir and ritonavir. Ritonavir acts as an inhibitor/reference drug for darunavir. When co-administered orally, darunavir exposure (AUC) increases by 969.5%, while the reference AUC change is -8.4%. Both drugs are administered orally. Darunavir is metabolized by CYP3A and is a substrate for OATP1B1 and P-gp transporters. Ritonavir is metabolized by CYP3A and is a substrate for P-gp. The interaction is supported by reference PMID 19131522. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "spiraprilat - not approve",
+      "drug2": "hydrochlorothiazide",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "valsartan",
+      "drug2": "hydrochlorothiazide",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "oseltamivir carboxylate",
+      "drug2": "zalcitabine",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between oseltamivir carboxylate and zalcitabine is potentially due to overlapping mechanisms involving shared enzymes, although the specific enzymes are not specified. Oseltamivir carboxylate has a fraction excreted unchanged of 0.93 and oral bioavailability of 0.8, with renal impairment data available but no non-renal impairment data. Its reported change in exposure (AUC) with probenecid is +151.7%. Zalcitabine has a fraction excreted unchanged of 0.8 and oral bioavailability greater than 0.8, with renal impairment data available but no non-renal impairment data. Its reported change in exposure (AUC) with probenecid is +54.2%. Transporters for oseltamivir carboxylate and zalcitabine are partially specified but incomplete. References include PMIDs 11744606 and 8692740. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "methotrexate",
+      "drug2": "cidofovir",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "zalcitabine",
+      "drug2": "fexofenadine",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "levosimendan-not approved in us",
+      "drug2": "talinolol-not approved i",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "enfuvirtide",
+      "drug2": "methotrexate",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "doxazosin",
+      "drug2": "etoricoxib - not approve",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between doxazosin and etoricoxib involves a potential mechanism overlap due to shared metabolizing enzymes CYP2D6 and CYP3A4. Doxazosin is metabolized by CYP3A4, CYP2D6, and CYP2C19, with a reported change in exposure of -16.6% when interacting with nifedipine. Etoricoxib is metabolized by CYP3A4, CYP2C9, and CYP2D6, with a reported change in exposure of +69.0% when interacting with miconazole. Both drugs have oral bioavailability and no renal impairment data available but have non-renal impairment data. Transporter data are not available for either drug. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "etravirine",
+      "drug2": "saxagliptin",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tigecycline",
+      "drug2": "sparfloxacin",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between tigecycline and sparfloxacin is potentially due to overlapping metabolic mechanisms involving the shared enzyme UGT PL. Tigecycline undergoes biliary excretion and metabolism via UGT PL, with a fraction excreted unchanged of 0.22 and is administered intravenously. Sparfloxacin is metabolized by UGT PL and transported by P-gp, with a fraction excreted unchanged of 0.10 and is administered orally. Reported changes in exposure include a +5.8% change in tigecycline exposure and a -11.4% change in sparfloxacin exposure, based on interactions with other drugs (digoxin for tigecycline and cimetidine for sparfloxacin). Renal impairment data are not available for either drug, but non-renal impairment data are available. References include NDA 021821 for tigecycline and PMID 8688981 for sparfloxacin. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "azilsartan",
+      "drug2": "sildenafil",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "clinafloxacin",
+      "drug2": "levosimendan-not approved in us",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "rilpivirine",
+      "drug2": "alfuzosin",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "rasagiline",
+      "drug2": "asenapine",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "omeprazole",
+      "drug2": "mirodenafil-not approved in us",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "valproic acid",
+      "drug2": "tipifarnib-not approved in us",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "maraviroc",
+      "drug2": "eplerenone",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "Maraviroc and eplerenone share a potential interaction mechanism involving the enzyme CYP3A4 PL. Maraviroc is metabolized by CYP3A4 PL and has additional transporters OATP1B1 and P-gp. Eplerenone is also metabolized by CYP3A4 PL. Maraviroc shows a reported change in exposure (\u0394AUC) of +897.9% with interacting drugs saquinavir and ritonavir (PMID 18333864). Eplerenone shows a reported change in exposure (\u0394AUC) of +438.7% with interacting drug ketoconazole (PMID 15204695). Both drugs are administered orally. Renal impairment data are available for maraviroc but not for eplerenone; non-renal impairment data are available for both. Insufficient data in dataset regarding clinical outcomes or specific interaction effects between maraviroc and eplerenone. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "lurasidone",
+      "drug2": "midazolam (po)",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "Lurasidone and oral midazolam share a potential interaction mechanism due to both being metabolized by the CYP3A4 enzyme. Lurasidone's exposure (AUC) increased by 830.0% when coadministered with ketoconazole, and midazolam's exposure increased by 2590.9% when coadministered with tipranavir and ritonavir, indicating significant changes in drug levels related to CYP3A4 interactions. Lurasidone has a fraction excreted unchanged of less than 0.09, non-renal impairment data available, and is administered orally. Midazolam has zero fraction excreted unchanged, oral bioavailability between 0.31 and 0.72, no renal impairment data, but non-renal impairment data available, and is also administered orally. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "lenalidomide",
+      "drug2": "peginterferon alpha-2b",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "vorapaxar (sch 530348)",
+      "drug2": "rivaroxaban",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "Vorapaxar and rivaroxaban share a potential interaction mechanism due to overlap in metabolism by the enzyme CYP 3A4. Vorapaxar is metabolized by CYP 3A4 and CYP2J2 PL, with oral bioavailability of 1 and minimal renal excretion. Rivaroxaban is metabolized by CYP 3A4 and CYP 2J2 PL and is also a substrate for transporters BCRP and P-gp, with oral bioavailability between 0.8 and 1.0 and 36% renal excretion unchanged. Studies involving ketoconazole as an interacting agent show vorapaxar exposure increased by 94.9% and rivaroxaban exposure increased by 157.6%. Both drugs have data available for non-renal impairment; rivaroxaban also has renal impairment data. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "iloperidone",
+      "drug2": "aripiprazole",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "vincristine",
+      "drug2": "sunitinib",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ospemifene",
+      "drug2": "sirolimus",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "naltrexone",
+      "drug2": "foscarnet",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between naltrexone and foscarnet is potentially due to overlapping mechanisms involving shared enzymes, although the specific enzymes are not specified. Naltrexone has a low fraction excreted unchanged (0.02) and oral bioavailability of 0.2, with no renal impairment data available but non-renal impairment data present. Foscarnet has a high fraction excreted unchanged (0.95) and low oral bioavailability (0.09), with renal impairment data available but no non-renal impairment data. Reported changes in exposure are +6.1% for naltrexone (reference) and -5.8% for foscarnet. The interaction evidence is based on mechanism overlap with unspecified shared enzymes. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "azimilide- not approved in usa",
+      "drug2": "elvitegravir (gs-9137)",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "peginterferon alpha-2b",
+      "drug2": "teriflunomide",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "enzalutamide",
+      "drug2": "repaglinide",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between enzalutamide and repaglinide is potentially due to overlapping metabolic pathways involving the enzymes CYP2C8 and CYP3A4 PL. Both drugs are metabolized by these enzymes. Enzalutamide has a reported change in exposure (\u0394AUC) of +325.5% when interacting with gemfibrozil, and repaglinide shows a reported change in exposure (\u0394AUC) of +1830.4% when interacting with gemfibrozil and itraconazole. Repaglinide is also a substrate of the P-gp transporter. Additional attributes include enzalutamide's low fraction excreted unchanged (0.004) and oral administration route, and repaglinide's oral bioavailability of 0.625 and fraction excreted unchanged of 0.001. Non-renal impairment data are available for both drugs, while renal impairment data are not available for repaglinide. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "pravastatin",
+      "drug2": "levetiracetam",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "There is a potential mild interaction between pravastatin and levetiracetam due to mechanism overlap involving shared enzymes, although the specific enzymes are not specified. Pravastatin is associated with transporters BCRP, OAT3, and O A, while levetiracetam's transporters are not specified. Pravastatin shows a reported change in exposure (\u0394AUC) of +2183.5% when interacting with cyclosporine (PMID 8356729). Levetiracetam shows a reported change in exposure (\u0394AUC) of +11.2% when interacting with valproic acid (PMID 12576167). Both drugs have oral administration routes and renal impairment data available; non-renal impairment data are available for pravastatin but not for levetiracetam. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "liraglutide",
+      "drug2": "caspofungin",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "naloxone",
+      "drug2": "ramiprilat",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "Naloxone and ramiprilat share a potential interaction mechanism due to overlap in enzymes, specifically UGT PL. Naloxone is administered intravenously with no drug-drug interaction study showing changes in exposure for this form. Ramiprilat is administered orally, with a reported change in exposure of +0.11% when interacting with vildagliptin. Ramiprilat has a fraction excreted unchanged of 0.13 and oral bioavailability of 0.48. Renal impairment data are not available, but non-renal impairment data are present. The interaction evidence is based on mechanism overlap involving UGT PL enzymes. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "pioglitazone",
+      "drug2": "vilazodone",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between pioglitazone and vilazodone is potentially due to overlapping metabolism by the enzyme CYP3A4. Pioglitazone is metabolized by CYP2C8, CYP3A4, and CYP1A1, with negligible renal excretion and oral administration. Vilazodone is metabolized by CYP3A4, CYP2C19, and CYP2D6, with minimal renal excretion and oral administration. Pioglitazone exposure increased by 366.4% when interacting with gemfibrozil, and vilazodone exposure increased by 51.0% when interacting with ketoconazole. Both drugs have non-renal impairment data available but lack renal impairment data. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "enalaprilat",
+      "drug2": "capecitabine",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "There is a potential mild interaction between enalaprilat and capecitabine due to overlapping mechanisms involving shared enzymes, although the specific enzymes are not specified. Enalaprilat has a high fraction excreted unchanged (0.88) and oral bioavailability of 0.41, with renal impairment data available but no non-renal impairment data. Capecitabine has a low fraction excreted unchanged (0.03), non-renal impairment data available, and is administered orally. A reported change in capecitabine exposure (+133.5% AUC) is noted when interacting with sorafenib, but no direct AUC or clearance change data are available for enalaprilat. Reference PMID 21209247 relates to capecitabine interaction with sorafenib, not enalaprilat. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "teriflunomide",
+      "drug2": "fluconazole",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "There is a potential mild interaction between teriflunomide and fluconazole due to a mechanism overlap involving shared enzymes, although the specific enzymes are not specified. Teriflunomide is associated with transporters BCRP and P-gp, while fluconazole's transporters are not specified. Teriflunomide has a reported change in exposure of -1.7% \u0394AUC, and fluconazole has a reported change in exposure of -12.9% \u0394AUC with cimetidine as the interacting drug in the referenced study (PMID 2330488). Both drugs are administered orally in the dataset entries. Other pharmacokinetic attributes such as fraction excreted unchanged and bioavailability are provided but do not specify interaction outcomes. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ambrisentan",
+      "drug2": "raloxifene",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between ambrisentan and raloxifene is potentially due to overlapping mechanisms involving shared enzymes and transporters. Both drugs share the enzyme UGT PL and the transporter P-GP. Ambrisentan is metabolized by CYP 3A4, CYP 2C19, and UGT PL, and is a substrate for P-gp. Raloxifene is metabolized by UGT PL and is also a substrate for P-gp. Ambrisentan has reported changes in exposure (+121.3% AUC) when interacting with cyclosporine (PMID 20811346), and raloxifene has reported changes in exposure (+7.6% AUC) when interacting with exemestane (PMID 17952589). Both drugs are administered orally and have non-renal impairment data available but lack renal impairment data. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "saxagliptin",
+      "drug2": "zileuton",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between saxagliptin and zileuton is potentially due to overlapping metabolic pathways involving the enzyme CYP3A4. Saxagliptin is metabolized by CYP3A4 and CYP3A5 and is a substrate of P-gp transporter. It has a reported change in exposure of +266.6% when interacting with ketoconazole. Zileuton is metabolized by CYP1A2, CYP2C9, and CYP3A4, with a reported change in exposure of -13.4% when interacting with prednisone. Both drugs are administered orally. No shared transporters were identified. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "talinolol-not approved i",
+      "drug2": "fleroxacin",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between talinolol-not approved i and fleroxacin is potentially due to overlapping mechanisms involving shared enzymes, although the specific enzymes are not specified. Talinolol-not approved i is a P-gp substrate with oral bioavailability of 0.55 and a fraction excreted unchanged of 0.53. Fleroxacin has an oral bioavailability of 1 and a fraction excreted unchanged of 0.62. No specific changes in exposure (AUC) or clearance for fleroxacin were reported in drug interaction studies. The evidence is based on mechanism overlap with no detailed enzyme or transporter data. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "rotigotine",
+      "drug2": "grepafloxacin",
+      "evidence_type": "mechanism_overlap",
+      "category": "hallucinated",
+      "explanation": "The interaction between rotigotine and grepafloxacin is potentially due to overlapping metabolic pathways involving the enzyme SULT. Rotigotine is metabolized by CYP, SULT, UGT1A9, and UGT2B enzymes and is administered transdermally, with less than 1% excreted unchanged. Grepafloxacin is metabolized by SULT and UGT enzymes and is administered orally, with 6.6% to 9.5% excreted unchanged. Both drugs have non-renal impairment data available. Reported changes in exposure (AUC) are +0.8% for rotigotine and +4.1% for grepafloxacin. The interaction severity is classified as mild. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [
+        "6.6"
+      ],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tipifarnib-not approved in us",
+      "drug2": "desvenlafaxine (o-desmethylvenlafaxine",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ramipril",
+      "drug2": "tigecycline",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "mirodenafil-not approved in us",
+      "drug2": "toremifene",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "vandetanib",
+      "drug2": "cyclophosphamide",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between vandetanib and cyclophosphamide is potentially due to overlapping metabolic pathways involving the enzyme CYP3A4. Vandetanib is metabolized by CYP3A4, FMO1, and FMO2, and cyclophosphamide is metabolized by CYP2A6, CYP2B6, and CYP3A4/5. Vandetanib is administered orally, with less than 5% excreted unchanged, and has reported non-renal impairment data. Cyclophosphamide is administered intravenously, with 10-20% excreted unchanged, and also has non-renal impairment data available. Vandetanib's exposure change with itraconazole is +16.0% AUC, while cyclophosphamide's exposure change with busulfan is +76.8% AUC. Shared enzymes indicate a mild interaction severity. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "nelfinavir",
+      "drug2": "ospemifene",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "Nelfinavir and ospemifene have a potential mild interaction due to overlapping metabolic pathways involving the enzyme CYP2C19 PL. Nelfinavir is metabolized by CYP3A and CYP2C19 PL and is a substrate of the p-gp transporter. Ospemifene is metabolized by CYP3A4, CYP2C9, and CYP2C19 PL. Both drugs have oral administration routes. Evidence includes reported changes in exposure (AUC) for nelfinavir (+146.2%) and ospemifene (+178.2%) in interaction studies with other agents. Specific interaction outcomes between nelfinavir and ospemifene are not detailed beyond the shared enzyme mechanism. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "pravastatin",
+      "drug2": "ranolazine",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ceftaroline",
+      "drug2": "hydroxyurea",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "clinafloxacin",
+      "drug2": "ipragliflozin-not approved in us",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tirilazad",
+      "drug2": "fluticasone",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "perampanel",
+      "drug2": "galantamine",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "toremifene",
+      "drug2": "(s)-citalopram",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tolvaptan",
+      "drug2": "posaconazole",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "cerivastatin",
+      "drug2": "debrisoquine",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "roflumilast",
+      "drug2": "foscarnet",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tofacitinib",
+      "drug2": "exemestane",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tamsulosin",
+      "drug2": "pazopanib",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between tamsulosin and pazopanib is potentially due to overlapping metabolism by the enzyme CYP3A4. Both drugs are metabolized by CYP3A4, which may affect their exposure levels. Tamsulosin is also metabolized by CYP2D6, and pazopanib by CYP1A2 and CYP2C8. Tamsulosin has an oral bioavailability of 1 and a fraction excreted unchanged of 0.087, while pazopanib has an oral bioavailability of 0.214 and a fraction excreted unchanged of 0.001. Both drugs have non-renal impairment data available but lack renal impairment data. Reported changes in exposure (AUC) with ketoconazole as an interacting agent are +183.5% for tamsulosin (PMID 21496064) and +65.4% for pazopanib (PMID 23636448). Transporters are not shared between the two drugs. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "chlormethiazole",
+      "drug2": "rotigotine",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ticagrelor",
+      "drug2": "ruxolitinib",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "cerivastatin",
+      "drug2": "eprosartan",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "etoposide",
+      "drug2": "diazepam",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "antipyrine",
+      "drug2": "enalaprilat",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between antipyrine and enalaprilat is described as mild with a potential mechanism overlap involving shared enzymes, although the specific enzymes are not specified. Antipyrine has a fraction excreted unchanged of 0.038, oral bioavailability of 1.0, and no renal impairment data available but has non-renal impairment data. Enalaprilat has a fraction excreted unchanged of 0.88, oral bioavailability of 0.41 (noted for oral enalapril), and renal impairment data available but no non-renal impairment data. There is no reported change in exposure (AUC) for enalaprilat, and the interaction evidence is based on mechanism overlap with unspecified shared enzymes. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "tigecycline",
+      "drug2": "elvitegravir (gs-9137)",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "toborinone-not approve",
+      "drug2": "pregabalin",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "enzalutamide",
+      "drug2": "donepezil",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "alvimopan",
+      "drug2": "alfuzosin",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between alvimopan and alfuzosin is potentially due to overlapping mechanisms involving the shared transporter P-GP. Alvimopan is transported by P-gp and metabolized by hydrolysis PL, with a reported change in exposure of -12.2% when interacting with ciprofloxacin. Alfuzosin is also transported by P-gp and metabolized by CYP3A PL, with a reported change in exposure of +197.0% when interacting with ketoconazole. Both drugs are administered orally and have non-renal impairment data available but lack renal impairment data. The interaction severity is mild. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "definitely-not-a-real-drug",
+      "drug2": "(s)-citalopram",
+      "evidence_type": "missing_drug",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    }
+  ]
+}

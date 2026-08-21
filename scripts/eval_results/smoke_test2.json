@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total_cases": 12,
+    "counts": {
+      "blocked_advice": 8,
+      "ok": 2,
+      "no_evidence_expected": 2
+    },
+    "eligible_for_hallucination_check": 2,
+    "hallucination_rate_pct": 0.0
+  },
+  "cases": [
+    {
+      "drug1": "candesartan",
+      "drug2": "hydrochlorothiazide",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "eprosartan",
+      "drug2": "fluconazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "garenoxacin-not approved in us",
+      "drug2": "omeprazole",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "vicriviroc-not approved in us",
+      "drug2": "ritonavir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "drospirenone",
+      "drug2": "boceprevir",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "hydrochlorothiazide",
+      "drug2": "valsartan",
+      "evidence_type": "reference_ddi",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "asenapine",
+      "drug2": "apixaban",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "Asenapine and apixaban have a potential mild interaction due to overlapping metabolism involving the enzyme CYP1A2. Asenapine is metabolized by CYP1A2 and UGT1A4, with sublingual administration and no renal impairment data available. Apixaban is metabolized by CYP3A4, CYP1A2, and CYP2C8, and is a substrate for transporters BCRP and P-gp, with both renal and non-renal impairment data available. The interaction message indicates a potential mechanism overlap via CYP1A2. Evidence shows shared enzyme CYP1A2 but no shared transporters. Reported changes in exposure (AUC) for asenapine and apixaban are +30.3% and +98.8%, respectively, in studies involving other interacting drugs. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "grepafloxacin",
+      "drug2": "garenoxacin-not approved in us",
+      "evidence_type": "mechanism_overlap",
+      "category": "ok",
+      "explanation": "The interaction between grepafloxacin and garenoxacin-not approved in US is potentially due to overlapping metabolic pathways involving the enzyme SULT. Both drugs share SULT as a metabolizing enzyme. Grepafloxacin is also metabolized by UGT 9484872 and transported by BCRP, while garenoxacin is metabolized by SULT and UGT (Interview form, Japanese) with no transporter data available. The interaction severity is mild. Reported changes in exposure (\u0394AUC) are +4.1% for grepafloxacin (interacting with warfarin) and +6.0% for garenoxacin (interacting with omeprazole). Additional attributes include oral bioavailability of 0.72 for grepafloxacin and 0.92 for garenoxacin, and fraction excreted unchanged of 0.066-0.095 for grepafloxacin and 0.496 for garenoxacin. Renal and non-renal impairment data are available for garenoxacin; only non-renal impairment data are available for grepafloxacin. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "rasagiline",
+      "drug2": "asenapine",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "enalaprilat",
+      "drug2": "capecitabine",
+      "evidence_type": "mechanism_overlap",
+      "category": "blocked_advice",
+      "explanation": "Explanation blocked: output resembled medical advice or unsupported clinical claims. Not medical advice; confirm with a clinician/pharmacist.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "pravastatin",
+      "drug2": "ranolazine",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    },
+    {
+      "drug1": "ceftaroline",
+      "drug2": "hydroxyurea",
+      "evidence_type": "none",
+      "category": "no_evidence_expected",
+      "explanation": "No explainable dataset evidence for this pair.",
+      "ungrounded_numbers": [],
+      "ungrounded_tokens": []
+    }
+  ]
+}
