@@ -7,3 +7,10 @@ data/raw/
 *.pdf
 AGENTS.md
 CHECKLIST.md
+# DrugBank academic data is license-restricted (CC BY-NC) — never commit it.
+data/drugbank/*
+!data/drugbank/README.md
+# DDInter raw CSVs — open-access but not ours to redistribute; keep local.
+data/ddinter/*
+!data/ddinter/README.md
+data/processed/ddinter_pairs.json

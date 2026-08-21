@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-import os
 import re
 from typing import Any, Dict, Optional
 
@@ -16,12 +15,10 @@ except Exception:
 # ----------------------------
 # Client factory
 # ----------------------------
-def make_client(OPEN_AI_KEY) -> Optional[Any]:
-    """
-    Create an OpenAI client if OPENAI_API_KEY is set and SDK is available.
-    Returns None if not configured.
-    """
-    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+def make_client(api_key: str) -> Optional[Any]:
+    """Create an OpenAI client from the given key if the SDK is available.
+    Returns None when no key is provided, so /check works without one."""
+    api_key = (api_key or "").strip()
     if not api_key or OpenAI is None:
         return None
     return OpenAI(api_key=api_key)

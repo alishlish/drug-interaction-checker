@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+import json
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, Any, List, Set
 
 import pandas as pd
@@ -32,6 +33,9 @@ class DataStore:
     drug_map: Dict[str, Dict[str, Any]]      # drug_name -> entire row dict (normalized)
     drug_names: List[str]
     attribute_cols: List[str]                # non-core columns you might want to show
+    # "drug1|drug2" (sorted dataset names) -> DDInter severity; empty if the
+    # optional lookup (data/processed/ddinter_pairs.json) isn't present.
+    ddinter: Dict[str, str] = field(default_factory=dict)
 
 
 CORE_COLS: Set[str] = {"drug_name", "enzymes", "transporters"}
@@ -71,7 +75,19 @@ def load_datastore(data_path: str) -> DataStore:
         drug_map=drug_map,
         drug_names=drug_names,
         attribute_cols=attribute_cols,
+        ddinter=_load_ddinter(data_path),
     )
+
+
+def _load_ddinter(data_path: str) -> Dict[str, str]:
+    """Load the optional DDInter pair lookup that sits beside the CSV. Returns
+    an empty dict if it hasn't been built (app degrades gracefully)."""
+    path = os.path.join(os.path.dirname(data_path), "ddinter_pairs.json")
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 
 def get_drug(datastore: DataStore, drug_name: str) -> Dict[str, Any]:

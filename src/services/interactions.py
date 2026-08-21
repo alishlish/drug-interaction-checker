@@ -20,7 +20,7 @@ def _norm_name(s: str) -> str:
     return (s or "").strip().lower()
 
 
-def unique_pairs(items):
+def unique_pairs(items: list) -> list[tuple]:
     """Every unordered pair (items[i], items[j]) with i < j."""
     return [(items[i], items[j])
             for i in range(len(items))
@@ -47,7 +47,7 @@ def _severity_from_ref(delta_auc_pct: str) -> str:
     return "none"
 
 
-def find_interaction(datastore: DataStore, d1: str, d2: str) -> Dict[str, Any]:
+def _base_interaction(datastore: DataStore, d1: str, d2: str) -> Dict[str, Any]:
     r1 = datastore.drug_map.get(d1)
     r2 = datastore.drug_map.get(d2)
 
@@ -130,3 +130,40 @@ def find_interaction(datastore: DataStore, d1: str, d2: str) -> Dict[str, Any]:
             "shared_transporters": sorted(shared_trn),
         },
     }
+
+
+def _ddinter_level(datastore: DataStore, d1: str, d2: str):
+    """DDInter's curated clinical severity for a pair, or None if not listed."""
+    key = "|".join(sorted((_norm_name(d1), _norm_name(d2))))
+    return datastore.ddinter.get(key)
+
+
+def _citations(result: Dict[str, Any]) -> list:
+    """Consolidate provenance into one list the UI can render — which source
+    backs each part of the verdict (our PK dataset and/or DDInter)."""
+    cites = []
+    ev = result.get("evidence", {})
+    if ev.get("type") == "reference_ddi":
+        c = {"source": "NIH Organ-Impairment DB", "evidence": "reference PK study"}
+        if ev.get("ref_ddi"):
+            c["pmid"] = ev["ref_ddi"]
+        cites.append(c)
+    elif ev.get("type") == "mechanism_overlap":
+        shared = (ev.get("shared_enzymes") or []) + (ev.get("shared_transporters") or [])
+        cites.append({"source": "NIH Organ-Impairment DB", "evidence": "mechanism overlap",
+                      "detail": ", ".join(shared)})
+    dd = result.get("ddinter", {})
+    if dd.get("listed"):
+        cites.append({"source": dd.get("source", "DDInter 2.0"),
+                      "evidence": "curated clinical DDI", "level": dd.get("level")})
+    return cites
+
+
+def find_interaction(datastore: DataStore, d1: str, d2: str) -> Dict[str, Any]:
+    """Our PK-mechanism verdict, enriched with DDInter's curated clinical DDI
+    level (a second, independent source) plus a consolidated citations list."""
+    result = _base_interaction(datastore, d1, d2)
+    level = _ddinter_level(datastore, d1, d2)
+    result["ddinter"] = {"listed": level is not None, "level": level, "source": "DDInter 2.0"}
+    result["citations"] = _citations(result)
+    return result
