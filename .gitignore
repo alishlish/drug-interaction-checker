@@ -13,4 +13,6 @@ data/drugbank/*
 # DDInter raw CSVs — open-access but not ours to redistribute; keep local.
 data/ddinter/*
 !data/ddinter/README.md
-data/processed/ddinter_pairs.json
+# The derived pair lookup (our drug names -> severity, cited in data/ddinter/README.md)
+# IS committed so the deployed app has DDInter. To keep it local instead, re-add:
+#   data/processed/ddinter_pairs.json
