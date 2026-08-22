@@ -6,7 +6,7 @@ load_dotenv()
 import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, PlainTextResponse
 
 from .ui import mount_ui
 from .models import DrugListRequest, ExplainRequest, AnalyzeRequest
@@ -61,6 +61,16 @@ app.add_middleware(
 def root():
     # Land visitors on the UI; /health stays the JSON status endpoint.
     return RedirectResponse(url="/ui")
+
+
+@app.get("/robots.txt")
+def robots():
+    return PlainTextResponse("User-agent: *\nAllow: /\n")
+
+
+@app.get("/favicon.ico")
+def favicon():
+    return RedirectResponse(url="/static/favicon.svg")
 
 
 @app.get("/health")

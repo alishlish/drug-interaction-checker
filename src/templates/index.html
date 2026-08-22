@@ -4,17 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Drug Interaction Checker</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/styles.css" />
+  <meta name="description" content="A drug–drug interaction screening tool that refuses to answer about drugs it doesn't have rather than silently substituting a similar one. Deterministic pharmacokinetic data + RxNorm identity + DDInter clinical interactions, with source citations." />
+  <meta name="theme-color" content="#1f2a24" />
+  <link rel="canonical" href="https://drug-interaction-checker-f6mp.onrender.com/ui" />
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Drug Interaction & Organ-Impairment Checker" />
+  <meta property="og:description" content="Refuses to answer about drugs it doesn't have rather than silently substituting a similar one. RxNorm identity + DDInter clinical interactions, with citations." />
+  <meta property="og:url" content="https://drug-interaction-checker-f6mp.onrender.com/ui" />
+  <meta property="og:image" content="https://drug-interaction-checker-f6mp.onrender.com/static/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Drug Interaction & Organ-Impairment Checker" />
+  <meta name="twitter:description" content="Refuses instead of silently substituting. RxNorm identity + DDInter clinical interactions, with citations." />
+  <meta name="twitter:image" content="https://drug-interaction-checker-f6mp.onrender.com/static/og.svg" />
+
+  <link rel="stylesheet" href="/static/styles.css?v=8" />
 </head>
 <body>
   <div class="wrap">
     <header class="header">
       <div>
         <h1>Drug Interaction Checker</h1>
-        <p class="sub">Quick interaction screen + explanations.</p>
+        <p class="sub">Pharmacokinetic and DDInter clinical interaction screening</p>
       </div>
     </header>
 
@@ -57,8 +70,8 @@
           </label>
           <button id="swap" class="btn btn-ghost" type="button" title="Swap first two drugs">Swap</button>
           <button id="clear" class="btn btn-ghost" type="button">Clear all</button>
-          <button id="check" class="btn" type="button">Check</button>
-          <button id="explain" class="btn btn-primary" type="button">Analyze (AI)</button>
+          <button id="check" class="btn" type="button">Check interactions</button>
+          <button id="explain" class="btn btn-primary" type="button">Analyze with organ context</button>
         </div>
       </div>
 
@@ -67,6 +80,14 @@
       <div id="status" class="status"></div>
 
       <div class="divider"></div>
+
+      <div class="legend">
+        <span class="legend-label">Severity key</span>
+        <span class="legend-item"><span class="dot mild"></span>Mild</span>
+        <span class="legend-item"><span class="dot moderate"></span>Moderate</span>
+        <span class="legend-item"><span class="dot high"></span>Major</span>
+        <span class="legend-item"><span class="dot guard"></span>Not screened</span>
+      </div>
 
       <div id="results" class="results"></div>
 
@@ -80,10 +101,10 @@
     </section>
 
     <footer class="footer">
-      <small>Tip: start typing and select from autocomplete to avoid spelling mismatches.</small>
+      <small>Tip: start typing a drug name and pick it from the list to avoid spelling errors.</small>
     </footer>
   </div>
 
-  <script src="/static/app.js"></script>
+  <script src="/static/app.js?v=7"></script>
 </body>
 </html>

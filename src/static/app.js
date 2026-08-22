@@ -28,10 +28,10 @@ function setBusy(busy, label) {
 // Turn any failure into a human-readable line (503 = agent off, etc.).
 function friendlyError(err) {
   const msg = String(err?.message || err);
-  if (msg.startsWith("503")) return "AI analysis is not configured on this server (missing API keys).";
+  if (msg.startsWith("503")) return "Analysis is currently unavailable. Try Check interactions instead.";
   if (msg.startsWith("400")) return "Please enter at least 2 valid drug names.";
-  if (/Failed to fetch|NetworkError/i.test(msg)) return "Network error — is the server running?";
-  return `Error: ${msg}`;
+  if (/Failed to fetch|NetworkError/i.test(msg)) return "Couldn't reach the server. Check your connection and try again.";
+  return "Something went wrong. Please try again.";
 }
 
 function clearResults() {
@@ -154,7 +154,7 @@ function createRow(initialValue = "") {
     if (v.ok && v.data?.resolved_from && v.data.name && v.data.name !== q) {
       input.value = v.data.name;
       row.value = v.data.name;
-      setStatus(`${v.data.resolved_from.input} → ${v.data.name} (via RxNorm)`);
+      setStatus(`Recognized ${v.data.resolved_from.input} as ${v.data.name} (generic name)`);
     }
     row.valid = v.ok;
     row.details = v.ok ? v.data : null;
@@ -248,7 +248,7 @@ function swapFirstTwo() {
   setRowValue(1, a);
   // clear results since it’s a new query
   clearResults();
-  setStatus("swapped ✅");
+  setStatus("Swapped");
 }
 
 async function hydrateDrugDetails(drugs) {
@@ -287,12 +287,12 @@ function renderResults(data, drugDetailsMap, clear = true) {
       g.innerHTML = `
         <div class="badge guard">not screened</div>
         <div class="pair">${escapeHtml(pairText)}</div>
-        <div class="text">One or more of these drugs is not in the dataset, so this pair was not screened. No substitution or guess was made.</div>`;
+        <div class="text">One or more of these drugs isn't in our data, so this pair wasn't screened — nothing was guessed or substituted.</div>`;
       resultsEl.appendChild(g);
       return;
     }
 
-    // ✅ reference DDI callout (per interaction)
+    // reference DDI callout (per interaction)
     let evHtml = "";
     if (ev.type === "reference_ddi") {
       evHtml = `
@@ -314,7 +314,7 @@ function renderResults(data, drugDetailsMap, clear = true) {
       .map((drug) => {
         const info = drugDetailsMap?.[drug];
         if (!info) {
-          return `<details><summary>${escapeHtml(drug)} — details unavailable</summary><div class="kv"><div><span>Note</span>Drug not found in dataset or details missing.</div></div></details>`;
+          return `<details><summary>${escapeHtml(drug)} — no details</summary><div class="kv"><div><span>Note</span>This drug isn't in our data.</div></div></details>`;
         }
 
         const enz = info.enzymes || "—";
@@ -429,7 +429,7 @@ async function runCheck() {
   // quick inline validation check: if any row is explicitly invalid, warn
   const anyInvalid = rows.some((r) => r.value?.trim() && r.valid === false);
   if (anyInvalid) {
-    setStatus("One or more drugs are not found. Select from autocomplete or fix spelling.");
+    setStatus("One or more drug names weren't recognized. Pick a suggestion from the list, or check the spelling.");
     return;
   }
 
@@ -442,7 +442,7 @@ async function runCheck() {
     const details = await hydrateDrugDetails(drugs);
 
     renderResults(data, details);
-    setStatus("Done ✅");
+    setStatus("Done");
   } catch (err) {
     setStatus(friendlyError(err));
   } finally {
@@ -463,11 +463,11 @@ async function runAnalyze({ bypassInvalid = false } = {}) {
   // the server so the refusal behaviour is visible, not blocked client-side.
   const anyInvalid = rows.some((r) => r.value?.trim() && r.valid === false);
   if (!bypassInvalid && anyInvalid) {
-    setStatus("One or more drugs are not found. Select from autocomplete, fix spelling, or run anyway to see how it's handled.");
+    setStatus("One or more drug names weren't recognized. Pick a suggestion from the list, or check the spelling.");
     return;
   }
 
-  setBusy(true, "Analyzing (running RAG + LLM, ~5–15s)");
+  setBusy(true, "Analyzing");
 
   try {
     const data = await postJson("/analyze", {
@@ -487,16 +487,15 @@ async function runAnalyze({ bypassInvalid = false } = {}) {
         : "";
 
       synthDiv.innerHTML = `
-        <div class="badge mild">AI Analysis</div>
-        <div class="subhead" style="margin-top:10px">Summary</div>
-        <div class="text">${escapeHtml(data.synthesis || "")}</div>
+        <div class="badge mild">Generated summary</div>
+        <div class="text" style="margin-top:10px">${escapeHtml(data.synthesis || "")}</div>
         ${flagsHtml}
       `;
       resultsEl.appendChild(synthDiv);
     }
 
     renderResults({ interactions: data.interactions }, details, false);
-    setStatus("Done ✅");
+    setStatus("Done");
   } catch (err) {
     setStatus(friendlyError(err));
   } finally {
